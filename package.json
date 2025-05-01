@@ -1,0 +1,34 @@
+{
+  "packageManager": "yarn@4.9.1",
+  "name": "@cervi/react-nodegui",
+  "version": "0.0.1",
+  "description": "React Native for building cross platform desktop applications",
+  "main": "src/index.ts",
+  "repository": "https://github.com/cervisebas/-cervi-react-nodegui.git",
+  "author": "Sebastian Cerviño <cervisebas@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc && qode ./dist/demo.js"
+  },
+  "dependencies": {
+    "@nodegui/nodegui": "^0.71.0",
+    "phin": "^3.7.1",
+    "react-reconciler": "^0.29.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.1",
+    "@types/node": "^22.15.3",
+    "@types/react": "^19.1.2",
+    "@types/react-reconciler": "^0.31.0",
+    "eslint": "^9.25.1",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.0.0",
+    "react": "^18.3.1",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.31.1"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1"
+  }
+}

@@ -1,0 +1,34 @@
+import { QWidgetSignals } from "@nodegui/nodegui";
+import { ComponentConfig } from "../../classes/ComponentConfig";
+import { ViewProps } from "./interface/ViewProps";
+import { RNView } from "./scripts/RNView";
+import { registerComponent } from "../../utils/component.config";
+
+class ViewConfig extends ComponentConfig<ViewProps<QWidgetSignals>, RNView> {
+  tagName = RNView.tagName;
+  
+  shouldSetTextContent() {
+    return false;
+  }
+
+  createInstance(newProps: ViewProps<QWidgetSignals>) {
+    const widget = new RNView();
+    widget.setProps(newProps, {});
+    return widget;
+  }
+  
+  commitMount(instance: RNView, newProps: ViewProps<QWidgetSignals>) {
+    if (newProps.visible !== false) {
+      instance.show();
+    }
+    return;
+  }
+  
+  commitUpdate(instance: RNView, _updatePayload: never, oldProps: ViewProps<QWidgetSignals>, newProps: ViewProps<QWidgetSignals>) {
+    instance.setProps(newProps, oldProps);
+  }
+}
+
+export const View = registerComponent<ViewProps<QWidgetSignals>>(
+  new ViewConfig(),
+);
