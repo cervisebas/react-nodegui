@@ -19,3 +19,4 @@ export { CheckBox } from "./components/CheckBox";
 export { LineEdit } from "./components/LineEdit";
 export { Menu } from "./components/Menu";
 export { MenuBar } from "./components/MenuBar";
+export { PlainTextEdit } from "./components/PlainTextEdit";
