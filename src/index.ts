@@ -18,3 +18,4 @@ export { AnimatedImage } from "./components/AnimatedImage";
 export { CheckBox } from "./components/CheckBox";
 export { LineEdit } from "./components/LineEdit";
 export { Menu } from "./components/Menu";
+export { MenuBar } from "./components/MenuBar";
