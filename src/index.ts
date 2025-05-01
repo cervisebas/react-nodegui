@@ -21,3 +21,4 @@ export { Menu } from "./components/Menu";
 export { MenuBar } from "./components/MenuBar";
 export { PlainTextEdit } from "./components/PlainTextEdit";
 export { Calendar } from "./components/Calendar";
+export { ProgressBar } from "./components/ProgressBar";
