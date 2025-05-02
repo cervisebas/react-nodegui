@@ -28,3 +28,6 @@ export { SpinBox } from "./components/SpinBox";
 export { ScrollArea } from "./components/ScrollArea";
 export { ComboBox } from "./components/ComboBox";
 export { SystemTrayIcon } from "./components/SystemTrayIcon";
+export { Tabs } from "./components/Tabs";
+export { TabItem } from "./components/TabItem";
+export { Dialog } from "./components/Dialog";
