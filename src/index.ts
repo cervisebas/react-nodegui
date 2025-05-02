@@ -27,3 +27,4 @@ export { Dial } from "./components/Dial";
 export { SpinBox } from "./components/SpinBox";
 export { ScrollArea } from "./components/ScrollArea";
 export { ComboBox } from "./components/ComboBox";
+export { SystemTrayIcon } from "./components/SystemTrayIcon";
