@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Text, Renderer, Window, Button, View } from ".";
+import { Text, Renderer, Window, Button, View, Dialog } from ".";
 
 function App() {
   const [counter, setCounter] = useState(0);
+  const [openDialog, setOpenDialog] = useState(false);
   const interval = useRef<NodeJS.Timeout>(undefined);
 
   useEffect(() => {
@@ -16,16 +17,38 @@ function App() {
   }, []);
 
   return (
-    <Window styleSheet={styleSheet}>
-      <View id="container">
-        <View id="textContainer">
-          <Text>Number {counter}</Text>
+    <React.Fragment>
+      <Window styleSheet={styleSheet}>
+        <View id={'container'}>
+          <View id={'textContainer'}>
+            <Text>Number {counter}</Text>
+          </View>
+          <View>
+            <Button
+              text={'Open dialog'}
+              on={{
+                clicked() {
+                  setOpenDialog(true);
+                },
+              }}
+            />
+          </View>
         </View>
+      </Window>
+
+      <Dialog
+        open={openDialog}
+        on={{
+          Close() {
+            setOpenDialog(false);
+          },
+        }}
+      >
         <View>
-          <Button text="Click me"></Button>
+          <Text>Hello world!</Text>
         </View>
-      </View>
-    </Window>
+      </Dialog>
+    </React.Fragment>
   );
 };
 
