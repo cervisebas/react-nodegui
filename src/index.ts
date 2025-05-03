@@ -35,3 +35,4 @@ export { ColorDialog } from "./components/ColorDialog";
 export { FileDialog } from "./components/FileDialog";
 export { FontDialog } from "./components/FontDialog";
 export { InputDialog } from "./components/InputDialog";
+export { ProgressDialog } from "./components/ProgressDialog";
