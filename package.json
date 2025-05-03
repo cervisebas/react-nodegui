@@ -1,10 +1,11 @@
 {
   "packageManager": "yarn@4.9.1",
-  "name": "@cervi/react-nodegui",
-  "version": "0.0.1",
+  "name": "@cervisebas/react-nodegui",
+  "version": "0.0.2-beta",
   "description": "React Native for building cross platform desktop applications",
-  "main": "src/index.ts",
-  "repository": "https://github.com/cervisebas/-cervi-react-nodegui.git",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/cervisebas/react-nodegui.git",
   "author": "Sebastian Cerviño <cervisebas@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -12,6 +13,7 @@
     "dev": "tsc && qode ./dist/demo.js",
     "lint": "eslint ./src"
   },
+  "files": ["dist"],
   "dependencies": {
     "@nodegui/nodegui": "^0.71.0",
     "phin": "^3.7.1",
