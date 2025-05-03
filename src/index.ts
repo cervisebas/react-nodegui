@@ -31,3 +31,4 @@ export { SystemTrayIcon } from "./components/SystemTrayIcon";
 export { Tabs } from "./components/Tabs";
 export { TabItem } from "./components/TabItem";
 export { Dialog } from "./components/Dialog";
+export { ColorDialog } from "./components/ColorDialog";
