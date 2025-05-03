@@ -9,7 +9,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc && qode ./dist/demo.js"
+    "dev": "tsc && qode ./dist/demo.js",
+    "lint": "eslint ./src"
   },
   "dependencies": {
     "@nodegui/nodegui": "^0.71.0",
