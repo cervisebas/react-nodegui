@@ -36,3 +36,5 @@ export { FileDialog } from "./components/FileDialog";
 export { FontDialog } from "./components/FontDialog";
 export { InputDialog } from "./components/InputDialog";
 export { ProgressDialog } from "./components/ProgressDialog";
+export { Table } from "./components/Table";
+export { TableItem } from "./components/TableItem";
