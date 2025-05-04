@@ -1,6 +1,7 @@
 import { QListWidgetSignals } from "@nodegui/nodegui";
-import { ViewProps } from "../../View/interface/ViewProps";
+import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
+import { RNList } from "../scripts/RNList";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface ListProps extends ViewProps<QListWidgetSignals> {
+export interface ListProps extends ViewBaseProps<QListWidgetSignals> {
+  ref?: React.Ref<RNList>;
 }

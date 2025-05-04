@@ -1,6 +1,8 @@
 import { QScrollAreaSignals } from "@nodegui/nodegui";
-import { ViewProps } from "../../View/interface/ViewProps";
+import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
+import { RNScrollArea } from "../scripts/RNScrollArea";
 
-export interface ScrollAreaProps extends ViewProps<QScrollAreaSignals> {
+export interface ScrollAreaProps extends ViewBaseProps<QScrollAreaSignals> {
+  ref?: React.Ref<RNScrollArea>;
   widgetResizable?: boolean;
 }

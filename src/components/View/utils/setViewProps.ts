@@ -1,13 +1,13 @@
 import { QWidget, WindowState, CursorShape, QCursor, QIcon } from "@nodegui/nodegui";
-import { ViewProps } from "../interface/ViewProps";
+import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
 import { Geometry } from "../types/Geometry";
 import { WidgetAttributesMap } from "../interface/WidgetAttributesMap";
 import { WindowFlagsMap } from "../interface/WindowFlagsMap";
 import { Size, ViewSize, Position } from "../types/Size";
 import { WidgetEventListeners } from "../types/WidgetEventListeners";
 
-export function setViewProps<Signals extends object>(widget: QWidget<never>, newProps: ViewProps<Signals>, oldProps: ViewProps<Signals>) {
-  const setter: ViewProps<Signals> = {
+export function setViewProps<Signals extends object>(widget: QWidget<never>, newProps: ViewBaseProps<Signals>, oldProps: ViewBaseProps<Signals>) {
+  const setter: ViewBaseProps<Signals> = {
     set visible(shouldShow: boolean) {
       if (shouldShow) {
         widget.show();

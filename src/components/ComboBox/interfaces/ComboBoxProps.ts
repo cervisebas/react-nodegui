@@ -1,8 +1,10 @@
 import { InsertPolicy, QComboBoxSignals, QSize, QVariant, SizeAdjustPolicy } from "@nodegui/nodegui";
-import { ViewProps } from "../../View/interface/ViewProps";
+import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
 import { ComboBoxItem } from "./ComboBoxItem";
+import { RNComboBox } from "../scripts/RNComboBox";
 
-export interface ComboBoxProps extends ViewProps<QComboBoxSignals> {
+export interface ComboBoxProps extends ViewBaseProps<QComboBoxSignals> {
+  ref?: React.Ref<RNComboBox>;
   items?: ComboBoxItem[];
   count?: number;
   iconSize?: QSize;

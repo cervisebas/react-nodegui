@@ -1,8 +1,8 @@
 import { QWidgetSignals } from "@nodegui/nodegui";
 import { ComponentConfig } from "../../classes/ComponentConfig";
-import { ViewProps } from "./interface/ViewProps";
 import { RNView } from "./scripts/RNView";
 import { registerComponent } from "../../utils/component.config";
+import { ViewProps } from "./interface/ViewProps";
 
 class ViewConfig extends ComponentConfig<ViewProps<QWidgetSignals>, RNView> {
   tagName = RNView.tagName;
@@ -32,3 +32,5 @@ class ViewConfig extends ComponentConfig<ViewProps<QWidgetSignals>, RNView> {
 export const View = registerComponent<ViewProps<QWidgetSignals>>(
   new ViewConfig(),
 );
+
+export { RNView };

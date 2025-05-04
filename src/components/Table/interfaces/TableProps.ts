@@ -1,5 +1,6 @@
 import { QTableWidgetItem, QWidget, SortOrder, QTableWidgetSignals } from "@nodegui/nodegui";
-import { ViewProps } from "../../View/interface/ViewProps";
+import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
+import { RNTable } from "../scripts/RNTable";
 
 export interface CellRange {
   row: number;
@@ -28,7 +29,8 @@ export interface RowSize extends Omit<CellRange, "column"> {
   width: number;
 }
 
-export interface TableProps extends ViewProps<QTableWidgetSignals> {
+export interface TableProps extends ViewBaseProps<QTableWidgetSignals> {
+  ref?: React.Ref<RNTable>;
   cellRange: CellRange;
   horizontalHeaderItems?: HorizontalHeader[];
   horizontalHeaderLabels?: string[];

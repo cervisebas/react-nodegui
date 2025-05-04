@@ -34,3 +34,4 @@ class BoxViewConfig extends ComponentConfig<BoxViewProps, RNBoxView> {
 }
 
 export const BoxView = registerComponent<BoxViewProps>(new BoxViewConfig());
+export { RNBoxView };

@@ -34,3 +34,4 @@ class ImageConfig extends ComponentConfig<ImageProps, RNImage> {
 }
 
 export const Image = registerComponent<ImageProps>(new ImageConfig());
+export { RNImage };

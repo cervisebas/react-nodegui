@@ -1,6 +1,8 @@
 import { QMenuBarSignals } from "@nodegui/nodegui";
-import { ViewProps } from "../../View/interface/ViewProps";
+import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
+import { RNMenuBar } from "../scripts/RNMenuBar";
 
-export interface MenuBarProps extends ViewProps<QMenuBarSignals> {
+export interface MenuBarProps extends ViewBaseProps<QMenuBarSignals> {
+  ref?: React.Ref<RNMenuBar>;
   nativeMenuBar?: boolean;
 }

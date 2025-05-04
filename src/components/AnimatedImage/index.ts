@@ -32,3 +32,5 @@ class AnimatedImageConfig extends ComponentConfig<AnimatedImageProps, RNAnimated
 export const AnimatedImage = registerComponent<AnimatedImageProps>(
   new AnimatedImageConfig(),
 );
+
+export { RNAnimatedImage };

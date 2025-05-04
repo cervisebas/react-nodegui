@@ -1,7 +1,8 @@
 import { QGridLayoutSignals } from "@nodegui/nodegui";
-import { ViewProps } from "../../View/interface/ViewProps";
-import { ReactElement } from "react";
+import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
+import React, { ReactElement } from "react";
 import { GridRowProps } from "../../GridRow/interfaces/GridRowProps";
+import { RNGridView } from "../scripts/RNGridView";
 
 export interface GridViewColumnProps {
   [ColumnIndex: number]: {
@@ -17,7 +18,9 @@ export interface GridViewRowProps {
   };
 };
 
-export interface GridViewProps extends ViewProps<QGridLayoutSignals> {
+export interface GridViewProps extends ViewBaseProps<QGridLayoutSignals> {
+  ref?: React.Ref<RNGridView>;
+
   children:
     | Array<ReactElement<GridRowProps>>
     | ReactElement<GridRowProps>;

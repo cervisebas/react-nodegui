@@ -50,3 +50,4 @@ class DialogConfig extends ComponentConfig<DialogProps, RNDialog> {
  */
 
 export const Dialog = registerComponent<DialogProps>(new DialogConfig());
+export { RNDialog };

@@ -33,3 +33,4 @@ class ButtonConfig extends ComponentConfig<ButtonProps, RNButton> {
 }
 
 export const Button = registerComponent<ButtonProps>(new ButtonConfig());
+export { RNButton };

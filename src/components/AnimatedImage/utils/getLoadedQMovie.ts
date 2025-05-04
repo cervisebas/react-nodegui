@@ -1,4 +1,4 @@
-import { isValidUrl } from "../../Image/utils/isValidUrl";
+import { isValidUrl } from "../../../utils/isValidUrl";
 import { QMovie } from "@nodegui/nodegui";
 import phin from "phin";
 

@@ -33,3 +33,4 @@ class WindowConfig extends ComponentConfig<WindowProps, RNWindow> {
 }
 
 export const Window = registerComponent<WindowProps>(new WindowConfig());
+export { RNWindow };

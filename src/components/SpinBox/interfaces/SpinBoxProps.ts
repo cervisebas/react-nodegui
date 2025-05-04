@@ -1,8 +1,10 @@
 import { QSpinBoxSignals } from "@nodegui/nodegui";
-import { ViewProps } from "../../View/interface/ViewProps";
+import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
 import { Range } from "../interfaces/Range";
+import { RNSpinBox } from "../scripts/RNSpinBox";
 
-export interface SpinBoxProps extends ViewProps<QSpinBoxSignals> {
+export interface SpinBoxProps extends ViewBaseProps<QSpinBoxSignals> {
+  ref?: React.Ref<RNSpinBox>;
   prefix?: string;
   suffix?: string;
   singleStep?: number;

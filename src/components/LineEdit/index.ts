@@ -29,3 +29,4 @@ class LineEditConfig extends ComponentConfig<LineEditProps, RNLineEdit> {
 }
 
 export const LineEdit = registerComponent<LineEditProps>(new LineEditConfig());
+export { RNLineEdit };

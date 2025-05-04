@@ -1,7 +1,7 @@
 import { QWidget, QLayout, QObjectSignals, QWidgetSignals, QDialog, FlexLayout } from "@nodegui/nodegui";
-import { ViewProps } from "../interface/ViewProps";
 import { setViewProps } from "../utils/setViewProps";
 import { RNWidget } from "../../../classes/RNWidget";
+import { ViewProps } from "../interface/ViewProps";
 
 export class RNView extends QWidget implements RNWidget {
   static tagName = "view";

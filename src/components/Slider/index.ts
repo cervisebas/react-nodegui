@@ -29,3 +29,4 @@ class SliderConfig extends ComponentConfig<SliderProps, RNSlider> {
 }
 
 export const Slider = registerComponent<SliderProps>(new SliderConfig());
+export { RNSlider };

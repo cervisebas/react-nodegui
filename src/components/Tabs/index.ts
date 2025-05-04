@@ -32,3 +32,4 @@ class TabsConfig extends ComponentConfig<TabProps, RNTab> {
 }
 
 export const Tabs = registerComponent<TabProps>(new TabsConfig());
+export { RNTab };

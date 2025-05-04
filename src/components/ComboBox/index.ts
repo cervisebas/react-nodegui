@@ -28,3 +28,4 @@ class ComboBoxConfig extends ComponentConfig<ComboBoxProps, RNComboBox> {
 }
 
 export const ComboBox = registerComponent<ComboBoxProps>(new ComboBoxConfig());
+export { RNComboBox };

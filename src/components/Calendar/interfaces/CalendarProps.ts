@@ -1,8 +1,10 @@
 import { QCalendarWidgetSignals, DayOfWeek, QFont } from "@nodegui/nodegui";
 import { HorizontalHeaderFormat, VerticalHeaderFormat } from "@nodegui/nodegui/dist/lib/QtWidgets/QCalendarWidget";
-import { ViewProps } from "../../View/interface/ViewProps";
+import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
+import { RNCalendar } from "../scripts/RNCalendar";
 
-export interface CalendarProps extends ViewProps<QCalendarWidgetSignals> {
+export interface CalendarProps extends ViewBaseProps<QCalendarWidgetSignals> {
+  ref?: React.Ref<RNCalendar>;
   /**
    * Sets the time an inactive date edit is shown before its contents are accepted. [QCalendarWidget: setDateEditAcceptDelay](https://docs.nodegui.org/docs/api/generated/classes/qcalendarwidget#setdateeditacceptdelay)
    */

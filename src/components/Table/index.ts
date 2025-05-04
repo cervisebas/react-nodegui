@@ -50,3 +50,4 @@ class TableConfig extends ComponentConfig<TableProps, RNTable> {
  */
 
 export const Table = registerComponent<TableProps>(new TableConfig());
+export { RNTable };

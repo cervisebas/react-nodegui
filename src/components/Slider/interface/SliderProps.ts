@@ -1,7 +1,9 @@
 import { Orientation, QSliderSignals, TickPosition } from "@nodegui/nodegui";
-import { ViewProps } from "../../View/interface/ViewProps";
+import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
+import { RNSlider } from "../scripts/RNSlider";
 
-export interface SliderProps extends ViewProps<QSliderSignals> {
+export interface SliderProps extends ViewBaseProps<QSliderSignals> {
+  ref?: React.Ref<RNSlider>;
   tickInterval?: number;
   tickPosition?: TickPosition;
   orientation?: Orientation;

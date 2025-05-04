@@ -1,6 +1,8 @@
 import { QTabWidgetSignals, TabPosition } from "@nodegui/nodegui";
-import { ViewProps } from "../../View/interface/ViewProps";
+import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
+import { RNTab } from "../scripts/RNTab";
 
-export interface TabProps extends ViewProps<QTabWidgetSignals> {
+export interface TabProps extends ViewBaseProps<QTabWidgetSignals> {
+  ref?: React.Ref<RNTab>;
   tabPosition?: TabPosition;
 }

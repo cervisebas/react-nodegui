@@ -31,3 +31,5 @@ class PlainTextEditConfig extends ComponentConfig<PlainTextEditProps, RNPlainTex
 export const PlainTextEdit = registerComponent<PlainTextEditProps>(
   new PlainTextEditConfig(),
 );
+
+export { RNPlainTextEdit };

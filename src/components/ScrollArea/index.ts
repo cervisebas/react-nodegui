@@ -31,3 +31,5 @@ class ScrollAreaConfig extends ComponentConfig<ScrollAreaProps, RNScrollArea> {
 export const ScrollArea = registerComponent<ScrollAreaProps>(
   new ScrollAreaConfig(),
 );
+
+export { RNScrollArea };

@@ -1,7 +1,9 @@
 import { QLineEditSignals, EchoMode } from "@nodegui/nodegui";
-import { ViewProps } from "../../View/interface/ViewProps";
+import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
+import { RNLineEdit } from "../scripts/RNLineEdit";
 
-export interface LineEditProps extends ViewProps<QLineEditSignals> {
+export interface LineEditProps extends ViewBaseProps<QLineEditSignals> {
+  ref?: React.Ref<RNLineEdit>;
   text?: string;
   placeholderText?: string;
   readOnly?: boolean;

@@ -1,6 +1,6 @@
 import { QVariant } from "@nodegui/nodegui";
 
-export interface TableData{
+export interface TableData {
   role: number;
   value: QVariant;
 }

@@ -1,6 +1,8 @@
 import { QMainWindowSignals, QMenuBar } from "@nodegui/nodegui";
-import { ViewProps } from "../../View/interface/ViewProps";
+import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
+import { RNWidget } from "../../../classes/RNWidget";
 
-export interface WindowProps extends ViewProps<QMainWindowSignals> {
+export interface WindowProps extends ViewBaseProps<QMainWindowSignals> {
+  ref?: React.Ref<RNWidget>;
   menuBar?: QMenuBar;
 }

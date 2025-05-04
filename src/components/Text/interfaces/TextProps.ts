@@ -1,7 +1,9 @@
 import { QLabelSignals, TextInteractionFlag } from "@nodegui/nodegui";
-import { ViewProps } from "../../View/interface/ViewProps";
+import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
+import { RNText } from "../scripts/RNText";
 
-export interface TextProps extends ViewProps<QLabelSignals> {
+export interface TextProps<Ref = RNText> extends ViewBaseProps<QLabelSignals> {
+  ref?: React.Ref<Ref>;
   children?: string | number | Array<string | number>;
   wordWrap?: boolean;
   scaledContents?: boolean;

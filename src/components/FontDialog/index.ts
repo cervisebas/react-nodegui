@@ -49,3 +49,4 @@ class FontDialogConfig extends ComponentConfig<FontDialogProps, RNFontDialog> {
  */
 
 export const FontDialog = registerComponent<FontDialogProps>(new FontDialogConfig());
+export { RNFontDialog };

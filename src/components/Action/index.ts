@@ -23,3 +23,4 @@ class ActionConfig extends ComponentConfig<ActionProps> {
 }
 
 export const Action = registerComponent<ActionProps>(new ActionConfig());
+export { RNAction };

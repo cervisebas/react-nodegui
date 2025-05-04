@@ -46,3 +46,4 @@ class ListConfig extends ComponentConfig<ListProps, RNList> {
  */
 
 export const List = registerComponent<ListProps>(new ListConfig());
+export { RNList };

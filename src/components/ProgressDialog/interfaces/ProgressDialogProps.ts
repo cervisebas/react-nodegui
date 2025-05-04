@@ -1,8 +1,9 @@
 import { QProgressDialogSignals } from "@nodegui/nodegui";
 import { DialogProps } from "../../Dialog/interfaces/DialogProps";
 import { ProgressBarRange } from "./ProgressBarRange";
+import { RNProgressDialog } from "../scripts/RNProgressDialog";
 
-export interface ProgressDialogProps extends DialogProps<QProgressDialogSignals> {
+export interface ProgressDialogProps extends DialogProps<QProgressDialogSignals, RNProgressDialog> {
   autoClose?: boolean;
   autoReset?: boolean;
   cancelButtonText?: string;

@@ -50,3 +50,4 @@ class ColorDialogConfig extends ComponentConfig<ColorDialogProps, RNColorDialog>
  */
 
 export const ColorDialog = registerComponent<ColorDialogProps>(new ColorDialogConfig());
+export { RNColorDialog };

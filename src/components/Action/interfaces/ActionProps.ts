@@ -1,7 +1,10 @@
 import { QActionSignals, QFont, QIcon, QKeySequence, ShortcutContext } from "@nodegui/nodegui";
 import { RNProps } from "../../../interfaces/RNProps";
+import React from "react";
+import { RNAction } from "../scripts/RNAction";
 
 export interface ActionProps extends RNProps {
+  ref?: React.Ref<RNAction>;
   /**
    * Sets whether the action is a checkable action. [QAction: setCheckable](https://docs.nodegui.org/docs/api/generated/classes/qaction#setcheckable)
    */

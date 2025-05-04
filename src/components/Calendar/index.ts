@@ -29,3 +29,4 @@ class CalendarConfig extends ComponentConfig<CalendarProps, RNCalendar> {
 }
 
 export const Calendar = registerComponent<CalendarProps>(new CalendarConfig());
+export { RNCalendar };

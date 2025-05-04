@@ -50,3 +50,4 @@ class InputDialogConfig extends ComponentConfig<InputDialogProps, RNInputDialog>
  */
 
 export const InputDialog = registerComponent<InputDialogProps>(new InputDialogConfig());
+export { RNInputDialog };

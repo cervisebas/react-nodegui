@@ -32,3 +32,4 @@ class CheckBoxConfig extends ComponentConfig<CheckBoxProps, RNCheckBox> {
 }
 
 export const CheckBox = registerComponent<CheckBoxProps>(new CheckBoxConfig());
+export { RNCheckBox };

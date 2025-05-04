@@ -1,7 +1,9 @@
 import { QPlainTextEditSignals } from "@nodegui/nodegui";
-import { ViewProps } from "../../View/interface/ViewProps";
+import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
+import { RNPlainTextEdit } from "../scripts/RNPlainTextEdit";
 
-export interface PlainTextEditProps extends ViewProps<QPlainTextEditSignals> {
+export interface PlainTextEditProps extends ViewBaseProps<QPlainTextEditSignals> {
+  ref?: React.Ref<RNPlainTextEdit>;
   text?: string;
   readOnly?: boolean;
   placeholderText?: string;

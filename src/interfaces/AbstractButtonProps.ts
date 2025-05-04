@@ -1,8 +1,8 @@
 import { QAbstractButtonSignals, QIcon, QSize } from "@nodegui/nodegui";
-import { ViewProps } from "../components/View/interface/ViewProps";
+import { ViewBaseProps } from "./ViewBaseProps";
 
 export interface AbstractButtonProps<Signals extends QAbstractButtonSignals>
-  extends ViewProps<Signals> {
+  extends ViewBaseProps<Signals> {
   /**
    * Alternative method of providing the button text
    */

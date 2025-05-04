@@ -31,3 +31,5 @@ class RadioButtonConfig extends ComponentConfig<RadioButtonProps, RNRadioButton>
 export const RadioButton = registerComponent<RadioButtonProps>(
   new RadioButtonConfig(),
 );
+
+export { RNRadioButton };

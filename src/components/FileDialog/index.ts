@@ -50,3 +50,4 @@ class FileDialogConfig extends ComponentConfig<FileDialogProps, RNFileDialog> {
  */
 
 export const FileDialog = registerComponent<FileDialogProps>(new FileDialogConfig());
+export { RNFileDialog };

@@ -33,3 +33,4 @@ class SpinBoxConfig extends ComponentConfig<SpinBoxProps, RNSpinBox> {
 }
 
 export const SpinBox = registerComponent<SpinBoxProps>(new SpinBoxConfig());
+export { RNSpinBox };

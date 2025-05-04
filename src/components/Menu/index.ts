@@ -31,3 +31,5 @@ class MenuConfig extends ComponentConfig<MenuProps, RNMenu> {
 export const Menu = registerComponent<MenuProps>(
   new MenuConfig(),
 );
+
+export { RNMenu };

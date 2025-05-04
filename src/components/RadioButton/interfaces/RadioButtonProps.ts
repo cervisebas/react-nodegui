@@ -1,7 +1,7 @@
 import { QRadioButtonSignals } from "@nodegui/nodegui";
 import { AbstractButtonProps } from "../../../interfaces/AbstractButtonProps";
+import { RNRadioButton } from "../scripts/RNRadioButton";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface RadioButtonProps extends AbstractButtonProps<QRadioButtonSignals> {
-  // More to be added
+  ref?: React.Ref<RNRadioButton>;
 }

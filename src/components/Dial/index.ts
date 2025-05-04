@@ -29,3 +29,4 @@ class DialConfig extends ComponentConfig<DialProps, RNDial> {
 }
 
 export const Dial = registerComponent<DialProps>(new DialConfig());
+export { RNDial };

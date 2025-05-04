@@ -1,7 +1,9 @@
 import { QDialSignals } from "@nodegui/nodegui";
-import { ViewProps } from "../../View/interface/ViewProps";
+import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
+import { RNDial } from "../scripts/RNDial";
 
-export interface DialProps extends ViewProps<QDialSignals> {
+export interface DialProps extends ViewBaseProps<QDialSignals> {
+  ref?: React.Ref<RNDial>;
   notchesVisible?: boolean;
   wrapping?: boolean;
   notchTarget?: number;

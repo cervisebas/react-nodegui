@@ -33,3 +33,4 @@ class TextConfig extends ComponentConfig<TextProps, RNText> {
 }
 
 export const Text = registerComponent<TextProps>(new TextConfig());
+export { RNText };

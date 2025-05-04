@@ -34,3 +34,4 @@ class GridViewConfig extends ComponentConfig<GridViewProps, RNGridView> {
 }
 
 export const GridView = registerComponent<GridViewProps>(new GridViewConfig());
+export { RNGridView };

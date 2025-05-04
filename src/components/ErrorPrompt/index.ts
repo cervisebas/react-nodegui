@@ -41,3 +41,4 @@ class ErrorPromptConfig extends ComponentConfig<ErrorPromptProps, RNErrorPrompt>
  * ```
  */
 export const ErrorPrompt = registerComponent<ErrorPromptProps>(new ErrorPromptConfig());
+export { RNErrorPrompt };

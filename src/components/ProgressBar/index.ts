@@ -31,3 +31,5 @@ class ProgressBarConfig extends ComponentConfig<ProgressBarProps, RNProgressBar>
 export const ProgressBar = registerComponent<ProgressBarProps>(
   new ProgressBarConfig(),
 );
+
+export { RNProgressBar };

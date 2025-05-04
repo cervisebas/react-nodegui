@@ -62,3 +62,4 @@ class ProgressDialogConfig extends ComponentConfig<ProgressDialogProps, RNProgre
  */
 
 export const ProgressDialog = registerComponent<ProgressDialogProps>(new ProgressDialogConfig());
+export { RNProgressDialog };
