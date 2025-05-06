@@ -4,10 +4,10 @@ import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { MenuBarProps } from "../interfaces/MenuBarProps";
 import { setMenuBarProps } from "../utils/setMenuBarProps";
 
-export type MenuBarRef = NativeElement & QMenuBar;
+export type MenuBarNative = NativeElement & QMenuBar;
 
 export class RNMenuBar extends QMenuBar implements RNWidget {
-  native!: MenuBarRef;
+  native!: MenuBarNative;
   static tagName = "menubar";
 
   setProps(newProps: MenuBarProps, oldProps: MenuBarProps): void {

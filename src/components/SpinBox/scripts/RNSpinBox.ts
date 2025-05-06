@@ -4,10 +4,10 @@ import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { SpinBoxProps } from "../interfaces/SpinBoxProps";
 import { setSpinBoxProps } from "../utils/setSpinBoxProps";
 
-export type SpinBoxRef = NativeElement & QSpinBox;
+export type SpinBoxNative = NativeElement & QSpinBox;
 
 export class RNSpinBox extends QSpinBox implements RNWidget {
-  native!: SpinBoxRef;
+  native!: SpinBoxNative;
   static tagName = "spinbox";
 
   setProps(newProps: SpinBoxProps, oldProps: SpinBoxProps): void {

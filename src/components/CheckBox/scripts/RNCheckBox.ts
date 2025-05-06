@@ -4,10 +4,10 @@ import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { CheckBoxProps } from "../interfaces/CheckBoxProps";
 import { setCheckBoxProps } from "../utils/setCheckBoxProps";
 
-export type CheckBoxRef = NativeElement & QCheckBox;
+export type CheckBoxNative = NativeElement & QCheckBox;
 
 export class RNCheckBox extends QCheckBox implements RNWidget {
-  native!: CheckBoxRef;
+  native!: CheckBoxNative;
   static tagName = "checkbox";
 
   setProps(newProps: CheckBoxProps, oldProps: CheckBoxProps) {

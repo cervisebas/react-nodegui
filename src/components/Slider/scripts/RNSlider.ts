@@ -4,10 +4,10 @@ import { SliderProps } from "../interface/SliderProps";
 import { setSliderProps } from "../utils/setSliderProps";
 import { throwUnsupported } from "../../../utils/throwUnsupported";
 
-export type SliderRef = NativeElement & QSlider;
+export type SliderNative = NativeElement & QSlider;
 
 export class RNSlider extends QSlider implements RNWidget {
-  native!: SliderRef;
+  native!: SliderNative;
   static tagName = 'slider';
 
   setProps(newProps: SliderProps, oldProps: SliderProps): void {

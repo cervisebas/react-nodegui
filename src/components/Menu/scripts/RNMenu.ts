@@ -5,10 +5,10 @@ import { RNAction } from "../../Action/scripts/RNAction";
 import { MenuProps } from "../interfaces/MenuProps";
 import { setMenuProps } from "../utils/setMenuProps";
 
-export type MenuRef = NativeElement & QMenu;
+export type MenuNative = NativeElement & QMenu;
 
 export class RNMenu extends QMenu implements RNWidget {
-  native!: MenuRef;
+  native!: MenuNative;
   static tagName = "menu";
 
   setProps(newProps: MenuProps, oldProps: MenuProps) {

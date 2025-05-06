@@ -4,10 +4,10 @@ import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { ProgressBarProps } from "../interface/ProgressBarProps";
 import { setProgressBarProps } from "../utils/setProgressBarProps";
 
-export type ProgressBarRef = NativeElement & QProgressBar; 
+export type ProgressBarNative = NativeElement & QProgressBar; 
 
 export class RNProgressBar extends QProgressBar implements RNWidget {
-  native!: ProgressBarRef;
+  native!: ProgressBarNative;
   static tagName = "progressbar";
 
   setProps(newProps: ProgressBarProps, oldProps: ProgressBarProps): void {

@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { FileDialogProps } from "./interfaces/FileDialogLabelText";
-import { FileDialogRef, RNFileDialog } from "./scripts/RNFileDialog";
+import { RNFileDialog } from "./scripts/RNFileDialog";
 
 class FileDialogConfig extends ComponentConfig<FileDialogProps, RNFileDialog> {
   tagName = RNFileDialog.tagName;
@@ -50,4 +50,5 @@ class FileDialogConfig extends ComponentConfig<FileDialogProps, RNFileDialog> {
  */
 
 export const FileDialog = registerComponent<FileDialogProps>(new FileDialogConfig());
-export { RNFileDialog, FileDialogRef };
+export { RNFileDialog };
+export { FileDialogNative } from "./scripts/RNFileDialog";

@@ -4,10 +4,10 @@ import { ActionProps } from "../interfaces/ActionProps";
 import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { setActionProps } from "../utils/setActionProps";
 
-export type ActionRef = NativeElement & QAction;
+export type ActionNative = NativeElement & QAction;
 
 export class RNAction extends QAction implements RNComponent {
-  native!: ActionRef;
+  native!: ActionNative;
   static tagName = "action";
 
   setProps(newProps: ActionProps, oldProps: ActionProps): void {

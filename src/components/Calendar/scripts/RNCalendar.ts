@@ -4,10 +4,10 @@ import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { CalendarProps } from "../interfaces/CalendarProps";
 import { setCalendarProps } from "../utils/setCalendarProps";
 
-export type CalendarRef = NativeElement & QCalendarWidget;
+export type CalendarNative = NativeElement & QCalendarWidget;
 
 export class RNCalendar extends QCalendarWidget implements RNComponent {
-  native!: CalendarRef;
+  native!: CalendarNative;
   static tagName = "calendar";
   
   setProps(newProps: CalendarProps, oldProps: CalendarProps): void {

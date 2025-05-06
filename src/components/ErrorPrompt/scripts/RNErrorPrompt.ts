@@ -4,10 +4,10 @@ import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { ErrorPromptProps } from "../interfaces/ErrorPromptProps";
 import { setErrorPromptProps } from "../utils/setErrorPromptProps";
 
-export type ErrorPromptRef = NativeElement & QErrorMessage;
+export type ErrorPromptNative = NativeElement & QErrorMessage;
 
 export class RNErrorPrompt extends QErrorMessage implements RNWidget {
-  native!: ErrorPromptRef;
+  native!: ErrorPromptNative;
   static tagName = "error-prompt";
   
   setProps(newProps: ErrorPromptProps, oldProps: ErrorPromptProps) {

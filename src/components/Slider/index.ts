@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { SliderProps } from "./interface/SliderProps";
-import { RNSlider, SliderRef } from "./scripts/RNSlider";
+import { RNSlider } from "./scripts/RNSlider";
 
 class SliderConfig extends ComponentConfig<SliderProps, RNSlider> {
   tagName = RNSlider.tagName;
@@ -29,4 +29,5 @@ class SliderConfig extends ComponentConfig<SliderProps, RNSlider> {
 }
 
 export const Slider = registerComponent<SliderProps>(new SliderConfig());
-export { RNSlider, SliderRef };
+export { RNSlider };
+export { SliderNative } from "./scripts/RNSlider";

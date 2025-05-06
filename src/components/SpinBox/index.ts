@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { SpinBoxProps } from "./interfaces/SpinBoxProps";
-import { RNSpinBox, SpinBoxRef } from "./scripts/RNSpinBox";
+import { RNSpinBox } from "./scripts/RNSpinBox";
 
 class SpinBoxConfig extends ComponentConfig<SpinBoxProps, RNSpinBox> {
   tagName = RNSpinBox.tagName;
@@ -33,4 +33,5 @@ class SpinBoxConfig extends ComponentConfig<SpinBoxProps, RNSpinBox> {
 }
 
 export const SpinBox = registerComponent<SpinBoxProps>(new SpinBoxConfig());
-export { RNSpinBox, SpinBoxRef };
+export { RNSpinBox };
+export { SpinBoxNative } from "./scripts/RNSpinBox";

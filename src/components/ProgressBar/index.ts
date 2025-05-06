@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { ProgressBarProps } from "./interface/ProgressBarProps";
-import { ProgressBarRef, RNProgressBar } from "./scripts/RNProgressBar";
+import { RNProgressBar } from "./scripts/RNProgressBar";
 
 class ProgressBarConfig extends ComponentConfig<ProgressBarProps, RNProgressBar> {
   tagName = RNProgressBar.tagName;
@@ -32,4 +32,5 @@ export const ProgressBar = registerComponent<ProgressBarProps>(
   new ProgressBarConfig(),
 );
 
-export { RNProgressBar, ProgressBarRef };
+export { RNProgressBar };
+export { ProgressBarNative } from "./scripts/RNProgressBar";

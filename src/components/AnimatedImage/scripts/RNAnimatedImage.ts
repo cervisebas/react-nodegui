@@ -4,10 +4,10 @@ import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { AnimatedImageProps } from "../interfaces/AnimatedImageProps";
 import { setAnimatedImageProps } from "../utils/setAnimatedImageProps";
 
-export type AnimatedImageRef = NativeElement & QLabel;
+export type AnimatedImageNative = NativeElement & QLabel;
 
 export class RNAnimatedImage extends QLabel implements RNWidget {
-  native!: AnimatedImageRef;
+  native!: AnimatedImageNative;
   static tagName = "animatedimage";
 
   setProps(newProps: AnimatedImageProps, oldProps: AnimatedImageProps): void {

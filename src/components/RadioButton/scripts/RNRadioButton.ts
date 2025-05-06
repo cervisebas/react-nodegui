@@ -4,10 +4,10 @@ import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { RadioButtonProps } from "../interfaces/RadioButtonProps";
 import { setRadioButtonProps } from "../utils/setRadioButtonProps";
 
-export type RadioButtonRef = NativeElement & QRadioButton;
+export type RadioButtonNative = NativeElement & QRadioButton;
 
 export class RNRadioButton extends QRadioButton implements RNWidget {
-  native!: RadioButtonRef;
+  native!: RadioButtonNative;
   static tagName = "radiobutton";
 
   setProps(newProps: RadioButtonProps, oldProps: RadioButtonProps): void {

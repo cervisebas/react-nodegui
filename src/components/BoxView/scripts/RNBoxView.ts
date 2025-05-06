@@ -3,10 +3,10 @@ import { RNComponent } from "../../../classes/RNComponent";
 import { BoxViewProps } from "../interface/BoxViewProps";
 import { setBoxViewProps } from "../utils/setBoxViewProps";
 
-export type BoxViewRef = NativeElement & QBoxLayout;
+export type BoxViewNative = NativeElement & QBoxLayout;
 
 export class RNBoxView extends QWidget implements RNComponent {
-  native!: BoxViewRef;
+  native!: BoxViewNative;
   static tagName: string = "boxview";
   initialProps?: BoxViewProps;
   _children: Array<QWidget<never>> = [];

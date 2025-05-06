@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { AnimatedImageProps } from "./interfaces/AnimatedImageProps";
-import { AnimatedImageRef, RNAnimatedImage } from "./scripts/RNAnimatedImage";
+import { RNAnimatedImage } from "./scripts/RNAnimatedImage";
 
 class AnimatedImageConfig extends ComponentConfig<AnimatedImageProps, RNAnimatedImage> {
   tagName = RNAnimatedImage.tagName;
@@ -33,4 +33,5 @@ export const AnimatedImage = registerComponent<AnimatedImageProps>(
   new AnimatedImageConfig(),
 );
 
-export { RNAnimatedImage, AnimatedImageRef };
+export { RNAnimatedImage };
+export { AnimatedImageNative } from "./scripts/RNAnimatedImage";

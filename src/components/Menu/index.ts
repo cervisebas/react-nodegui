@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { MenuProps } from "./interfaces/MenuProps";
-import { MenuRef, RNMenu } from "./scripts/RNMenu";
+import { RNMenu } from "./scripts/RNMenu";
 
 class MenuConfig extends ComponentConfig<MenuProps, RNMenu> {
   tagName = RNMenu.tagName;
@@ -32,4 +32,5 @@ export const Menu = registerComponent<MenuProps>(
   new MenuConfig(),
 );
 
-export { RNMenu, MenuRef };
+export { RNMenu };
+export { MenuNative } from "./scripts/RNMenu";

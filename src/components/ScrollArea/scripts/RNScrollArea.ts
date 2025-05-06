@@ -3,10 +3,10 @@ import { RNWidget } from "../../../classes/RNWidget";
 import { ScrollAreaProps } from "../interface/ScrollAreaProps";
 import { setScrollAreaProps } from "../utils/setScrollAreaProps";
 
-export type ScrollAreaRef = NativeElement & QScrollArea;
+export type ScrollAreaNative = NativeElement & QScrollArea;
 
 export class RNScrollArea extends QScrollArea implements RNWidget {
-  native!: ScrollAreaRef;
+  native!: ScrollAreaNative;
   static tagName = "scrollarea";
   
   setProps(newProps: ScrollAreaProps, oldProps: ScrollAreaProps) {

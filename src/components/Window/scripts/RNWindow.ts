@@ -3,10 +3,10 @@ import { RNWidget } from "../../../classes/RNWidget";
 import { setWindowProps } from "../utils/setWindowProps";
 import { WindowProps } from "../interface/WindowProps";
 
-export type WindowRef = NativeElement & QMainWindow;
+export type WindowNative = NativeElement & QMainWindow;
 
 export class RNWindow extends QMainWindow implements RNWidget {
-  native!: WindowRef;
+  native!: WindowNative;
   static tagName = "mainwindow";
 
   setProps(newProps: WindowProps, oldProps: WindowProps) {

@@ -4,10 +4,10 @@ import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { setButtonProps } from "../utils/setButtonProps";
 import { ButtonProps } from "../interfaces/ButtonProps";
 
-export type ButtonRef = NativeElement & QPushButton;
+export type ButtonNative = NativeElement & QPushButton;
 
 export class RNButton extends QPushButton implements RNWidget {
-  native!: ButtonRef;
+  native!: ButtonNative;
   static tagName = "button";
   
   appendInitialChild() {

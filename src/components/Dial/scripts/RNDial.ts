@@ -4,10 +4,10 @@ import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { DialProps } from "../interfaces/DialProps";
 import { setDialProps } from "../utils/setDialProps";
 
-export type DialRef = NativeElement & QDial;
+export type DialNative = NativeElement & QDial;
 
 export class RNDial extends QDial implements RNWidget {
-  native!: DialRef;
+  native!: DialNative;
   static tagName = "dial";
 
   setProps(newProps: DialProps, oldProps: DialProps): void {

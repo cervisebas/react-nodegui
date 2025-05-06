@@ -1,7 +1,7 @@
 import { WidgetEventTypes } from "@nodegui/nodegui";
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { ImageProps } from "./interface/ImageProps";
-import { ImageRef, RNImage } from "./scripts/RNImage";
+import { RNImage } from "./scripts/RNImage";
 import { registerComponent } from "../../utils/component.config";
 
 class ImageConfig extends ComponentConfig<ImageProps, RNImage> {
@@ -34,4 +34,5 @@ class ImageConfig extends ComponentConfig<ImageProps, RNImage> {
 }
 
 export const Image = registerComponent<ImageProps>(new ImageConfig());
-export { RNImage, ImageRef };
+export { RNImage };
+export { ImageNative } from "./scripts/RNImage";

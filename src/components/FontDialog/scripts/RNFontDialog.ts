@@ -4,10 +4,10 @@ import { FontDialogProps } from "../interfaces/FontDialogProps";
 import { setFontDialogProps } from "../utils/setFontDialogProps";
 import { throwUnsupported } from "../../../utils/throwUnsupported";
 
-export type FontDialogRef = NativeElement & QFontDialog;
+export type FontDialogNative = NativeElement & QFontDialog;
 
 export class RNFontDialog extends QFontDialog implements RNWidget {
-  native!: FontDialogRef;
+  native!: FontDialogNative;
   static tagName = "font-dialog";
   
   setProps(newProps: FontDialogProps, oldProps: FontDialogProps) {

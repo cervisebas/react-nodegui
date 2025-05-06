@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { TextProps } from "./interfaces/TextProps";
-import { RNText, TextRef } from "./scripts/RNText";
+import { RNText } from "./scripts/RNText";
 
 class TextConfig extends ComponentConfig<TextProps, RNText> {
   tagName = RNText.tagName;
@@ -33,4 +33,5 @@ class TextConfig extends ComponentConfig<TextProps, RNText> {
 }
 
 export const Text = registerComponent<TextProps>(new TextConfig());
-export { RNText, TextRef };
+export { RNText };
+export { TextNative } from "./scripts/RNText";

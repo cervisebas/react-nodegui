@@ -3,10 +3,10 @@ import { RNWidget } from "../../../classes/RNWidget";
 import { DialogProps } from "../interfaces/DialogProps";
 import { setDialogProps } from "../utils/setDialogProps";
 
-export type DialogRef = NativeElement & QDialog;
+export type DialogNative = NativeElement & QDialog;
 
 export class RNDialog extends QDialog implements RNWidget {
-  native!: DialogRef;
+  native!: DialogNative;
   static tagName = "dialog";
   
   setProps(newProps: DialogProps, oldProps: DialogProps) {

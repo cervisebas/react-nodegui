@@ -5,10 +5,10 @@ import { setTabProps } from "../utils/setTabProps";
 import { RNTabItem } from "../../TabItem/scripts/RNTabItem";
 import { setTabItemProps } from "../../TabItem/utils/setTabItemProps";
 
-export type TabWidgetRef = NativeElement & QTabWidget;
+export type TabNative = NativeElement & QTabWidget;
 
 export class RNTab extends QTabWidget implements RNComponent {
-  native!: TabWidgetRef;
+  native!: TabNative;
   static tagName = "tabwidget";
   
   setProps(newProps: TabProps, oldProps: TabProps) {

@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { MenuBarProps } from "./interfaces/MenuBarProps";
-import { MenuBarRef, RNMenuBar } from "./scripts/RNMenuBar";
+import { RNMenuBar } from "./scripts/RNMenuBar";
 
 class MenuBarConfig extends ComponentConfig<MenuBarProps, RNMenuBar> {
   tagName = RNMenuBar.tagName;
@@ -29,4 +29,5 @@ class MenuBarConfig extends ComponentConfig<MenuBarProps, RNMenuBar> {
 }
 
 export const MenuBar = registerComponent<MenuBarProps>(new MenuBarConfig());
-export { RNMenuBar, MenuBarRef };
+export { RNMenuBar };
+export { MenuBarNative } from "./scripts/RNMenuBar";

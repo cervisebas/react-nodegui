@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { RadioButtonProps } from "./interfaces/RadioButtonProps";
-import { RadioButtonRef, RNRadioButton } from "./scripts/RNRadioButton";
+import { RNRadioButton } from "./scripts/RNRadioButton";
 
 class RadioButtonConfig extends ComponentConfig<RadioButtonProps, RNRadioButton> {
   tagName = RNRadioButton.tagName;
@@ -32,4 +32,5 @@ export const RadioButton = registerComponent<RadioButtonProps>(
   new RadioButtonConfig(),
 );
 
-export { RNRadioButton, RadioButtonRef };
+export { RNRadioButton };
+export { RadioButtonNative } from "./scripts/RNRadioButton";

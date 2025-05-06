@@ -4,10 +4,10 @@ import { setListProps } from "../utils/setListProps";
 import { ListProps } from "../interfaces/ListProps";
 import { RNListItem } from "../../ListItem/scripts/RNListItem";
 
-export type ListRef = NativeElement & QListWidget;
+export type ListNative = NativeElement & QListWidget;
 
 export class RNList extends QListWidget implements RNComponent {
-  native!: ListRef;
+  native!: ListNative;
   static tagName = "list";
 
   setProps(newProps: ListProps, oldProps: ListProps) {

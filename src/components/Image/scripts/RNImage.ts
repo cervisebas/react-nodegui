@@ -4,10 +4,10 @@ import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { ImageProps } from "../interface/ImageProps";
 import { setImageProps } from "../utils/setImageProps";
 
-export type ImageRef = NativeElement & QLabel;
+export type ImageNative = NativeElement & QLabel;
 
 export class RNImage extends QLabel implements RNWidget {
-  native!: ImageRef;
+  native!: ImageNative;
   static tagName = "image";
   
   originalPixmap?: QPixmap;

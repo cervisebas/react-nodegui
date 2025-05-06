@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { TableProps } from "./interfaces/TableProps";
-import { RNTable, TableRef } from "./scripts/RNTable";
+import { RNTable } from "./scripts/RNTable";
 
 class TableConfig extends ComponentConfig<TableProps, RNTable> {
   tagName = RNTable.tagName;
@@ -50,4 +50,5 @@ class TableConfig extends ComponentConfig<TableProps, RNTable> {
  */
 
 export const Table = registerComponent<TableProps>(new TableConfig());
-export { RNTable, TableRef };
+export { RNTable };
+export { TableNative } from "./scripts/RNTable";

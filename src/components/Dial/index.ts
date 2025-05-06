@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { DialProps } from "./interfaces/DialProps";
-import { DialRef, RNDial } from "./scripts/RNDial";
+import { RNDial } from "./scripts/RNDial";
 
 class DialConfig extends ComponentConfig<DialProps, RNDial> {
   tagName = RNDial.tagName;
@@ -29,4 +29,5 @@ class DialConfig extends ComponentConfig<DialProps, RNDial> {
 }
 
 export const Dial = registerComponent<DialProps>(new DialConfig());
-export { RNDial, DialRef };
+export { RNDial };
+export { DialNative } from "./scripts/RNDial";

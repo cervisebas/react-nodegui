@@ -7,10 +7,10 @@ import { offsetForIndex } from "../utils/offsetForIndex";
 import { updateDisplacedChildren } from "../utils/updateDisplacedChildren";
 import { setGridViewProps } from "../utils/setGridViewProps";
 
-export type GridViewRef = NativeElement & QGridLayout;
+export type GridViewNative = NativeElement & QGridLayout;
 
 export class RNGridView extends QWidget implements RNComponent {
-  native!: GridViewRef;
+  native!: GridViewNative;
   initialProps?: GridViewProps;
   childRows: Array<DataWithOffset<RNGridRow>> = [];
 

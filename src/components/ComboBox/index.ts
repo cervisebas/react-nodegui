@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { ComboBoxProps } from "./interfaces/ComboBoxProps";
-import { ComboBoxRef, RNComboBox } from "./scripts/RNComboBox";
+import { RNComboBox } from "./scripts/RNComboBox";
 
 class ComboBoxConfig extends ComponentConfig<ComboBoxProps, RNComboBox> {
   tagName = RNComboBox.tagName;
@@ -28,4 +28,5 @@ class ComboBoxConfig extends ComponentConfig<ComboBoxProps, RNComboBox> {
 }
 
 export const ComboBox = registerComponent<ComboBoxProps>(new ComboBoxConfig());
-export { RNComboBox, ComboBoxRef };
+export { RNComboBox };
+export { ComboBoxNative } from "./scripts/RNComboBox";

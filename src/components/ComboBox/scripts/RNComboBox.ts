@@ -4,10 +4,10 @@ import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { ComboBoxProps } from "../interfaces/ComboBoxProps";
 import { setComboBoxProps } from "../utils/setComboBoxProps";
 
-export type ComboBoxRef = NativeElement & QComboBox;
+export type ComboBoxNative = NativeElement & QComboBox;
 
 export class RNComboBox extends QComboBox implements RNWidget {
-  native!: ComboBoxRef;
+  native!: ComboBoxNative;
   static tagName = "combobox";
 
   setProps(newProps: ComboBoxProps, oldProps: ComboBoxProps) {

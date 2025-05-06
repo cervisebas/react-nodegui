@@ -4,10 +4,10 @@ import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { PlainTextEditProps } from "../interfaces/PlainTextEditProps";
 import { setPlainTextEditProps } from "../utils/setPlainTextEditProps";
 
-export type PlainTextEditRef = NativeElement & QPlainTextEdit;
+export type PlainTextEditNative = NativeElement & QPlainTextEdit;
 
 export class RNPlainTextEdit extends QPlainTextEdit implements RNWidget {
-  native!: PlainTextEditRef;
+  native!: PlainTextEditNative;
   static tagName = "plaintextedit";
 
   setProps(newProps: PlainTextEditProps, oldProps: PlainTextEditProps): void {

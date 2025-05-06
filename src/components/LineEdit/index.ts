@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { LineEditProps } from "./interfaces/LineEditProps";
-import { LineEditRef, RNLineEdit } from "./scripts/RNLineEdit";
+import { RNLineEdit } from "./scripts/RNLineEdit";
 
 class LineEditConfig extends ComponentConfig<LineEditProps, RNLineEdit> {
   tagName = RNLineEdit.tagName;
@@ -29,4 +29,5 @@ class LineEditConfig extends ComponentConfig<LineEditProps, RNLineEdit> {
 }
 
 export const LineEdit = registerComponent<LineEditProps>(new LineEditConfig());
-export { RNLineEdit, LineEditRef };
+export { RNLineEdit };
+export { LineEditNative } from "./scripts/RNLineEdit";

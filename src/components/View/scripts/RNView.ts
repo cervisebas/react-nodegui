@@ -3,10 +3,10 @@ import { setViewProps } from "../utils/setViewProps";
 import { RNWidget } from "../../../classes/RNWidget";
 import { ViewProps } from "../interface/ViewProps";
 
-export type ViewRef = NativeElement & FlexLayout;
+export type ViewNative = NativeElement & FlexLayout;
 
 export class RNView extends QWidget implements RNWidget {
-  native!: ViewRef;
+  native!: ViewNative;
   static tagName = "view";
   private _layout: QLayout<QObjectSignals> | null = null;
 

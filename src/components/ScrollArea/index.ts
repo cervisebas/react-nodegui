@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { ScrollAreaProps } from "./interface/ScrollAreaProps";
-import { RNScrollArea, ScrollAreaRef } from "./scripts/RNScrollArea";
+import { RNScrollArea } from "./scripts/RNScrollArea";
 
 class ScrollAreaConfig extends ComponentConfig<ScrollAreaProps, RNScrollArea> {
   tagName = RNScrollArea.tagName;
@@ -32,4 +32,5 @@ export const ScrollArea = registerComponent<ScrollAreaProps>(
   new ScrollAreaConfig(),
 );
 
-export { RNScrollArea, ScrollAreaRef };
+export { RNScrollArea };
+export { ScrollAreaNative } from "./scripts/RNScrollArea";

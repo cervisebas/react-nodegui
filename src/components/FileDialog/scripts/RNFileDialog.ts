@@ -4,10 +4,10 @@ import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { FileDialogProps } from "../interfaces/FileDialogLabelText";
 import { setFileDialogProps } from "../utils/setFileDialogProps";
 
-export type FileDialogRef = NativeElement & QFileDialog;
+export type FileDialogNative = NativeElement & QFileDialog;
 
 export class RNFileDialog extends QFileDialog implements RNWidget {
-  native!: FileDialogRef;
+  native!: FileDialogNative;
   static tagName = "file-dialog";
 
   setProps(newProps: FileDialogProps, oldProps: FileDialogProps): void {

@@ -4,10 +4,10 @@ import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { ProgressDialogProps } from "../interfaces/ProgressDialogProps";
 import { setProgressDialogProps } from "../utils/setProgressDialogProps";
 
-export type ProgressDialogRef = NativeElement & QProgressDialog;
+export type ProgressDialogNative = NativeElement & QProgressDialog;
 
 export class RNProgressDialog extends QProgressDialog implements RNWidget {
-  native!: ProgressDialogRef;
+  native!: ProgressDialogNative;
   static tagName = "progress-dialog";
   
   setProps(newProps: ProgressDialogProps, oldProps: ProgressDialogProps) {

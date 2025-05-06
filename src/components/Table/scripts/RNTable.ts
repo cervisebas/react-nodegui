@@ -5,10 +5,10 @@ import { setTableProps } from "../utils/setTableProps";
 import { verifyRanges } from "../utils/verifyRanges";
 import { RNTableItem } from "../../TableItem/scripts/RNTableItem";
 
-export type TableRef = NativeElement & QTableWidget;
+export type TableNative = NativeElement & QTableWidget;
 
 export class RNTable extends QTableWidget implements RNComponent {
-  native!: TableRef;
+  native!: TableNative;
   static tagName = "table";
   
   setProps(newProps: CustomTableProps, oldProps: CustomTableProps) {

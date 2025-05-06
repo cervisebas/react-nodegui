@@ -2,7 +2,7 @@ import { ComponentConfig } from "../../classes/ComponentConfig";
 import { RNComponent } from "../../classes/RNComponent";
 import { registerComponent } from "../../utils/component.config";
 import { ActionProps } from "./interfaces/ActionProps";
-import { ActionRef, RNAction } from "./scripts/RNAction";
+import { RNAction } from "./scripts/RNAction";
 
 class ActionConfig extends ComponentConfig<ActionProps> {
   tagName = RNAction.tagName;
@@ -23,4 +23,5 @@ class ActionConfig extends ComponentConfig<ActionProps> {
 }
 
 export const Action = registerComponent<ActionProps>(new ActionConfig());
-export { RNAction, ActionRef };
+export { RNAction };
+export { ActionNative } from "./scripts/RNAction";

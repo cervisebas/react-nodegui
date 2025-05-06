@@ -4,10 +4,10 @@ import { TextProps } from "../interfaces/TextProps";
 import { setTextProps } from "../utils/setTextProps";
 import { throwUnsupported } from "../../../utils/throwUnsupported";
 
-export type TextRef = NativeElement & QLabel;
+export type TextNative = NativeElement & QLabel;
 
 export class RNText extends QLabel implements RNWidget {
-  native!: TextRef;
+  native!: TextNative;
   static tagName = 'text';
 
   setProps(newProps: TextProps, oldProps: TextProps): void {
