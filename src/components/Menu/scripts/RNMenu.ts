@@ -1,11 +1,14 @@
-import { Component, QMenu } from "@nodegui/nodegui";
+import { Component, NativeElement, QMenu } from "@nodegui/nodegui";
 import { RNWidget } from "../../../classes/RNWidget";
 import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { RNAction } from "../../Action/scripts/RNAction";
 import { MenuProps } from "../interfaces/MenuProps";
 import { setMenuProps } from "../utils/setMenuProps";
 
+export type MenuRef = NativeElement & QMenu;
+
 export class RNMenu extends QMenu implements RNWidget {
+  native!: MenuRef;
   static tagName = "menu";
 
   setProps(newProps: MenuProps, oldProps: MenuProps) {

@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { TabProps } from "./interfaces/TabProps";
-import { RNTab } from "./scripts/RNTab";
+import { RNTab, TabWidgetRef } from "./scripts/RNTab";
 
 class TabsConfig extends ComponentConfig<TabProps, RNTab> {
   tagName = RNTab.tagName;
@@ -32,4 +32,4 @@ class TabsConfig extends ComponentConfig<TabProps, RNTab> {
 }
 
 export const Tabs = registerComponent<TabProps>(new TabsConfig());
-export { RNTab };
+export { RNTab, TabWidgetRef };

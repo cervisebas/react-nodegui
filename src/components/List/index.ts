@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { ListProps } from "./interfaces/ListProps";
-import { RNList } from "./scripts/RNList";
+import { ListRef, RNList } from "./scripts/RNList";
 
 class ListConfig extends ComponentConfig<ListProps, RNList> {
   tagName = RNList.tagName;
@@ -46,4 +46,4 @@ class ListConfig extends ComponentConfig<ListProps, RNList> {
  */
 
 export const List = registerComponent<ListProps>(new ListConfig());
-export { RNList };
+export { RNList, ListRef };

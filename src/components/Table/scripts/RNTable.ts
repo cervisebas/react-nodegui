@@ -1,11 +1,14 @@
-import { QTableWidget, QWidget, FlexLayout } from "@nodegui/nodegui";
+import { QTableWidget, QWidget, FlexLayout, NativeElement } from "@nodegui/nodegui";
 import { RNComponent } from "../../../classes/RNComponent";
 import { CustomTableProps } from "../types/CustomTableProps";
 import { setTableProps } from "../utils/setTableProps";
 import { verifyRanges } from "../utils/verifyRanges";
 import { RNTableItem } from "../../TableItem/scripts/RNTableItem";
 
+export type TableRef = NativeElement & QTableWidget;
+
 export class RNTable extends QTableWidget implements RNComponent {
+  native!: TableRef;
   static tagName = "table";
   
   setProps(newProps: CustomTableProps, oldProps: CustomTableProps) {

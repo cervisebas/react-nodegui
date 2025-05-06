@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { ProgressDialogProps } from "./interfaces/ProgressDialogProps";
-import { RNProgressDialog } from "./scripts/RNProgressDialog";
+import { ProgressDialogRef, RNProgressDialog } from "./scripts/RNProgressDialog";
 
 class ProgressDialogConfig extends ComponentConfig<ProgressDialogProps, RNProgressDialog> {
   tagName = RNProgressDialog.tagName;
@@ -62,4 +62,4 @@ class ProgressDialogConfig extends ComponentConfig<ProgressDialogProps, RNProgre
  */
 
 export const ProgressDialog = registerComponent<ProgressDialogProps>(new ProgressDialogConfig());
-export { RNProgressDialog };
+export { RNProgressDialog, ProgressDialogRef };

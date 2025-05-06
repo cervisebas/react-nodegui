@@ -1,4 +1,4 @@
-import { QGridLayout, QWidget } from "@nodegui/nodegui";
+import { NativeElement, QGridLayout, QWidget } from "@nodegui/nodegui";
 import { RNComponent } from "../../../classes/RNComponent";
 import { GridViewProps } from "../interfaces/GridViewProps";
 import { RNGridRow } from "../../GridRow/scripts/RNGridRow";
@@ -7,7 +7,10 @@ import { offsetForIndex } from "../utils/offsetForIndex";
 import { updateDisplacedChildren } from "../utils/updateDisplacedChildren";
 import { setGridViewProps } from "../utils/setGridViewProps";
 
+export type GridViewRef = NativeElement & QGridLayout;
+
 export class RNGridView extends QWidget implements RNComponent {
+  native!: GridViewRef;
   initialProps?: GridViewProps;
   childRows: Array<DataWithOffset<RNGridRow>> = [];
 

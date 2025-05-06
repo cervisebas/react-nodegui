@@ -1,5 +1,5 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
-import { RNGridView } from "./scripts/RNGridView";
+import { GridViewRef, RNGridView } from "./scripts/RNGridView";
 import { GridViewProps } from "./interfaces/GridViewProps";
 import { registerComponent } from "../../utils/component.config";
 
@@ -34,4 +34,4 @@ class GridViewConfig extends ComponentConfig<GridViewProps, RNGridView> {
 }
 
 export const GridView = registerComponent<GridViewProps>(new GridViewConfig());
-export { RNGridView };
+export { RNGridView, GridViewRef };

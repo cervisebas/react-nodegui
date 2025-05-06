@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { ButtonProps } from "./interfaces/ButtonProps";
-import { RNButton } from "./scripts/RNButton";
+import { ButtonRef, RNButton } from "./scripts/RNButton";
 
 class ButtonConfig extends ComponentConfig<ButtonProps, RNButton> {
   tagName = RNButton.tagName;
@@ -33,4 +33,4 @@ class ButtonConfig extends ComponentConfig<ButtonProps, RNButton> {
 }
 
 export const Button = registerComponent<ButtonProps>(new ButtonConfig());
-export { RNButton };
+export { RNButton, ButtonRef };

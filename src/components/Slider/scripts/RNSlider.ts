@@ -1,10 +1,13 @@
-import { QSlider } from "@nodegui/nodegui";
+import { NativeElement, QSlider } from "@nodegui/nodegui";
 import { RNWidget } from "../../../classes/RNWidget";
 import { SliderProps } from "../interface/SliderProps";
 import { setSliderProps } from "../utils/setSliderProps";
 import { throwUnsupported } from "../../../utils/throwUnsupported";
 
+export type SliderRef = NativeElement & QSlider;
+
 export class RNSlider extends QSlider implements RNWidget {
+  native!: SliderRef;
   static tagName = 'slider';
 
   setProps(newProps: SliderProps, oldProps: SliderProps): void {

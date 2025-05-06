@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { WindowProps } from "./interface/WindowProps";
-import { RNWindow } from "./scripts/RNWindow";
+import { RNWindow, WindowRef } from "./scripts/RNWindow";
 
 class WindowConfig extends ComponentConfig<WindowProps, RNWindow> {
   tagName = RNWindow.tagName;
@@ -33,4 +33,4 @@ class WindowConfig extends ComponentConfig<WindowProps, RNWindow> {
 }
 
 export const Window = registerComponent<WindowProps>(new WindowConfig());
-export { RNWindow };
+export { RNWindow, WindowRef };

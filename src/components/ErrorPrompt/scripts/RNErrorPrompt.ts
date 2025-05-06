@@ -1,10 +1,13 @@
-import { QErrorMessage } from "@nodegui/nodegui";
+import { NativeElement, QErrorMessage } from "@nodegui/nodegui";
 import { RNWidget } from "../../../classes/RNWidget";
 import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { ErrorPromptProps } from "../interfaces/ErrorPromptProps";
 import { setErrorPromptProps } from "../utils/setErrorPromptProps";
 
+export type ErrorPromptRef = NativeElement & QErrorMessage;
+
 export class RNErrorPrompt extends QErrorMessage implements RNWidget {
+  native!: ErrorPromptRef;
   static tagName = "error-prompt";
   
   setProps(newProps: ErrorPromptProps, oldProps: ErrorPromptProps) {

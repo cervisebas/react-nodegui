@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { ColorDialogProps } from "./interfaces/ColorDialogProps";
-import { RNColorDialog } from "./scripts/RNColorDialog";
+import { ColorDialogRef, RNColorDialog } from "./scripts/RNColorDialog";
 
 class ColorDialogConfig extends ComponentConfig<ColorDialogProps, RNColorDialog> {
   tagName: string = RNColorDialog.tagName;
@@ -50,4 +50,4 @@ class ColorDialogConfig extends ComponentConfig<ColorDialogProps, RNColorDialog>
  */
 
 export const ColorDialog = registerComponent<ColorDialogProps>(new ColorDialogConfig());
-export { RNColorDialog };
+export { RNColorDialog, ColorDialogRef };

@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { InputDialogProps } from "./interfaces/InputDialogProps";
-import { RNInputDialog } from "./scripts/RNInputDialog";
+import { InputDialogRef, RNInputDialog } from "./scripts/RNInputDialog";
 
 class InputDialogConfig extends ComponentConfig<InputDialogProps, RNInputDialog> {
   tagName: string = RNInputDialog.tagName;
@@ -50,4 +50,4 @@ class InputDialogConfig extends ComponentConfig<InputDialogProps, RNInputDialog>
  */
 
 export const InputDialog = registerComponent<InputDialogProps>(new InputDialogConfig());
-export { RNInputDialog };
+export { RNInputDialog, InputDialogRef };

@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { CheckBoxProps } from "./interfaces/CheckBoxProps";
-import { RNCheckBox } from "./scripts/RNCheckBox";
+import { CheckBoxRef, RNCheckBox } from "./scripts/RNCheckBox";
 
 class CheckBoxConfig extends ComponentConfig<CheckBoxProps, RNCheckBox> {
   tagName = RNCheckBox.tagName;
@@ -32,4 +32,4 @@ class CheckBoxConfig extends ComponentConfig<CheckBoxProps, RNCheckBox> {
 }
 
 export const CheckBox = registerComponent<CheckBoxProps>(new CheckBoxConfig());
-export { RNCheckBox };
+export { RNCheckBox, CheckBoxRef };

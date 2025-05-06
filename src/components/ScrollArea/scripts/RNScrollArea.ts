@@ -1,9 +1,12 @@
-import { QScrollArea, QWidget } from "@nodegui/nodegui";
+import { NativeElement, QScrollArea, QWidget } from "@nodegui/nodegui";
 import { RNWidget } from "../../../classes/RNWidget";
 import { ScrollAreaProps } from "../interface/ScrollAreaProps";
 import { setScrollAreaProps } from "../utils/setScrollAreaProps";
 
+export type ScrollAreaRef = NativeElement & QScrollArea;
+
 export class RNScrollArea extends QScrollArea implements RNWidget {
+  native!: ScrollAreaRef;
   static tagName = "scrollarea";
   
   setProps(newProps: ScrollAreaProps, oldProps: ScrollAreaProps) {

@@ -1,10 +1,13 @@
-import { QMenuBar, QMenu } from "@nodegui/nodegui";
+import { QMenuBar, QMenu, NativeElement } from "@nodegui/nodegui";
 import { RNWidget } from "../../../classes/RNWidget";
 import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { MenuBarProps } from "../interfaces/MenuBarProps";
 import { setMenuBarProps } from "../utils/setMenuBarProps";
 
+export type MenuBarRef = NativeElement & QMenuBar;
+
 export class RNMenuBar extends QMenuBar implements RNWidget {
+  native!: MenuBarRef;
   static tagName = "menubar";
 
   setProps(newProps: MenuBarProps, oldProps: MenuBarProps): void {

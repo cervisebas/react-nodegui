@@ -1,10 +1,13 @@
-import { QComboBox } from "@nodegui/nodegui";
+import { NativeElement, QComboBox } from "@nodegui/nodegui";
 import { RNWidget } from "../../../classes/RNWidget";
 import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { ComboBoxProps } from "../interfaces/ComboBoxProps";
 import { setComboBoxProps } from "../utils/setComboBoxProps";
 
+export type ComboBoxRef = NativeElement & QComboBox;
+
 export class RNComboBox extends QComboBox implements RNWidget {
+  native!: ComboBoxRef;
   static tagName = "combobox";
 
   setProps(newProps: ComboBoxProps, oldProps: ComboBoxProps) {

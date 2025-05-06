@@ -1,10 +1,13 @@
-import { QLabel, QSize } from "@nodegui/nodegui";
+import { NativeElement, QLabel, QSize } from "@nodegui/nodegui";
 import { RNWidget } from "../../../classes/RNWidget";
 import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { AnimatedImageProps } from "../interfaces/AnimatedImageProps";
 import { setAnimatedImageProps } from "../utils/setAnimatedImageProps";
 
+export type AnimatedImageRef = NativeElement & QLabel;
+
 export class RNAnimatedImage extends QLabel implements RNWidget {
+  native!: AnimatedImageRef;
   static tagName = "animatedimage";
 
   setProps(newProps: AnimatedImageProps, oldProps: AnimatedImageProps): void {

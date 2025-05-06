@@ -1,10 +1,13 @@
-import { QPlainTextEdit } from "@nodegui/nodegui";
+import { NativeElement, QPlainTextEdit } from "@nodegui/nodegui";
 import { RNWidget } from "../../../classes/RNWidget";
 import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { PlainTextEditProps } from "../interfaces/PlainTextEditProps";
 import { setPlainTextEditProps } from "../utils/setPlainTextEditProps";
 
+export type PlainTextEditRef = NativeElement & QPlainTextEdit;
+
 export class RNPlainTextEdit extends QPlainTextEdit implements RNWidget {
+  native!: PlainTextEditRef;
   static tagName = "plaintextedit";
 
   setProps(newProps: PlainTextEditProps, oldProps: PlainTextEditProps): void {

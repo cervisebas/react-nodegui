@@ -1,6 +1,6 @@
 import { QWidgetSignals } from "@nodegui/nodegui";
 import { ComponentConfig } from "../../classes/ComponentConfig";
-import { RNView } from "./scripts/RNView";
+import { RNView, ViewRef } from "./scripts/RNView";
 import { registerComponent } from "../../utils/component.config";
 import { ViewProps } from "./interface/ViewProps";
 
@@ -33,4 +33,4 @@ export const View = registerComponent<ViewProps<QWidgetSignals>>(
   new ViewConfig(),
 );
 
-export { RNView };
+export { RNView, ViewRef };

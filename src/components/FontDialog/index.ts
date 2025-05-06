@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { FontDialogProps } from "./interfaces/FontDialogProps";
-import { RNFontDialog } from "./scripts/RNFontDialog";
+import { FontDialogRef, RNFontDialog } from "./scripts/RNFontDialog";
 
 class FontDialogConfig extends ComponentConfig<FontDialogProps, RNFontDialog> {
   tagName = RNFontDialog.tagName;
@@ -49,4 +49,4 @@ class FontDialogConfig extends ComponentConfig<FontDialogProps, RNFontDialog> {
  */
 
 export const FontDialog = registerComponent<FontDialogProps>(new FontDialogConfig());
-export { RNFontDialog };
+export { RNFontDialog, FontDialogRef };

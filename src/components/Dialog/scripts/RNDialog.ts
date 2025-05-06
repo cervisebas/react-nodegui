@@ -1,9 +1,12 @@
-import { QDialog, QWidget, FlexLayout } from "@nodegui/nodegui";
+import { QDialog, QWidget, FlexLayout, NativeElement } from "@nodegui/nodegui";
 import { RNWidget } from "../../../classes/RNWidget";
 import { DialogProps } from "../interfaces/DialogProps";
 import { setDialogProps } from "../utils/setDialogProps";
 
+export type DialogRef = NativeElement & QDialog;
+
 export class RNDialog extends QDialog implements RNWidget {
+  native!: DialogRef;
   static tagName = "dialog";
   
   setProps(newProps: DialogProps, oldProps: DialogProps) {

@@ -1,9 +1,12 @@
-import { Direction, QBoxLayout, QDialog, QWidget } from "@nodegui/nodegui";
+import { Direction, NativeElement, QBoxLayout, QDialog, QWidget } from "@nodegui/nodegui";
 import { RNComponent } from "../../../classes/RNComponent";
 import { BoxViewProps } from "../interface/BoxViewProps";
 import { setBoxViewProps } from "../utils/setBoxViewProps";
 
+export type BoxViewRef = NativeElement & QBoxLayout;
+
 export class RNBoxView extends QWidget implements RNComponent {
+  native!: BoxViewRef;
   static tagName: string = "boxview";
   initialProps?: BoxViewProps;
   _children: Array<QWidget<never>> = [];

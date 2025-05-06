@@ -1,10 +1,13 @@
-import { QListWidget, FlexLayout } from "@nodegui/nodegui";
+import { QListWidget, FlexLayout, NativeElement } from "@nodegui/nodegui";
 import { RNComponent } from "../../../classes/RNComponent";
 import { setListProps } from "../utils/setListProps";
 import { ListProps } from "../interfaces/ListProps";
 import { RNListItem } from "../../ListItem/scripts/RNListItem";
 
+export type ListRef = NativeElement & QListWidget;
+
 export class RNList extends QListWidget implements RNComponent {
+  native!: ListRef;
   static tagName = "list";
 
   setProps(newProps: ListProps, oldProps: ListProps) {

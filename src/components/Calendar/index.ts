@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { CalendarProps } from "./interfaces/CalendarProps";
-import { RNCalendar } from "./scripts/RNCalendar";
+import { CalendarRef, RNCalendar } from "./scripts/RNCalendar";
 
 class CalendarConfig extends ComponentConfig<CalendarProps, RNCalendar> {
   tagName = RNCalendar.tagName;
@@ -29,4 +29,4 @@ class CalendarConfig extends ComponentConfig<CalendarProps, RNCalendar> {
 }
 
 export const Calendar = registerComponent<CalendarProps>(new CalendarConfig());
-export { RNCalendar };
+export { RNCalendar, CalendarRef };

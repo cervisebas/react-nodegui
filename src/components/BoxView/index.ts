@@ -3,7 +3,7 @@ import { RNComponent } from "../../classes/RNComponent";
 import { RNProps } from "../../interfaces/RNProps";
 import { registerComponent } from "../../utils/component.config";
 import { BoxViewProps } from "./interface/BoxViewProps";
-import { RNBoxView } from "./scripts/RNBoxView";
+import { BoxViewRef, RNBoxView } from "./scripts/RNBoxView";
 
 class BoxViewConfig extends ComponentConfig<BoxViewProps, RNBoxView> {
   tagName = RNBoxView.tagName;
@@ -34,4 +34,4 @@ class BoxViewConfig extends ComponentConfig<BoxViewProps, RNBoxView> {
 }
 
 export const BoxView = registerComponent<BoxViewProps>(new BoxViewConfig());
-export { RNBoxView };
+export { RNBoxView, BoxViewRef };

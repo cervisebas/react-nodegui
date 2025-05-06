@@ -1,10 +1,13 @@
-import { QLabel, QPixmap, AspectRatioMode, TransformationMode, QSize } from "@nodegui/nodegui";
+import { QLabel, QPixmap, AspectRatioMode, TransformationMode, QSize, NativeElement } from "@nodegui/nodegui";
 import { RNWidget } from "../../../classes/RNWidget";
 import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { ImageProps } from "../interface/ImageProps";
 import { setImageProps } from "../utils/setImageProps";
 
+export type ImageRef = NativeElement & QLabel;
+
 export class RNImage extends QLabel implements RNWidget {
+  native!: ImageRef;
   static tagName = "image";
   
   originalPixmap?: QPixmap;

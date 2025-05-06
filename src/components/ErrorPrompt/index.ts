@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { ErrorPromptProps } from "./interfaces/ErrorPromptProps";
-import { RNErrorPrompt } from "./scripts/RNErrorPrompt";
+import { ErrorPromptRef, RNErrorPrompt } from "./scripts/RNErrorPrompt";
 
 class ErrorPromptConfig extends ComponentConfig<ErrorPromptProps, RNErrorPrompt> {
   tagName: string = RNErrorPrompt.tagName;
@@ -41,4 +41,4 @@ class ErrorPromptConfig extends ComponentConfig<ErrorPromptProps, RNErrorPrompt>
  * ```
  */
 export const ErrorPrompt = registerComponent<ErrorPromptProps>(new ErrorPromptConfig());
-export { RNErrorPrompt };
+export { RNErrorPrompt, ErrorPromptRef };

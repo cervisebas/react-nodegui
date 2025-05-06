@@ -1,9 +1,12 @@
-import { QMainWindow, QMenuBar, QWidget } from "@nodegui/nodegui";
+import { NativeElement, QMainWindow, QMenuBar, QWidget } from "@nodegui/nodegui";
 import { RNWidget } from "../../../classes/RNWidget";
 import { setWindowProps } from "../utils/setWindowProps";
 import { WindowProps } from "../interface/WindowProps";
 
+export type WindowRef = NativeElement & QMainWindow;
+
 export class RNWindow extends QMainWindow implements RNWidget {
+  native!: WindowRef;
   static tagName = "mainwindow";
 
   setProps(newProps: WindowProps, oldProps: WindowProps) {
@@ -18,7 +21,7 @@ export class RNWindow extends QMainWindow implements RNWidget {
     child.close();
   }
   
-  appendInitialChild(child: QWidget<never> | QMenuBar): void {
+  appendInitialChild(child: QWidget<never> | QMenuBar) {
     if (child instanceof QMenuBar) {
       if (!this.menuBar()) {
         this.setMenuBar(child);
@@ -35,7 +38,7 @@ export class RNWindow extends QMainWindow implements RNWidget {
     }
   }
 
-  appendChild(child: QWidget<never>): void {
+  appendChild(child: QWidget<never>) {
     this.appendInitialChild(child);
   }
   

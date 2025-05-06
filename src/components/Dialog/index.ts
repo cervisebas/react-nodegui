@@ -1,7 +1,7 @@
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { DialogProps } from "./interfaces/DialogProps";
-import { RNDialog } from "./scripts/RNDialog";
+import { DialogRef, RNDialog } from "./scripts/RNDialog";
 
 class DialogConfig extends ComponentConfig<DialogProps, RNDialog> {
   tagName = RNDialog.tagName;
@@ -50,4 +50,4 @@ class DialogConfig extends ComponentConfig<DialogProps, RNDialog> {
  */
 
 export const Dialog = registerComponent<DialogProps>(new DialogConfig());
-export { RNDialog };
+export { RNDialog, DialogRef };

@@ -1,11 +1,14 @@
-import { QTabWidget, QIcon, QWidget } from "@nodegui/nodegui";
+import { QTabWidget, QIcon, QWidget, NativeElement } from "@nodegui/nodegui";
 import { RNComponent } from "../../../classes/RNComponent";
 import { TabProps } from "../interfaces/TabProps";
 import { setTabProps } from "../utils/setTabProps";
 import { RNTabItem } from "../../TabItem/scripts/RNTabItem";
 import { setTabItemProps } from "../../TabItem/utils/setTabItemProps";
 
+export type TabWidgetRef = NativeElement & QTabWidget;
+
 export class RNTab extends QTabWidget implements RNComponent {
+  native!: TabWidgetRef;
   static tagName = "tabwidget";
   
   setProps(newProps: TabProps, oldProps: TabProps) {
