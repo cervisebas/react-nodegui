@@ -30,7 +30,7 @@ export interface RowSize extends Omit<CellRange, "column"> {
 }
 
 export interface TableProps extends ViewBaseProps<QTableWidgetSignals> {
-  ref?: React.Ref<RNTable>;
+  ref?: React.Ref<RNTable | null>;
   cellRange: CellRange;
   horizontalHeaderItems?: HorizontalHeader[];
   horizontalHeaderLabels?: string[];

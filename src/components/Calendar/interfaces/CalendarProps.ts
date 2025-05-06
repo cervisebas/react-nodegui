@@ -4,7 +4,7 @@ import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
 import { RNCalendar } from "../scripts/RNCalendar";
 
 export interface CalendarProps extends ViewBaseProps<QCalendarWidgetSignals> {
-  ref?: React.Ref<RNCalendar>;
+  ref?: React.Ref<RNCalendar | null>;
   /**
    * Sets the time an inactive date edit is shown before its contents are accepted. [QCalendarWidget: setDateEditAcceptDelay](https://docs.nodegui.org/docs/api/generated/classes/qcalendarwidget#setdateeditacceptdelay)
    */

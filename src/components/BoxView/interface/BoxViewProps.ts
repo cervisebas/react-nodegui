@@ -4,6 +4,6 @@ import React from "react";
 import { RNBoxView } from "../scripts/RNBoxView";
 
 export interface BoxViewProps extends ViewBaseProps<QBoxLayoutSignals> {
-  ref?: React.Ref<RNBoxView>;
+  ref?: React.Ref<RNBoxView | null>;
   direction?: Direction;
 }

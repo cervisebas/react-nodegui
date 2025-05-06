@@ -4,7 +4,7 @@ import React from "react";
 import { RNAction } from "../scripts/RNAction";
 
 export interface ActionProps extends RNProps {
-  ref?: React.Ref<RNAction>;
+  ref?: React.Ref<RNAction | null>;
   /**
    * Sets whether the action is a checkable action. [QAction: setCheckable](https://docs.nodegui.org/docs/api/generated/classes/qaction#setcheckable)
    */

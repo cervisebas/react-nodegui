@@ -4,7 +4,7 @@ import { Range } from "../interfaces/Range";
 import { RNSpinBox } from "../scripts/RNSpinBox";
 
 export interface SpinBoxProps extends ViewBaseProps<QSpinBoxSignals> {
-  ref?: React.Ref<RNSpinBox>;
+  ref?: React.Ref<RNSpinBox | null>;
   prefix?: string;
   suffix?: string;
   singleStep?: number;

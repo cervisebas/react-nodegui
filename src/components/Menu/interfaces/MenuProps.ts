@@ -3,6 +3,6 @@ import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
 import { RNMenu } from "../scripts/RNMenu";
 
 export interface MenuProps extends ViewBaseProps<QMenuSignals> {
-  ref?: React.Ref<RNMenu>;
+  ref?: React.Ref<RNMenu | null>;
   title?: string;
 }

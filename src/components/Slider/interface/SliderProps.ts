@@ -3,7 +3,7 @@ import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
 import { RNSlider } from "../scripts/RNSlider";
 
 export interface SliderProps extends ViewBaseProps<QSliderSignals> {
-  ref?: React.Ref<RNSlider>;
+  ref?: React.Ref<RNSlider | null>;
   tickInterval?: number;
   tickPosition?: TickPosition;
   orientation?: Orientation;

@@ -3,6 +3,6 @@ import { AbstractButtonProps } from "../../../interfaces/AbstractButtonProps";
 import { RNButton } from "../scripts/RNButton";
 
 export interface ButtonProps extends AbstractButtonProps<QPushButtonSignals> {
-  ref?: React.Ref<RNButton>;
+  ref?: React.Ref<RNButton | null>;
   flat?: boolean;
 }

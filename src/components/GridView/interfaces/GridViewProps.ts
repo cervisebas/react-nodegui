@@ -19,7 +19,7 @@ export interface GridViewRowProps {
 };
 
 export interface GridViewProps extends ViewBaseProps<QGridLayoutSignals> {
-  ref?: React.Ref<RNGridView>;
+  ref?: React.Ref<RNGridView | null>;
 
   children:
     | Array<ReactElement<GridRowProps>>

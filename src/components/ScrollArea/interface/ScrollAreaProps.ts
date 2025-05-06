@@ -3,6 +3,6 @@ import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
 import { RNScrollArea } from "../scripts/RNScrollArea";
 
 export interface ScrollAreaProps extends ViewBaseProps<QScrollAreaSignals> {
-  ref?: React.Ref<RNScrollArea>;
+  ref?: React.Ref<RNScrollArea | null>;
   widgetResizable?: boolean;
 }

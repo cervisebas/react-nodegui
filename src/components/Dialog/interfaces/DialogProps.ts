@@ -3,7 +3,7 @@ import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
 import { RNDialog } from "../scripts/RNDialog";
 
 export interface DialogProps<T extends object = QDialogSignals, Ref = RNDialog> extends ViewBaseProps<T> {
-  ref?: React.Ref<Ref>;
+  ref?: React.Ref<Ref | null>;
   open?: boolean;
   font?: QFont;
   focus?: FocusReason;

@@ -4,7 +4,7 @@ import { ComboBoxItem } from "./ComboBoxItem";
 import { RNComboBox } from "../scripts/RNComboBox";
 
 export interface ComboBoxProps extends ViewBaseProps<QComboBoxSignals> {
-  ref?: React.Ref<RNComboBox>;
+  ref?: React.Ref<RNComboBox | null>;
   items?: ComboBoxItem[];
   count?: number;
   iconSize?: QSize;
