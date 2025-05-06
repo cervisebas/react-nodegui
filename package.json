@@ -1,7 +1,7 @@
 {
   "packageManager": "yarn@4.9.1",
   "name": "@cervisebas/react-nodegui",
-  "version": "0.0.-beta",
+  "version": "0.0.6-beta",
   "description": "React Native for building cross platform desktop applications",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
