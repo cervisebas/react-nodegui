@@ -1,6 +1,7 @@
 // Utils
 export { Renderer } from "./renderer";
 export { useEventHandler } from "./hooks/useEventHandler";
+export { useScreenSize } from "./hooks/useScreenSize";
 export { toPixmap } from "./utils/toPixmap";
 export { toPixmapFile } from "./utils/toPixmapFile";
 export { isValidUrl } from "./utils/isValidUrl";
