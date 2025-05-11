@@ -45,3 +45,5 @@ export { TableItem } from "./components/TableItem";
 export { List, RNList, ListNative } from "./components/List";
 export { ListItem } from "./components/ListItem";
 export { ErrorPrompt, RNErrorPrompt, ErrorPromptNative } from "./components/ErrorPrompt";
+export { StackedLayout, RNStackedLayout, StackedLayoutNative } from "./components/StackedLayout";
+export { StackedItem, RNStackedItem } from "./components/StackedItem";
