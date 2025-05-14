@@ -5,6 +5,7 @@ export { useScreenSize } from "./hooks/useScreenSize";
 export { toPixmap } from "./utils/toPixmap";
 export { toPixmapFile } from "./utils/toPixmapFile";
 export { isValidUrl } from "./utils/isValidUrl";
+export { isValidFilePath } from "./utils/isValidFilePath";
 export { isValidBase64 } from "./utils/isValidBase64";
 
 // Components
@@ -49,3 +50,4 @@ export { ErrorPrompt, RNErrorPrompt, ErrorPromptNative } from "./components/Erro
 export { StackedLayout, RNStackedLayout, StackedLayoutNative } from "./components/StackedLayout";
 export { StackedItem, RNStackedItem } from "./components/StackedItem";
 export { Draggable } from "./components/Draggable";
+export { Svg, RNSvg, SvgNative } from "./components/Svg";
