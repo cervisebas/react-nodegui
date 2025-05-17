@@ -1,10 +1,10 @@
+import { setViewProps } from "../../View/utils/setViewProps";
 import { StackedLayoutProps } from "../interfaces/StackedLayoutProps";
 import { RNStackedLayout } from "../scripts/RNStackedLayout";
 
 export function setStackedLayoutProps(
   widget: RNStackedLayout,
   newProps: StackedLayoutProps,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   oldProps: StackedLayoutProps,
 ) {
   const setter: StackedLayoutProps = {
@@ -17,4 +17,5 @@ export function setStackedLayoutProps(
   };
 
   Object.assign(setter, newProps);
+  setViewProps(widget, newProps, oldProps);
 }
