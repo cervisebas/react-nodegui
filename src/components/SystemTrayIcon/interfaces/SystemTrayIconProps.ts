@@ -1,8 +1,11 @@
+import React from "react";
 import { QIcon, QSystemTrayIconSignals } from "@nodegui/nodegui";
 import { RNProps } from "../../../interfaces/RNProps";
 import { WidgetEventListeners } from "../../View/types/WidgetEventListeners";
 
 export interface SystemTrayIconProps extends RNProps {
+  children?: React.ReactNode;
+
   /**
    * Sets an icon for the system tray. [QSystemTrayIcon: setIcon](https://docs.nodegui.org/docs/api/generated/classes/qsystemtrayicon#seticon)
    */
