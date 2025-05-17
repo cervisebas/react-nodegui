@@ -2,6 +2,7 @@ import { QIcon, QSystemTrayIconSignals } from "@nodegui/nodegui";
 import { WidgetEventListeners } from "../../View/types/WidgetEventListeners";
 import { SystemTrayIconProps } from "../interfaces/SystemTrayIconProps";
 import { RNSystemTrayIcon } from "../scripts/RNSystemTrayIcon";
+import { toPixmapFile } from "../../../utils/toPixmapFile";
 
 export function setSystemTrayIconProps(
   widget: RNSystemTrayIcon,
@@ -9,8 +10,15 @@ export function setSystemTrayIconProps(
   oldProps: SystemTrayIconProps
 ) {
   const setter: SystemTrayIconProps = {
-    set icon(icon: QIcon) {
-      widget.setIcon(icon);
+    set icon(icon: QIcon | string) {
+      if (icon instanceof QIcon) {
+        widget.setIcon(icon);
+        return;
+      }
+
+      const pixmap = toPixmapFile(icon);
+      const _icon = new QIcon(pixmap);
+      widget.setIcon(_icon);
     },
     set id(id: string) {
       widget.setObjectName(id);
