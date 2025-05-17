@@ -162,7 +162,7 @@ const HostConfig: HostConfigType = {
   },
 
   preparePortalMount() {
-    throw new Error("Function not implemented.");
+    return;
   },
   getCurrentEventPriority() {
     throw new Error("Function not implemented.");
@@ -171,19 +171,19 @@ const HostConfig: HostConfigType = {
     throw new Error("Function not implemented.");
   },
   beforeActiveInstanceBlur() {
-    throw new Error("Function not implemented.");
+    return;
   },
   afterActiveInstanceBlur() {
-    throw new Error("Function not implemented.");
+    return;
   },
   prepareScopeUpdate() {
-    throw new Error("Function not implemented.");
+    return;
   },
   getInstanceFromScope() {
     throw new Error("Function not implemented.");
   },
   detachDeletedInstance() {
-    throw new Error("Function not implemented.");
+    return;
   }
 };
 
