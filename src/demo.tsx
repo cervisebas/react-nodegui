@@ -18,9 +18,21 @@ function App() {
 
   return (
     <React.Fragment>
-      <Window styleSheet={styleSheet}>
-        <View id={'container'}>
-          <View id={'textContainer'}>
+      <Window>
+        <View
+          style={{
+            flex: 1,
+            minHeight: '100%',
+            justifyContent: 'center',
+          }}
+        >
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-around',
+              alignItems: 'center',
+            }}
+          >
             <Text>Number {counter}</Text>
           </View>
           <View>
@@ -51,18 +63,5 @@ function App() {
     </React.Fragment>
   );
 };
-
-const styleSheet = `
-  #container {
-    flex: 1;
-    min-height: '100%';
-    justify-content: 'center';
-  }
-  #textContainer {
-    flex-direction: 'row';
-    justify-content: 'space-around';
-    align-items: 'center';
-  }
-`;
 
 Renderer.render(<App />);

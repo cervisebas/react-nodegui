@@ -6,6 +6,7 @@ import { WidgetEventListeners } from "../components/View/types/WidgetEventListen
 import { WidgetAttributesMap } from "../components/View/interface/WidgetAttributesMap";
 import { WindowFlagsMap } from "../components/View/interface/WindowFlagsMap";
 import React from "react";
+import { StyleProperties } from "../styles/interfaces/StyleProperties";
 
 export interface ViewBaseProps<Signals extends object> extends RNProps {
   /**
@@ -19,7 +20,27 @@ export interface ViewBaseProps<Signals extends object> extends RNProps {
   /**
    * Sets the inline stylesheet property. [QWidget: setInlineStyle](https://docs.nodegui.org/docs/api/generated/classes/QWidget#widgetsetinlinestylestyle)
    */
-  style?: string;
+  style?:
+    | string
+    | Partial<Pick<
+      StyleProperties,
+      | 'background'
+      | 'color'
+      | 'border'
+      | 'margin'
+      | 'padding'
+      | 'font'
+      | 'minWidth'
+      | 'minHeight'
+      | 'maxWidth'
+      | 'maxHeight'
+      | 'backgroundImage'
+      | 'backgroundRepeat'
+      | 'backgroundPosition'
+      | 'backgroundOrigin'
+      | 'backgroundClip'
+      | 'image'
+    >>;
   /**
    * Sets the screen position as well as size of the widget. [QWidget: setGeometry](https://docs.nodegui.org/docs/api/generated/classes/QWidget#widgetsetgeometryx-y-width-height)
    */

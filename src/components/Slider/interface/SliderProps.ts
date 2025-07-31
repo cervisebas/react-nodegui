@@ -1,6 +1,7 @@
 import { Orientation, QSliderSignals, TickPosition } from "@nodegui/nodegui";
 import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
 import { RNSlider } from "../scripts/RNSlider";
+import { StyleProperties } from "../../../styles/interfaces/StyleProperties";
 
 export interface SliderProps extends ViewBaseProps<QSliderSignals> {
   ref?: React.Ref<RNSlider | null>;
@@ -17,4 +18,13 @@ export interface SliderProps extends ViewBaseProps<QSliderSignals> {
   sliderPosition?: number;
   hasTracking?: boolean;
   value?: number;
+  style?: 
+    & ViewBaseProps<QSliderSignals>['style']
+    & Partial<Pick<
+      StyleProperties,
+      | 'minWidth'
+      | 'minHeight'
+      | 'width'
+      | 'height'
+    >>;
 }

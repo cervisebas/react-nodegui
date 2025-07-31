@@ -15,7 +15,7 @@
   },
   "files": ["dist"],
   "dependencies": {
-    "@nodegui/nodegui": "^0.71.0",
+    "@nodegui/nodegui": "^0.73.0",
     "phin": "^3.7.1",
     "react-reconciler": "^0.29.0"
   },
