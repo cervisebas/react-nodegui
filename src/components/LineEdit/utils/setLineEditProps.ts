@@ -11,6 +11,7 @@ export function setLineEditProps(widget: RNLineEdit, newProps: LineEditProps, ol
       } else {
         widget.clear();
       }
+      widget.adjustSize();
     },
     set placeholderText(text: string) {
       widget.setPlaceholderText(text);

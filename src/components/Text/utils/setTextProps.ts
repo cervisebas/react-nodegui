@@ -13,6 +13,7 @@ export const setTextProps = (
       text = Array.isArray(text) ? text.join('') : text;
 
       widget.setText(text);
+      widget.adjustSize();
     },
     set wordWrap(shouldWrap: boolean) {
       widget.setWordWrap(shouldWrap);
