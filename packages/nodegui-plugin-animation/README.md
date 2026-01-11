@@ -1,23 +1,27 @@
-# NodeGui plugin animation
+# NodeGui Plugin Animation
 
-[![npm version](https://img.shields.io/npm/v/@nodegui/plugin-animation.svg)](https://www.npmjs.com/package/@nodegui/plugin-animation)
+[![npm version](https://img.shields.io/npm/v/@nodegui/plugin-animation.svg)](https://www.npmjs.com/package/@cervisebas/nodegui-plugin-animation)
 
-Plugin you can use to create native animations in NodeGui
+Plugin you can use to create native animations in NodeGui.
+This package is a fork of the repository "[nodegui-plugin-animation](https://github.com/nodegui/nodegui-plugin-animation)"
+
 
 ## Requirements
 
-Requires NodeGui v0.19.0 and up
+* Requires NodeGui v070.0 or up
+* CMake: [Download here](https://cmake.org/download/)
+
 
 ## Installation
 
-```
-    npm install @nodegui/plugin-animation
+```sh
+npm install @cervisebas/nodegui-plugin-animation
 ```
 
 ## Demo
 
-```js
-import { QPropertyAnimation } from '@nodegui/plugin-animation';
+```ts
+import { QPropertyAnimation } from '@cervisebas/nodegui-plugin-animation';
 import { QPushButton } from '@nodegui/nodegui';
 
 const animation = new QPropertyAnimation();
@@ -32,10 +36,12 @@ animation.setTargetObject(button);
 animation.setDuration(5000);
 animation.setStartValue(0.4);
 animation.setKeyValueAt(0.5, 1.0);
-animation.setEndValue(0.4);
+animation.setEndValue(1.0);
 
 animation.start();
 
-(global as any).button = button;
-(global as any).animation = animation;
+Object.assign(global, {
+  button: button,
+  animation: animation,
+});
 ```

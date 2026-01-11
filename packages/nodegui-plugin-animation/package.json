@@ -17,6 +17,15 @@
     "peerDependencies": {
         "@nodegui/nodegui": "^0.71.0"
     },
+    "files": [
+        "config",
+        "dist",
+        "src",
+        ".clang-format",
+        "CMakeLists.txt",
+        "package.json",
+        "README.md"
+    ],
     "dependencies": {
         "bluebird": "^3.7.2",
         "cmake-js": "^7.4.0",
