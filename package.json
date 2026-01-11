@@ -5,6 +5,7 @@
     "./example"
   ],
   "scripts": {
+    "dev": "yarn build & yarn example",
     "example": "yarn workspace example dev",
     "build": "yarn workspace @cervisebas/react-nodegui build"
   },

@@ -16,8 +16,12 @@ class StackedScreenConfig extends ComponentConfig<StackedLayoutProps, RNStackedL
     return widget;
   }
 
-  commitMount() {
-    return;
+  commitMount(instance: RNStackedLayout, newProps: StackedLayoutProps) {
+    if (newProps.initialIndex) {
+      instance.goToIndex(newProps.initialIndex);
+    } else if (newProps.initialName) {
+      instance.goToPage(newProps.initialName);
+    }
   }
   
   commitUpdate(instance: RNStackedLayout, _updatePayload: never, oldProps: StackedLayoutProps, newProps: StackedLayoutProps) {
