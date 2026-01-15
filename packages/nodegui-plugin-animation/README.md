@@ -1,6 +1,6 @@
 # NodeGui Plugin Animation
 
-[![npm version](https://img.shields.io/npm/v/@nodegui/plugin-animation.svg)](https://www.npmjs.com/package/@cervisebas/nodegui-plugin-animation)
+[![npm version](https://img.shields.io/npm/v/@cervisebas/nodegui-plugin-animation.svg)](https://www.npmjs.com/package/@cervisebas/nodegui-plugin-animation)
 
 Plugin you can use to create native animations in NodeGui.
 This package is a fork of the repository "[nodegui-plugin-animation](https://github.com/nodegui/nodegui-plugin-animation)"

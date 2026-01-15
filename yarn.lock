@@ -1397,7 +1397,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cervisebas/nodegui-plugin-animation@workspace:packages/nodegui-plugin-animation":
+"@cervisebas/nodegui-plugin-animation@workspace:*, @cervisebas/nodegui-plugin-animation@workspace:packages/nodegui-plugin-animation":
   version: 0.0.0-use.local
   resolution: "@cervisebas/nodegui-plugin-animation@workspace:packages/nodegui-plugin-animation"
   dependencies:
@@ -1425,6 +1425,30 @@ __metadata:
     typescript-eslint: "npm:^8.52.0"
   peerDependencies:
     "@nodegui/nodegui": ^0.71.0
+  languageName: unknown
+  linkType: soft
+
+"@cervisebas/react-nodegui-plugin-animation@workspace:*, @cervisebas/react-nodegui-plugin-animation@workspace:packages/react-nodegui-plugin-animation":
+  version: 0.0.0-use.local
+  resolution: "@cervisebas/react-nodegui-plugin-animation@workspace:packages/react-nodegui-plugin-animation"
+  dependencies:
+    "@eslint/js": "npm:^9.39.2"
+    "@nodegui/nodegui": "npm:^0.71.0"
+    "@types/react-reconciler": "npm:^0.31.0"
+    eslint: "npm:^9.39.2"
+    eslint-config-prettier: "npm:^10.1.8"
+    eslint-plugin-prettier: "npm:^5.5.4"
+    eslint-plugin-react: "npm:^7.37.5"
+    globals: "npm:^17.0.0"
+    jiti: "npm:^2.6.1"
+    prettier: "npm:^3.7.4"
+    react-reconciler: "npm:0.29.0"
+    typescript: "npm:^5.9.3"
+    typescript-eslint: "npm:^8.52.0"
+  peerDependencies:
+    "@cervisebas/nodegui-plugin-animation": 1.0.0
+    "@cervisebas/react-nodegui": 0.0.15-beta
+    react: "*"
   languageName: unknown
   linkType: soft
 
@@ -4388,7 +4412,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:~10.1.8":
+"eslint-config-prettier@npm:^10.1.8, eslint-config-prettier@npm:~10.1.8":
   version: 10.1.8
   resolution: "eslint-config-prettier@npm:10.1.8"
   peerDependencies:
@@ -4399,7 +4423,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:~5.5.4":
+"eslint-plugin-prettier@npm:^5.5.4, eslint-plugin-prettier@npm:~5.5.4":
   version: 5.5.4
   resolution: "eslint-plugin-prettier@npm:5.5.4"
   dependencies:
@@ -4623,7 +4647,9 @@ __metadata:
     "@babel/preset-env": "npm:^7.27.2"
     "@babel/preset-react": "npm:^7.27.1"
     "@babel/preset-typescript": "npm:^7.27.1"
+    "@cervisebas/nodegui-plugin-animation": "workspace:*"
     "@cervisebas/react-nodegui": "workspace:*"
+    "@cervisebas/react-nodegui-plugin-animation": "workspace:*"
     "@eslint/js": "npm:^9.22.0"
     "@nodegui/nodegui": "npm:^0.71.0"
     "@nodegui/packer": "npm:^1.5.0"
@@ -7801,6 +7827,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-reconciler@npm:0.29.0":
+  version: 0.29.0
+  resolution: "react-reconciler@npm:0.29.0"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+    scheduler: "npm:^0.23.0"
+  peerDependencies:
+    react: ^18.2.0
+  checksum: 10c0/637442f98ee816b8f86586f537712a0463b53e12c0f4dec716dfdde68dfa52cef1d10138acfad194d5571296cde8715c331aa3986e538087acdc1ef83187a9b0
+  languageName: node
+  linkType: hard
+
 "react-reconciler@npm:^0.29.0":
   version: 0.29.2
   resolution: "react-reconciler@npm:0.29.2"
@@ -8137,7 +8175,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"scheduler@npm:^0.23.2":
+"scheduler@npm:^0.23.0, scheduler@npm:^0.23.2":
   version: 0.23.2
   resolution: "scheduler@npm:0.23.2"
   dependencies:
@@ -8970,7 +9008,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.8.3, typescript@npm:~5.9.3":
+"typescript@npm:^5.8.3, typescript@npm:^5.9.3, typescript@npm:~5.9.3":
   version: 5.9.3
   resolution: "typescript@npm:5.9.3"
   bin:
@@ -8990,7 +9028,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.8.3#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A~5.9.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.8.3#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.9.3#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A~5.9.3#optional!builtin<compat/typescript>":
   version: 5.9.3
   resolution: "typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"
   bin:

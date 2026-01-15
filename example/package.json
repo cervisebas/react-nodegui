@@ -11,7 +11,9 @@
     "deploy": "npm run build && nodegui-packer --pack ./dist"
   },
   "dependencies": {
+    "@cervisebas/nodegui-plugin-animation": "workspace:*",
     "@cervisebas/react-nodegui": "workspace:*",
+    "@cervisebas/react-nodegui-plugin-animation": "workspace:*",
     "@nodegui/nodegui": "^0.71.0",
     "react": "^18.3.1"
   },

@@ -1,7 +1,6 @@
 {
-  "private": true,
   "name": "@cervisebas/react-nodegui",
-  "version": "0.0.14-beta",
+  "version": "0.0.15-beta",
   "description": "React Native for building cross platform desktop applications",
   "source": "./src/index.ts",
   "main": "dist/index.js",

@@ -1,7 +1,9 @@
 import React, { useRef, useState } from "react";
-import { View, Window, Text, Button, Image, toPixmapFile, Dialog, RNWindow } from "@cervisebas/react-nodegui";
+import { View, Window, Text, Button, Image, toPixmapFile, Dialog, RNWindow, RNButton } from "@cervisebas/react-nodegui";
 import IconAsset from "./assets/nodegui.png";
 import { QIcon } from "@nodegui/nodegui";
+import { Animated } from "@cervisebas/react-nodegui-plugin-animation";
+import { QPropertyAnimation } from "@cervisebas/nodegui-plugin-animation";
 
 const winIcon = new QIcon(toPixmapFile(IconAsset));
 const minSizeWindow = {
@@ -18,6 +20,18 @@ export function App() {
   const [showDialog, setShowDialog] = useState(false);
   const [windowSize, setWindowSize] = useState('0x0');
   const refWindow = useRef<RNWindow>(null);
+  const refButton = useRef<RNButton>(null);
+
+  const handleClick = () => {
+    const anim = new QPropertyAnimation();
+    anim.setTargetObject(refButton.current?.native as never);
+    anim.setPropertyName("geometry");
+    anim.setDuration(500);
+    anim.setStartValue(refButton.current?.native.getProperty("geometry"));
+    anim.setEndValue({ x: 200, y: 200, width: 100, height: 40 });
+    //anim.setEasingCurve(QEasingCurve.Type.InOutQuad);
+    anim.start();
+  };
 
   return (
     <React.Fragment>
@@ -43,15 +57,28 @@ export function App() {
           </Text>
 
           <View id={'button_container'}>
+            {/* <Animated
+              target={Button}
+              targetProps={{
+                text: 'test',
+              }}
+              propertyName={'visible'}
+              duration={0}
+              startValue={0}
+              keyValueAt={[0.4, 0.5]}
+              endValue={1}
+            /> */}
             <Button
               id={'button'}
+              ref={refButton}
               text={'Ver tamaño de ventana'}
               on={{
                 clicked() {
-                  const size = refWindow.current?.native.size();
+                  handleClick();
+                  /* const size = refWindow.current?.native.size();
 
                   setWindowSize(`${size?.width()}x${size?.height()}`);
-                  setShowDialog(true);
+                  setShowDialog(true); */
                 },
               }}
             />

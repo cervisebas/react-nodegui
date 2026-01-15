@@ -7,6 +7,8 @@ export { toPixmapFile } from "./utils/toPixmapFile";
 export { isValidUrl } from "./utils/isValidUrl";
 export { isValidFilePath } from "./utils/isValidFilePath";
 export { isValidBase64 } from "./utils/isValidBase64";
+export { ViewBaseProps } from "./interfaces/ViewBaseProps";
+export { registerComponent } from "./utils/component.config";
 
 // Components
 export { Action, RNAction, ActionNative } from "./components/Action";

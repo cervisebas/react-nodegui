@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "name": "@cervisebas/react-nodegui-plugin-animation",
+  "source": "./src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "npm run lint & tsc",
+    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
+    "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write"
+  },
+  "dependencies": {
+    "@nodegui/nodegui": "^0.71.0",
+    "react-reconciler": "0.29.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@types/react-reconciler": "^0.31.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^17.0.0",
+    "jiti": "^2.6.1",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.52.0"
+  },
+  "peerDependencies": {
+    "@cervisebas/nodegui-plugin-animation": "1.0.0",
+    "@cervisebas/react-nodegui": "0.0.15-beta",
+    "react": "*"
+  },
+  "packageManager": "yarn@4.9.1"
+}
