@@ -2,8 +2,8 @@ import React, { useRef, useState } from "react";
 import { View, Window, Text, Button, Image, toPixmapFile, Dialog, RNWindow, RNButton } from "@cervisebas/react-nodegui";
 import IconAsset from "./assets/nodegui.png";
 import { QIcon } from "@nodegui/nodegui";
-import { Animated } from "@cervisebas/react-nodegui-plugin-animation";
-import { QPropertyAnimation } from "@cervisebas/nodegui-plugin-animation";
+// import { Animated } from "@cervisebas/react-nodegui-plugin-animation";
+// import { QPropertyAnimation } from "@cervisebas/nodegui-plugin-animation";
 
 const winIcon = new QIcon(toPixmapFile(IconAsset));
 const minSizeWindow = {
@@ -22,7 +22,7 @@ export function App() {
   const refWindow = useRef<RNWindow>(null);
   const refButton = useRef<RNButton>(null);
 
-  const handleClick = () => {
+  /* const handleClick = () => {
     const anim = new QPropertyAnimation();
     anim.setTargetObject(refButton.current?.native as never);
     anim.setPropertyName("geometry");
@@ -31,7 +31,7 @@ export function App() {
     anim.setEndValue({ x: 200, y: 200, width: 100, height: 40 });
     //anim.setEasingCurve(QEasingCurve.Type.InOutQuad);
     anim.start();
-  };
+  }; */
 
   return (
     <React.Fragment>
@@ -74,7 +74,7 @@ export function App() {
               text={'Ver tamaño de ventana'}
               on={{
                 clicked() {
-                  handleClick();
+                  //handleClick();
                   /* const size = refWindow.current?.native.size();
 
                   setWindowSize(`${size?.width()}x${size?.height()}`);

@@ -7,7 +7,10 @@
   "scripts": {
     "dev": "yarn build & yarn example",
     "example": "yarn workspace example dev",
-    "build": "yarn workspace @cervisebas/react-nodegui build"
+    "build:react-nodegui": "yarn workspace @cervisebas/react-nodegui build",
+    "build:nodegui-plugin-animation": "yarn workspace @cervisebas/nodegui-plugin-animation build",
+    "build:react-nodegui-plugin-animation": "yarn workspace @cervisebas/react-nodegui-plugin-animation build",
+    "build:all": "yarn build:react-nodegui & yarn build:nodegui-plugin-animation & yarn build:react-nodegui-plugin-animation"
   },
-  "packageManager": "yarn@4.9.1"
+  "packageManager": "yarn@4.12.0"
 }

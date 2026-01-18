@@ -1424,7 +1424,7 @@ __metadata:
     typescript: "npm:~5.9.3"
     typescript-eslint: "npm:^8.52.0"
   peerDependencies:
-    "@nodegui/nodegui": ^0.71.0
+    "@nodegui/nodegui": ^0.73.0
   languageName: unknown
   linkType: soft
 
@@ -1433,7 +1433,7 @@ __metadata:
   resolution: "@cervisebas/react-nodegui-plugin-animation@workspace:packages/react-nodegui-plugin-animation"
   dependencies:
     "@eslint/js": "npm:^9.39.2"
-    "@nodegui/nodegui": "npm:^0.71.0"
+    "@nodegui/nodegui": "npm:^0.73.0"
     "@types/react-reconciler": "npm:^0.31.0"
     eslint: "npm:^9.39.2"
     eslint-config-prettier: "npm:^10.1.8"
@@ -1457,7 +1457,7 @@ __metadata:
   resolution: "@cervisebas/react-nodegui@workspace:packages/react-nodegui"
   dependencies:
     "@eslint/js": "npm:^9.25.1"
-    "@nodegui/nodegui": "npm:^0.71.0"
+    "@nodegui/nodegui": "npm:^0.73.0"
     "@types/node": "npm:^22.15.3"
     "@types/react": "npm:^19.1.2"
     "@types/react-reconciler": "npm:^0.31.0"
@@ -2035,27 +2035,6 @@ __metadata:
     node-fetch: "npm:^2.6.0"
     progress: "npm:^2.0.3"
   checksum: 10c0/612cfdcf088cf5155e92f319d0a1316d37fe7f46e7ac43be8ab00e8b98669115f915b95f498778057b5a78931eb8bea0e89ac959a336a7904b528e7955f7e9e5
-  languageName: node
-  linkType: hard
-
-"@nodegui/nodegui@npm:^0.71.0":
-  version: 0.71.0
-  resolution: "@nodegui/nodegui@npm:0.71.0"
-  dependencies:
-    "@nodegui/artifact-installer": "npm:^1.1.0"
-    "@nodegui/qode": "npm:^18.12.1"
-    cmake-js: "npm:^6.2.1"
-    cross-env: "npm:^7.0.3"
-    cuid: "npm:^2.1.8"
-    manage-path: "npm:^2.0.0"
-    memoize-one: "npm:^5.2.1"
-    node-addon-api: "npm:^4.0.0"
-    postcss: "npm:^7.0.17"
-    postcss-nodegui-autoprefixer: "npm:0.0.7"
-    tar: "npm:^6.0.1"
-  bin:
-    qode: scripts/qode.js
-  checksum: 10c0/3bd845a532ff70f257baf939bcb4312e837d45fdcf44b423110380f8d6074048fca8fabdd46e4bc207662d816e02ae0de721cbc20c3454c47521609b1e6aa9b6
   languageName: node
   linkType: hard
 
@@ -4651,7 +4630,7 @@ __metadata:
     "@cervisebas/react-nodegui": "workspace:*"
     "@cervisebas/react-nodegui-plugin-animation": "workspace:*"
     "@eslint/js": "npm:^9.22.0"
-    "@nodegui/nodegui": "npm:^0.71.0"
+    "@nodegui/nodegui": "npm:^0.73.0"
     "@nodegui/packer": "npm:^1.5.0"
     "@types/node": "npm:^22.15.3"
     "@types/react": "npm:^19.0.10"
