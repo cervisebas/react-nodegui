@@ -4,7 +4,7 @@ import { ButtonProps } from "./interfaces/ButtonProps";
 import { RNButton } from "./scripts/RNButton";
 
 class ButtonConfig extends ComponentConfig<ButtonProps, RNButton> {
-  tagName = RNButton.tagName;
+  public tagName = RNButton.tagName;
 
   shouldSetTextContent() {
     return true;

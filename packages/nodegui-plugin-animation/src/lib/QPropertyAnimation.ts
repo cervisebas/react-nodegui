@@ -33,4 +33,8 @@ export class QPropertyAnimation extends NodeVariantAnimation {
     setTargetObject(object: QObject<never>): void {
         return this.native.setTargetObject(object.native);
     }
+
+    onFinished(callback: () => void) {
+        this.native.onFinished(callback);
+    }
 }

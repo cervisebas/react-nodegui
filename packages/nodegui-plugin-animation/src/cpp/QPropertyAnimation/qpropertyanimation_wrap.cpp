@@ -11,14 +11,17 @@ Napi::Object QPropertyAnimationWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QPropertyAnimation";
   Napi::Function func = DefineClass(
-      env, CLASSNAME,
-      {InstanceMethod("setPropertyName",
-                      &QPropertyAnimationWrap::setPropertyName),
-       InstanceMethod("setTargetObject",
-                      &QPropertyAnimationWrap::setTargetObject),
-       InstanceMethod("propertyName", &QPropertyAnimationWrap::propertyName),
-       QVARIANTANIMATION_WRAPPED_METHODS_EXPORT_DEFINE(
-           QPropertyAnimationWrap)});
+      env,
+      CLASSNAME,
+      {
+        InstanceMethod("setPropertyName", &QPropertyAnimationWrap::setPropertyName),
+        InstanceMethod("setTargetObject", &QPropertyAnimationWrap::setTargetObject),
+        InstanceMethod("propertyName", &QPropertyAnimationWrap::propertyName),
+        InstanceMethod("onFinished", &QPropertyAnimationWrap::onFinished),
+        
+        QVARIANTANIMATION_WRAPPED_METHODS_EXPORT_DEFINE(QPropertyAnimationWrap)
+      }
+    );
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -45,9 +48,21 @@ QPropertyAnimationWrap::QPropertyAnimationWrap(const Napi::CallbackInfo &info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+
+  QObject::connect(
+    this->instance,
+    &QPropertyAnimation::finished,
+    [this]() {
+      this->emitFinished();
+    }
+  );
 }
 
 QPropertyAnimationWrap::~QPropertyAnimationWrap() {
+  if (this->finishedTSFN) {
+    this->finishedTSFN.Release();
+  }
+
   extrautils::safeDelete(this->instance);
 }
 
@@ -79,4 +94,31 @@ Napi::Value QPropertyAnimationWrap::setTargetObject(
   this->instance->setTargetObject(objectWrap->getInternalInstance());
 
   return env.Null();
+}
+Napi::Value QPropertyAnimationWrap::onFinished(const Napi::CallbackInfo& info) {
+  auto env = info.Env();
+
+  if (!info[0].IsFunction()) {
+    Napi::TypeError::New(env, "Expected function").ThrowAsJavaScriptException();
+    return env.Undefined();
+  }
+
+  finishedTSFN = Napi::ThreadSafeFunction::New(
+    env,
+    info[0].As<Napi::Function>(), // JS function
+    "animationFinished",         // name
+    0,                            // unlimited queue
+    1                             // one thread
+  );
+
+  return env.Undefined();
+}
+
+
+void QPropertyAnimationWrap::emitFinished() {
+  if (!finishedTSFN) return;
+
+  finishedTSFN.BlockingCall([](Napi::Env env, Napi::Function jsCallback) {
+    jsCallback.Call({});
+  });
 }

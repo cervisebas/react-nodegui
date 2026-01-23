@@ -1,6 +1,7 @@
-import { WidgetEventTypes, QObject } from '@nodegui/nodegui';
+import { WidgetEventTypes, QObject, QRect } from '@nodegui/nodegui';
 import addon from './utils/addon';
 import { QAbstractAnimation } from './QAbstractAnimation';
+import { ValueAnimation } from './types/ValueAnimation';
 
 export const QVariantAnimationEvents = Object.freeze({
     ...WidgetEventTypes,
@@ -10,14 +11,28 @@ export abstract class NodeVariantAnimation extends QAbstractAnimation {
     setDuration(duration: number): void {
         this.native?.setDuration(duration);
     }
-    setStartValue(value: string | number): void {
-        this.native?.setStartValue(value);
+    private getValue(value: ValueAnimation) {
+        if (value instanceof QRect) {
+            return {
+                qrect: 1,
+                x: value.left(),
+                y: value.top(),
+                width: value.width(),
+                height: value.height(),
+            };
+        }
+
+        return value;
     }
-    setEndValue(value: string | number): void {
-        this.native?.setEndValue(value);
+
+    setStartValue(value: ValueAnimation): void {
+        this.native?.setStartValue(this.getValue(value));
     }
-    setKeyValueAt(step: number, value: string | number): void {
-        this.native?.setKeyValueAt(step, value);
+    setEndValue(value: ValueAnimation): void {
+        this.native?.setEndValue(this.getValue(value));
+    }
+    setKeyValueAt(step: number, value: ValueAnimation): void {
+        this.native?.setKeyValueAt(step, this.getValue(value));
     }
 }
 

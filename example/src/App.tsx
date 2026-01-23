@@ -1,9 +1,8 @@
 import React, { useRef, useState } from "react";
 import { View, Window, Text, Button, Image, toPixmapFile, Dialog, RNWindow, RNButton } from "@cervisebas/react-nodegui";
 import IconAsset from "./assets/nodegui.png";
-import { QIcon } from "@nodegui/nodegui";
-// import { Animated } from "@cervisebas/react-nodegui-plugin-animation";
-// import { QPropertyAnimation } from "@cervisebas/nodegui-plugin-animation";
+import { QIcon, QRect, QVariant } from "@nodegui/nodegui";
+import { QPropertyAnimation } from "@cervisebas/nodegui-plugin-animation";
 
 const winIcon = new QIcon(toPixmapFile(IconAsset));
 const minSizeWindow = {
@@ -22,16 +21,49 @@ export function App() {
   const refWindow = useRef<RNWindow>(null);
   const refButton = useRef<RNButton>(null);
 
-  /* const handleClick = () => {
-    const anim = new QPropertyAnimation();
-    anim.setTargetObject(refButton.current?.native as never);
-    anim.setPropertyName("geometry");
-    anim.setDuration(500);
-    anim.setStartValue(refButton.current?.native.getProperty("geometry"));
-    anim.setEndValue({ x: 200, y: 200, width: 100, height: 40 });
-    //anim.setEasingCurve(QEasingCurve.Type.InOutQuad);
-    anim.start();
-  }; */
+  const buttonGeometry = useRef<[number, number, number, number] | null>(null);
+
+  const handleClick = () => {
+    try {
+      const anim = new QPropertyAnimation();
+      anim.setTargetObject(refButton.current as never);
+      
+      anim.setPropertyName("geometry");
+
+      anim.setDuration(200);
+
+      if (!buttonGeometry.current) {
+        const originalGeometry = refButton.current?.geometry();
+        buttonGeometry.current = [
+          originalGeometry?.top() || 0,
+          originalGeometry?.left() || 0,
+          originalGeometry?.width() || 0,
+          originalGeometry?.height() || 0,
+        ];
+      }
+
+      const [top, left, width, height] = buttonGeometry.current;
+
+      anim.setStartValue(new QRect(left, top, width, height));
+      anim.setKeyValueAt(0.4, new QRect(left + 20, top, width, height));
+      anim.setKeyValueAt(0.6, new QRect(left, top, width, height));
+      anim.setKeyValueAt(0.8, new QRect(left - 20, top, width, height));
+      anim.setEndValue(new QRect(left, top, width, height));
+  
+      //anim.setLoopCount(500);
+      anim.onFinished(() => {
+        console.log('-> Termino la animación.');
+
+        const size = refWindow.current?.native.size();
+
+        setWindowSize(`${size?.width()}x${size?.height()}`);
+        setShowDialog(true);
+      });
+      anim.start();
+    } catch (error) {
+      console.error('Error ->', error);
+    }
+  };
 
   return (
     <React.Fragment>
@@ -57,28 +89,13 @@ export function App() {
           </Text>
 
           <View id={'button_container'}>
-            {/* <Animated
-              target={Button}
-              targetProps={{
-                text: 'test',
-              }}
-              propertyName={'visible'}
-              duration={0}
-              startValue={0}
-              keyValueAt={[0.4, 0.5]}
-              endValue={1}
-            /> */}
             <Button
               id={'button'}
               ref={refButton}
               text={'Ver tamaño de ventana'}
               on={{
                 clicked() {
-                  //handleClick();
-                  /* const size = refWindow.current?.native.size();
-
-                  setWindowSize(`${size?.width()}x${size?.height()}`);
-                  setShowDialog(true); */
+                  handleClick();
                 },
               }}
             />
@@ -94,6 +111,12 @@ export function App() {
         minSize={sizeDialog}
         maxSize={sizeDialog}
         styleSheet={dialogStyleSheet}
+        on={{
+          Close() {
+            console.log('-> Close dialog');
+            setShowDialog(false);
+          },
+        }}
       >
         <View id={'container'}>
           <Text id={'title'}>Tamaño: {windowSize}</Text>

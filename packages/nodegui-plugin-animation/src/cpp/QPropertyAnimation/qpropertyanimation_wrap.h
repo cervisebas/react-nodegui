@@ -10,6 +10,7 @@
 class QPropertyAnimationWrap : public Napi::ObjectWrap<QPropertyAnimationWrap> {
  private:
   QPointer<NPropertyAnimation> instance;
+  Napi::ThreadSafeFunction finishedTSFN;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
@@ -21,6 +22,9 @@ class QPropertyAnimationWrap : public Napi::ObjectWrap<QPropertyAnimationWrap> {
   Napi::Value setPropertyName(const Napi::CallbackInfo &info);
   Napi::Value propertyName(const Napi::CallbackInfo &info);
   Napi::Value setTargetObject(const Napi::CallbackInfo &info);
+
+  void emitFinished();
+  Napi::Value onFinished(const Napi::CallbackInfo &info);
 
   QVARIANTANIMATION_WRAPPED_METHODS_DECLARATION
 };

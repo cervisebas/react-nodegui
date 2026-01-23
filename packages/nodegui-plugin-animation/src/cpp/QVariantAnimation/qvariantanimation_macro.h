@@ -22,13 +22,28 @@
     return env.Null();                                                       \
   }                                                                          \
                                                                              \
+  QSharedPointer<QVariant> getValue(Napi::Env env, Napi::Value value) {      \
+    if (value.IsObject()) {                                                  \
+      Napi::Object obj = value.As<Napi::Object>();                           \
+      if (obj.Has("qrect")) {                                                \
+        int x = obj.Get("x").ToNumber().Int32Value();                        \
+        int y = obj.Get("y").ToNumber().Int32Value();                        \
+        int w = obj.Get("width").ToNumber().Int32Value();                    \
+        int h = obj.Get("height").ToNumber().Int32Value();                   \
+        QRect rect(x, y, w, h);                                              \
+        return QSharedPointer<QVariant>::create(rect);                       \
+      }                                                                      \
+    }                                                                        \
+    return                                                                   \
+      QSharedPointer<QVariant>(extrautils::convertToQVariant(env, value));   \
+  }                                                                          \
+                                                                             \
   Napi::Value setStartValue(const Napi::CallbackInfo &info) {                \
     Napi::Env env = info.Env();                                              \
     Napi::HandleScope scope(env);                                            \
     Napi::Value value = info[0];                                             \
-    auto variant =                                                           \
-        QSharedPointer<QVariant>(extrautils::convertToQVariant(env, value)); \
-    this->instance->setStartValue(*variant);                                 \
+    auto val = this->getValue(env, value);                                   \
+    this->instance->setStartValue(*val);                                     \
     return env.Null();                                                       \
   }                                                                          \
                                                                              \
@@ -36,9 +51,8 @@
     Napi::Env env = info.Env();                                              \
     Napi::HandleScope scope(env);                                            \
     Napi::Value value = info[0];                                             \
-    auto variant =                                                           \
-        QSharedPointer<QVariant>(extrautils::convertToQVariant(env, value)); \
-    this->instance->setEndValue(*variant);                                   \
+    auto val = this->getValue(env, value);                                   \
+    this->instance->setEndValue(*val);                                       \
     return env.Null();                                                       \
   }                                                                          \
   Napi::Value setKeyValueAt(const Napi::CallbackInfo &info) {                \
@@ -46,9 +60,8 @@
     Napi::HandleScope scope(env);                                            \
     Napi::Number step = info[0].As<Napi::Number>();                          \
     Napi::Value value = info[1];                                             \
-    auto variant =                                                           \
-        QSharedPointer<QVariant>(extrautils::convertToQVariant(env, value)); \
-    this->instance->setKeyValueAt(step.DoubleValue(), *variant);             \
+    auto val = this->getValue(env, value);                                   \
+    this->instance->setKeyValueAt(step.DoubleValue(), *val);                 \
     return env.Null();                                                       \
   }
 
