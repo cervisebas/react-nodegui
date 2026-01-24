@@ -2,6 +2,7 @@ import { QCalendarWidgetSignals, DayOfWeek, QFont } from "@nodegui/nodegui";
 import { HorizontalHeaderFormat, VerticalHeaderFormat } from "@nodegui/nodegui/dist/lib/QtWidgets/QCalendarWidget";
 import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
 import { RNCalendar } from "../scripts/RNCalendar";
+import { StyleProperties } from "../../../styles/interfaces/StyleProperties";
 
 export interface CalendarProps extends ViewBaseProps<QCalendarWidgetSignals> {
   ref?: React.Ref<RNCalendar | null>;
@@ -41,4 +42,15 @@ export interface CalendarProps extends ViewBaseProps<QCalendarWidgetSignals> {
    * Sets the format of the vertical header. [QCalendarWidget: setVerticalHeaderFormat](https://docs.nodegui.org/docs/api/generated/classes/qcalendarwidget#setverticalheaderformat)
    */
   verticalHeaderFormat?: VerticalHeaderFormat;
+
+  style?:
+    & ViewBaseProps<QCalendarWidgetSignals>['style']
+    & Partial<Pick<
+      StyleProperties,
+      | 'gridlineColor'
+      | 'lineeditPasswordCharacter'
+      | 'selectionBackgroundColor'
+      | 'selectionColor'
+      | 'showDecorationSelected'
+    >>;
 }
