@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { View, Window, Text, Button, Image, toPixmapFile, Dialog, RNWindow, RNButton } from "@cervisebas/react-nodegui";
 import IconAsset from "./assets/nodegui.png";
-import { QIcon, QRect, QVariant } from "@nodegui/nodegui";
+import { QIcon, QRect } from "@nodegui/nodegui";
 import { QPropertyAnimation } from "@cervisebas/nodegui-plugin-animation";
 
 const winIcon = new QIcon(toPixmapFile(IconAsset));

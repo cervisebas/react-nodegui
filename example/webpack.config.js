@@ -10,14 +10,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
-
-    // 👇 mantiene nombre real del addon
     assetModuleFilename: '[name][ext]'
-  },
-
-  externals: {
-    '@nodegui/nodegui': 'commonjs @nodegui/nodegui',
-    '@cervisebas/nodegui-plugin-animation': 'commonjs @cervisebas/nodegui-plugin-animation'
   },
 
   module: {
@@ -28,17 +21,20 @@ module.exports = {
         use: 'babel-loader'
       },
 
-      // Imágenes (webpack 5 nativo)
+      // Assets
       {
         test: /\.(png|jpe?g|gif|svg|bmp|otf)$/i,
         type: 'asset/resource'
       },
 
-      // Addons nativos
+      // Native addons
       {
         test: /\.node$/,
-        type: 'asset/resource'
-      }
+        loader: 'node-loader',
+        options: {
+          name: "[name].[ext]", 
+        },
+      },
     ]
   },
 
@@ -47,6 +43,6 @@ module.exports = {
   },
 
   plugins: [
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
   ]
 }

@@ -2059,19 +2059,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nodegui/packer@npm:^1.5.0":
-  version: 1.5.0
-  resolution: "@nodegui/packer@npm:1.5.0"
+"@nodegui/packer@https://github.com/HerokeyVN/nodegui-packer":
+  version: 1.5.1
+  resolution: "@nodegui/packer@https://github.com/HerokeyVN/nodegui-packer.git#commit=9f11af1c43c52d61b3fbd31fd71e322c872cbcdf"
   dependencies:
     "@nodegui/artifact-installer": "npm:^1.1.0"
     commander: "npm:^4.0.1"
     fs-extra: "npm:^10.0.0"
     plist: "npm:^3.0.4"
-  peerDependencies:
-    "@nodegui/nodegui": ">=0.15.0"
   bin:
-    nodegui-packer: dist/cli.js
-  checksum: 10c0/32a5d32f8b37cc1fe5324abe328467bee8dda36eb0352b78e21874fa87864129bde2d6234e92dab7ad9498e90a10c6a21fd0baa6c64202a7116d4be01de95c15
+    nodegui-packer: ./src/cli.js
+  checksum: 10c0/f0d48564b61ebeda021f599c956302a318262477c77e9ce42629da23f50df9bc9eb380518115049318abaee8fc1b5b8e25a3c67fa77738d7fc50f1aa9904957c
   languageName: node
   linkType: hard
 
@@ -4766,7 +4764,7 @@ __metadata:
     "@cervisebas/react-nodegui-plugin-animation": "workspace:*"
     "@eslint/js": "npm:^9.22.0"
     "@nodegui/nodegui": "npm:^0.73.0"
-    "@nodegui/packer": "npm:^1.5.0"
+    "@nodegui/packer": "https://github.com/HerokeyVN/nodegui-packer"
     "@types/node": "npm:^22.15.3"
     "@types/react": "npm:^19.0.10"
     babel-loader: "npm:^10.0.0"
