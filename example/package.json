@@ -1,0 +1,46 @@
+{
+  "name": "example",
+  "private": true,
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "node scripts/watch.mjs",
+    "build": "tsc -b && webpack",
+    "lint": "eslint .",
+    "preview": "qode ./dist/index.js",
+    "deploy": "npm run build && nodegui-packer --pack ./dist"
+  },
+  "dependencies": {
+    "@cervisebas/nodegui-plugin-animation": "workspace:*",
+    "@cervisebas/react-nodegui": "workspace:*",
+    "@cervisebas/react-nodegui-plugin-animation": "workspace:*",
+    "@nodegui/nodegui": "^0.73.0",
+    "react": "^18.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
+    "@babel/preset-typescript": "^7.27.1",
+    "@eslint/js": "^9.22.0",
+    "@nodegui/packer": "github:HerokeyVN/nodegui-packer",
+    "@types/node": "^22.15.3",
+    "@types/react": "^19.0.10",
+    "babel-loader": "^10.0.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "eslint": "^9.22.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "execa": "^9.5.2",
+    "file-loader": "^6.2.0",
+    "fork-ts-checker-webpack-plugin": "^9.1.0",
+    "globals": "^16.0.0",
+    "node-loader": "^2.1.0",
+    "tslib": "^2.8.1",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.26.1",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1"
+  },
+  "packageManager": "yarn@4.12.0"
+}

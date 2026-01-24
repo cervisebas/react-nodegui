@@ -1,0 +1,1 @@
+# react-nodegui-plugin-animation
