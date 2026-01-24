@@ -33,6 +33,18 @@
         QRect rect(x, y, w, h);                                              \
         return QSharedPointer<QVariant>::create(rect);                       \
       }                                                                      \
+      if (obj.Has("qpoint")) {                                               \
+        int x = obj.Get("x").ToNumber().Int32Value();                        \
+        int y = obj.Get("y").ToNumber().Int32Value();                        \
+        QPoint point(x, y);                                                  \
+        return QSharedPointer<QVariant>::create(point);                      \
+      }                                                                      \
+      if (obj.Has("qsize")) {                                                \
+        int w = obj.Get("width").ToNumber().Int32Value();                    \
+        int h = obj.Get("height").ToNumber().Int32Value();                   \
+        QSize size(w, h);                                                    \
+        return QSharedPointer<QVariant>::create(size);                       \
+      }                                                                      \
     }                                                                        \
     return                                                                   \
       QSharedPointer<QVariant>(extrautils::convertToQVariant(env, value));   \

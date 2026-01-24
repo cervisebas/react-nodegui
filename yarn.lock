@@ -2059,7 +2059,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nodegui/packer@https://github.com/HerokeyVN/nodegui-packer":
+"@nodegui/packer@github:HerokeyVN/nodegui-packer":
   version: 1.5.1
   resolution: "@nodegui/packer@https://github.com/HerokeyVN/nodegui-packer.git#commit=9f11af1c43c52d61b3fbd31fd71e322c872cbcdf"
   dependencies:
@@ -4764,7 +4764,7 @@ __metadata:
     "@cervisebas/react-nodegui-plugin-animation": "workspace:*"
     "@eslint/js": "npm:^9.22.0"
     "@nodegui/nodegui": "npm:^0.73.0"
-    "@nodegui/packer": "https://github.com/HerokeyVN/nodegui-packer"
+    "@nodegui/packer": "github:HerokeyVN/nodegui-packer"
     "@types/node": "npm:^22.15.3"
     "@types/react": "npm:^19.0.10"
     babel-loader: "npm:^10.0.0"
