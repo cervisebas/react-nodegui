@@ -3,6 +3,7 @@ import { View, Window, Text, Button, Image, toPixmapFile, Dialog, RNWindow, RNBu
 import IconAsset from "./assets/nodegui.png";
 import { QIcon, QRect } from "@nodegui/nodegui";
 import { QPropertyAnimation } from "@cervisebas/nodegui-plugin-animation";
+import { getRandomIntInclusive } from "./utils/random";
 
 const winIcon = new QIcon(toPixmapFile(IconAsset));
 const minSizeWindow = {
@@ -15,9 +16,18 @@ const sizeDialog = {
   height: 120,
 };
 
+const texts = [
+  'Mollit pariatur sunt adipisicing nulla sunt mollit occaecat aute enim in labore ut voluptate.',
+  'Eu aliqua et cupidatat sit pariatur do dolor exercitation minim duis occaecat commodo.',
+  'Labore consequat aute irure consectetur veniam esse esse culpa amet elit elit ipsum Lorem adipisicing.',
+  'Labore quis amet cillum magna nostrud.',
+];
+
 export function App() {
   const [showDialog, setShowDialog] = useState(false);
   const [windowSize, setWindowSize] = useState('0x0');
+  const [subtitle, setSubtitle] = useState(texts[0]);
+
   const refWindow = useRef<RNWindow>(null);
   const refButton = useRef<RNButton>(null);
 
@@ -87,8 +97,20 @@ export function App() {
           <Text id={'title'}>
             React NodeGUI!
           </Text>
+          <Text id={'subtitle'}>
+            {subtitle}
+          </Text>
 
           <View id={'button_container'}>
+            <Button
+              id={'button'}
+              text={'Cambiar texto'}
+              on={{
+                clicked() {
+                  setSubtitle(texts[getRandomIntInclusive(0, texts.length - 1)]);
+                },
+              }}
+            />
             <Button
               id={'button'}
               ref={refButton}
@@ -133,11 +155,19 @@ const styleSheet = `
   }
   #button_container {
     padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
   }
   #title {
     font-size: 24px;
     font-weight: bold;
     padding-top: 12px;
+  }
+  #subtitle {
+    color: #494949;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 6px;
   }
   #logo {
     width: 100px;
