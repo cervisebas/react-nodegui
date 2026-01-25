@@ -5,8 +5,8 @@ import { WidgetAttributesMap } from "../interface/WidgetAttributesMap";
 import { WindowFlagsMap } from "../interface/WindowFlagsMap";
 import { Size, ViewSize, Position } from "../types/Size";
 import { WidgetEventListeners } from "../types/WidgetEventListeners";
-import { convertStyleObject } from "../../../styles";
 import { StyleProperties } from "../../../styles/interfaces/StyleProperties";
+import { getInlineStyles } from "./getInlineStyles";
 
 export function setViewProps<Signals extends object>(widget: QWidget<never>, newProps: ViewBaseProps<Signals>, oldProps: ViewBaseProps<Signals>) {
   const setter: ViewBaseProps<Signals> = {
@@ -20,16 +20,12 @@ export function setViewProps<Signals extends object>(widget: QWidget<never>, new
     set styleSheet(styleSheet: string) {
       widget.setStyleSheet(styleSheet);
     },
-    set style(inlineStyle: string | StyleProperties) {
+    set style(inlineStyle: string | StyleProperties | (string | StyleProperties)[]) {
       if (newProps.styleSheet) {
         console.warn("Both styleSheet and inlineStyle can't be used together");
       }
-
-      if (typeof inlineStyle === 'object') {
-        widget.setInlineStyle(convertStyleObject(inlineStyle));
-      } else {
-        widget.setInlineStyle(inlineStyle);
-      }
+      
+      widget.setInlineStyle(getInlineStyles(inlineStyle));
     },
     set geometry(geometry: Geometry) {
       widget.setGeometry(geometry.x, geometry.y, geometry.width, geometry.height);

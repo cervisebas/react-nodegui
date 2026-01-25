@@ -1,10 +1,21 @@
 import { QCalendarWidgetSignals, DayOfWeek, QFont } from "@nodegui/nodegui";
 import { HorizontalHeaderFormat, VerticalHeaderFormat } from "@nodegui/nodegui/dist/lib/QtWidgets/QCalendarWidget";
-import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
+import { ViewBaseProps, ViewStyles } from "../../../interfaces/ViewBaseProps";
 import { RNCalendar } from "../scripts/RNCalendar";
 import { StyleProperties } from "../../../styles/interfaces/StyleProperties";
 
-export interface CalendarProps extends ViewBaseProps<QCalendarWidgetSignals> {
+export type CalendarStyles = 
+  & ViewStyles
+  & Partial<Pick<
+    StyleProperties,
+    | 'gridlineColor'
+    | 'lineeditPasswordCharacter'
+    | 'selectionBackgroundColor'
+    | 'selectionColor'
+    | 'showDecorationSelected'
+  >>;
+
+export interface CalendarProps extends ViewBaseProps<QCalendarWidgetSignals, CalendarStyles> {
   ref?: React.Ref<RNCalendar | null>;
   /**
    * Sets the time an inactive date edit is shown before its contents are accepted. [QCalendarWidget: setDateEditAcceptDelay](https://docs.nodegui.org/docs/api/generated/classes/qcalendarwidget#setdateeditacceptdelay)
@@ -42,15 +53,4 @@ export interface CalendarProps extends ViewBaseProps<QCalendarWidgetSignals> {
    * Sets the format of the vertical header. [QCalendarWidget: setVerticalHeaderFormat](https://docs.nodegui.org/docs/api/generated/classes/qcalendarwidget#setverticalheaderformat)
    */
   verticalHeaderFormat?: VerticalHeaderFormat;
-
-  style?:
-    & ViewBaseProps<QCalendarWidgetSignals>['style']
-    & Partial<Pick<
-      StyleProperties,
-      | 'gridlineColor'
-      | 'lineeditPasswordCharacter'
-      | 'selectionBackgroundColor'
-      | 'selectionColor'
-      | 'showDecorationSelected'
-    >>;
 }

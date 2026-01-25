@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { View, Window, Text, Button, Image, toPixmapFile, Dialog, RNWindow, RNButton } from "@cervisebas/react-nodegui";
+import { View, Window, Text, Button, Image, toPixmapFile, Dialog, RNWindow, RNButton, StyleSheet } from "@cervisebas/react-nodegui";
 import IconAsset from "./assets/nodegui.png";
 import { QIcon, QRect } from "@nodegui/nodegui";
 import { QPropertyAnimation } from "@cervisebas/nodegui-plugin-animation";
@@ -81,29 +81,28 @@ export function App() {
         ref={refWindow}
         minSize={minSizeWindow}
         windowIcon={winIcon}
-        styleSheet={styleSheet}
         windowTitle={process.title}
       >
-        <View id={'container'}>
+        <View style={styles.container}>
           <Image
-            id={'logo'}
             src={IconAsset}
+            style={styles.logo}
             size={{
               width: 100,
               height: 100,
             }}
           />
 
-          <Text id={'title'}>
+          <Text style={styles.title}>
             React NodeGUI!
           </Text>
-          <Text id={'subtitle'}>
+          <Text style={styles.subtitle}>
             {subtitle}
           </Text>
 
-          <View id={'button_container'}>
+          <View style={styles.button_container}>
             <Button
-              id={'button'}
+              style={styles.button}
               text={'Cambiar texto'}
               on={{
                 clicked() {
@@ -112,7 +111,7 @@ export function App() {
               }}
             />
             <Button
-              id={'button'}
+              style={styles.button}
               ref={refButton}
               text={'Ver tamaño de ventana'}
               on={{
@@ -132,7 +131,6 @@ export function App() {
         size={sizeDialog}
         minSize={sizeDialog}
         maxSize={sizeDialog}
-        styleSheet={dialogStyleSheet}
         on={{
           Close() {
             console.log('-> Close dialog');
@@ -140,49 +138,55 @@ export function App() {
           },
         }}
       >
-        <View id={'container'}>
-          <Text id={'title'}>Tamaño: {windowSize}</Text>
+        <View style={dialogStyles.container}>
+          <Text style={dialogStyles.title}>Tamaño: {windowSize}</Text>
         </View>
       </Dialog>
     </React.Fragment>
   );
 }
 
-const styleSheet = `
-  #container {
-    align-items: 'center';
-    padding-top: 20px;
-  }
-  #button_container {
-    padding-top: 20px;
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-  #title {
-    font-size: 24px;
-    font-weight: bold;
-    padding-top: 12px;
-  }
-  #subtitle {
-    color: #494949;
-    font-size: 18px;
-    font-weight: bold;
-    padding-top: 6px;
-  }
-  #logo {
-    width: 100px;
-    height: 100px;
-  }
-`;
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    paddingTop: '20px',
+  },
+  button_container: {
+    paddingTop: '20px',
+    paddingLeft: '50px',
+    paddingRight: '50px',
+  },
+  title: {
+    fontSize: '24px',
+    fontWeight: 'bold',
+    paddingTop: '12px',
+  },
+  subtitle: {
+    color: '#494949',
+    fontSize: '18px',
+    fontWeight: 'bold',
+    paddingTop: '6px',
+  },
+  logo: {
+    width: '100px',
+    height: '100px',
+  },
+  button: {
+    marginTop: '4px',
+    minHeight: '26px',
+    paddingLeft: '6px',
+    paddingRight: '6px',
+  },
+});
 
-const dialogStyleSheet = `
-  #container {
-    flex: 1;
-    justify-content: 'center';
-    align-items: 'center';
-  }
-  #title {
-    font-size: 18px;
-    font-weight: bold;
-  }
-`;
+const dialogStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: '18px',
+    fontWeight: 'bold',
+  },
+});

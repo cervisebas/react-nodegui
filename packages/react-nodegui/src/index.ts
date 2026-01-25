@@ -10,6 +10,20 @@ export { isValidBase64 } from "./utils/isValidBase64";
 export { ViewBaseProps } from "./interfaces/ViewBaseProps";
 export { registerComponent } from "./utils/component.config";
 
+// StyleSheet
+export { StyleSheet } from './stylesheet/index';
+
+// Types
+export { CalendarStyles } from './components/Calendar/interfaces/CalendarProps';
+export { CheckBoxStyles } from './components/CheckBox/interfaces/CheckBoxProps';
+export { ListStyles } from './components/List/interfaces/ListProps';
+export { MenuBarStyles } from './components/MenuBar/interfaces/MenuBarProps';
+export { PlainTextEditStyles } from './components/PlainTextEdit/interfaces/PlainTextEditProps';
+export { ProgressBarStyles } from './components/ProgressBar/interface/ProgressBarProps';
+export { RadioButtonStyles } from './components/RadioButton/interfaces/RadioButtonProps';
+export { SliderStyles } from './components/Slider/interface/SliderProps';
+export { ViewStyles } from './interfaces/ViewBaseProps';
+
 // Components
 export { Action, RNAction, ActionNative } from "./components/Action";
 export { Window, RNWindow, WindowNative } from "./components/Window";

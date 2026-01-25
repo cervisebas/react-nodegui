@@ -1,15 +1,16 @@
 import { QMenuBarSignals } from "@nodegui/nodegui";
-import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
+import { ViewBaseProps, ViewStyles } from "../../../interfaces/ViewBaseProps";
 import { RNMenuBar } from "../scripts/RNMenuBar";
 import { StyleProperties } from "../../../styles/interfaces/StyleProperties";
 
-export interface MenuBarProps extends ViewBaseProps<QMenuBarSignals> {
+export type MenuBarStyles =  
+  & ViewStyles
+  & Partial<Pick<
+    StyleProperties,
+    'spacing'
+  >>;
+
+export interface MenuBarProps extends ViewBaseProps<QMenuBarSignals, MenuBarStyles> {
   ref?: React.Ref<RNMenuBar | null>;
   nativeMenuBar?: boolean;
-  style?:
-    & ViewBaseProps<QMenuBarSignals>['style']
-    & Partial<Pick<
-      StyleProperties,
-      'spacing'
-    >>;
 }
