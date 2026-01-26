@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { View, Window, Text, Button, Image, toPixmapFile, Dialog, RNWindow, RNButton, StyleSheet } from "@cervisebas/react-nodegui";
 import IconAsset from "./assets/nodegui.png";
 import { QIcon, QRect } from "@nodegui/nodegui";
-import { QPropertyAnimation } from "@cervisebas/nodegui-plugin-animation";
+import { QEasingCurve, QPropertyAnimation } from "@cervisebas/nodegui-plugin-animation";
 import { getRandomIntInclusive } from "./utils/random";
 
 const winIcon = new QIcon(toPixmapFile(IconAsset));
@@ -59,6 +59,8 @@ export function App() {
       anim.setKeyValueAt(0.6, new QRect(left, top, width, height));
       anim.setKeyValueAt(0.8, new QRect(left - 20, top, width, height));
       anim.setEndValue(new QRect(left, top, width, height));
+
+      anim.setEasingCurve(QEasingCurve.Linear);
   
       //anim.setLoopCount(500);
       anim.onFinished(() => {

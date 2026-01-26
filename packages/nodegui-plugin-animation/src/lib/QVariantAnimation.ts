@@ -3,6 +3,7 @@ import addon from './utils/addon';
 import { QAbstractAnimation } from './QAbstractAnimation';
 import { ValueAnimation } from './types/ValueAnimation';
 import { convertValue } from './utils/convertValue';
+import { QEasingCurve } from './enums/QEasingCurve';
 
 export const QVariantAnimationEvents = Object.freeze({
     ...WidgetEventTypes,
@@ -20,6 +21,9 @@ export abstract class NodeVariantAnimation extends QAbstractAnimation {
     }
     setKeyValueAt(step: number, value: ValueAnimation): void {
         this.native?.setKeyValueAt(step, convertValue(value));
+    }
+    setEasingCurve(value: QEasingCurve): void {
+        this.native?.setEasingCurve(value);
     }
 }
 

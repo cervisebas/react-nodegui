@@ -75,6 +75,15 @@
     auto val = this->getValue(env, value);                                   \
     this->instance->setKeyValueAt(step.DoubleValue(), *val);                 \
     return env.Null();                                                       \
+  }                                                                          \
+  Napi::Value setEasingCurve(const Napi::CallbackInfo &info) {               \
+    Napi::Env env = info.Env();                                              \
+    Napi::HandleScope scope(env);                                            \
+    int value = info[0].As<Napi::Number>().Int32Value();                     \
+    auto type = static_cast<QEasingCurve::Type>(value);                      \
+    QEasingCurve curve(type);                                                \
+    this->instance->setEasingCurve(curve);                                   \
+    return env.Null();                                                       \
   }
 
 #endif
@@ -86,6 +95,7 @@
   InstanceMethod("setDuration", &ComponentWrapName::setDuration),          \
       InstanceMethod("setStartValue", &ComponentWrapName::setStartValue),  \
       InstanceMethod("setEndValue", &ComponentWrapName::setEndValue),      \
-      InstanceMethod("setKeyValueAt", &ComponentWrapName::setKeyValueAt),
+      InstanceMethod("setKeyValueAt", &ComponentWrapName::setKeyValueAt),  \
+      InstanceMethod("setEasingCurve", &ComponentWrapName::setEasingCurve),
 
 #endif

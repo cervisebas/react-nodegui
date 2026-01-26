@@ -2,3 +2,4 @@ export { DeletionPolicy, Direction, State, QAbstractAnimation } from './lib/QAbs
 export { NodeVariantAnimation, QVariantAnimation, QVariantAnimationEvents } from './lib/QVariantAnimation';
 export { QPropertyAnimation, QPropertyAnimationEvents } from './lib/QPropertyAnimation';
 export { PropertyName } from './lib/types/PropertyNames';
+export { QEasingCurve } from './lib/enums/QEasingCurve';
