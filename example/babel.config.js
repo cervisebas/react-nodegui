@@ -6,5 +6,7 @@ module.exports = {
       "runtime": "automatic"
     }]
   ],
-  plugins: [],
+  plugins: [
+    './babel-plugins/babel-plugin-transform-assets.js',
+  ],
 };

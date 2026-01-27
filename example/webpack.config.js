@@ -24,7 +24,10 @@ module.exports = {
       // Assets
       {
         test: /\.(png|jpe?g|gif|svg|bmp|otf)$/i,
-        type: 'asset/resource'
+        type: 'asset/resource',
+        generator: {
+          filename: '[name][ext]',
+        },
       },
 
       // Native addons
