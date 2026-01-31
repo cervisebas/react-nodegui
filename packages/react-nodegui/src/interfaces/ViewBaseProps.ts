@@ -1,4 +1,4 @@
-import { CursorShape, QCursor, QIcon, WindowState } from "@nodegui/nodegui";
+import { CursorShape, QCursor, QIcon, QSizePolicyPolicy, WindowState } from "@nodegui/nodegui";
 import { Geometry } from "../components/View/types/Geometry";
 import { RNProps } from "./RNProps";
 import { Size, ViewSize, Position } from "../components/View/types/Size";
@@ -147,6 +147,8 @@ export interface ViewBaseProps<Signals extends object, StyleProps = ViewStyles> 
    * `<View windowFlags={{[WindowType.SplashScreen]: true}} />`
    */
   windowFlags?: WindowFlagsMap;
+
+  sizePolicy?: [QSizePolicyPolicy, QSizePolicyPolicy];
 
   children?: React.ReactNode;
 }

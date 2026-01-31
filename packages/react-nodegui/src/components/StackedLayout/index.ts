@@ -1,3 +1,4 @@
+import { QSizePolicyPolicy } from "@nodegui/nodegui";
 import { ComponentConfig } from "../../classes/ComponentConfig";
 import { registerComponent } from "../../utils/component.config";
 import { StackedLayoutProps } from "./interfaces/StackedLayoutProps";
@@ -12,6 +13,7 @@ class StackedScreenConfig extends ComponentConfig<StackedLayoutProps, RNStackedL
 
   createInstance(newProps: StackedLayoutProps) {
     const widget = new RNStackedLayout();
+    widget.setSizePolicy(QSizePolicyPolicy.Expanding, QSizePolicyPolicy.Expanding);
     widget.setProps(newProps, {});
     return widget;
   }

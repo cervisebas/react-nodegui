@@ -1,4 +1,4 @@
-import { QWidget, WindowState, CursorShape, QCursor, QIcon } from "@nodegui/nodegui";
+import { QWidget, WindowState, CursorShape, QCursor, QIcon, QSizePolicyPolicy } from "@nodegui/nodegui";
 import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
 import { Geometry } from "../types/Geometry";
 import { WidgetAttributesMap } from "../interface/WidgetAttributesMap";
@@ -108,6 +108,9 @@ export function setViewProps<Signals extends object>(widget: QWidget<never>, new
       Object.entries(windowFlagsMap).forEach(([flag, value]) => {
         widget.setWindowFlag(Number(flag), value);
       });
+    },
+    set sizePolicy(values: [QSizePolicyPolicy, QSizePolicyPolicy]) {
+      widget.setSizePolicy(...values);
     },
   };
   Object.assign(setter, newProps);

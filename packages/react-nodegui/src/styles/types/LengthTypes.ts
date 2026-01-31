@@ -1,2 +1,2 @@
 export type LengthType = 'px' | 'pt' | 'em' | 'ex' | '%';
-export type Length = `${number}${LengthType}`;
+export type Length = number | `${number}${LengthType}`;

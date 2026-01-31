@@ -2,8 +2,9 @@ import React, { forwardRef, useImperativeHandle, useMemo, useRef, useState } fro
 import { RNStackedLayout, StackedLayout } from "../StackedLayout";
 import { StackScreen, StackScreenProps } from "../StackScreen";
 import { StackNavigationHistory } from "./interfaces/StackNavigationHistory";
+import { StackedLayoutProps } from "../StackedLayout/interfaces/StackedLayoutProps";
 
-export interface StackNavigationProps {
+export interface StackNavigationProps extends StackedLayoutProps {
   initScreen?: string;
   children: React.ReactNode;
 }
@@ -85,7 +86,7 @@ export const StackNavigation = forwardRef(function StackNavigation(props: StackN
   }));
 
   return (
-    <StackedLayout initialName={indexString} ref={refStackedLayout}>
+    <StackedLayout {...props} initialName={indexString} ref={refStackedLayout}>
       {screens}
     </StackedLayout>
   );
