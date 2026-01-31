@@ -1,4 +1,4 @@
-import { QWidget, WindowState, CursorShape, QCursor, QIcon, QSizePolicyPolicy } from "@nodegui/nodegui";
+import { QWidget, WindowState, CursorShape, QCursor, QIcon, QSizePolicyPolicy, QGraphicsEffect } from "@nodegui/nodegui";
 import { ViewBaseProps } from "../../../interfaces/ViewBaseProps";
 import { Geometry } from "../types/Geometry";
 import { WidgetAttributesMap } from "../interface/WidgetAttributesMap";
@@ -111,6 +111,10 @@ export function setViewProps<Signals extends object>(widget: QWidget<never>, new
     },
     set sizePolicy(values: [QSizePolicyPolicy, QSizePolicyPolicy]) {
       widget.setSizePolicy(...values);
+    },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    set graphicsEffect(value: QGraphicsEffect<any>) {
+      widget.setGraphicsEffect(value);
     },
   };
   Object.assign(setter, newProps);

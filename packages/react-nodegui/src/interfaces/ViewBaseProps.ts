@@ -1,4 +1,4 @@
-import { CursorShape, QCursor, QIcon, QSizePolicyPolicy, WindowState } from "@nodegui/nodegui";
+import { CursorShape, QCursor, QGraphicsEffect, QIcon, QSizePolicyPolicy, WindowState } from "@nodegui/nodegui";
 import { Geometry } from "../components/View/types/Geometry";
 import { RNProps } from "./RNProps";
 import { Size, ViewSize, Position } from "../components/View/types/Size";
@@ -149,6 +149,9 @@ export interface ViewBaseProps<Signals extends object, StyleProps = ViewStyles> 
   windowFlags?: WindowFlagsMap;
 
   sizePolicy?: [QSizePolicyPolicy, QSizePolicyPolicy];
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  graphicsEffect?: QGraphicsEffect<any>;
 
   children?: React.ReactNode;
 }
