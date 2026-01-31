@@ -1,4 +1,4 @@
-import { QPoint, QRect, QSize } from '@nodegui/nodegui';
+import { QColor, QPoint, QRect, QSize } from '@nodegui/nodegui';
 import { ValueAnimation } from '../types/ValueAnimation';
 
 export function convertValue(value: ValueAnimation) {
@@ -25,6 +25,16 @@ export function convertValue(value: ValueAnimation) {
       qsize: 1,
       width: value.width(),
       height: value.height(),
+    };
+  }
+
+  if (value instanceof QColor) {
+    return {
+      qcolor: 1,
+      r: value.red(),
+      g: value.green(),
+      b: value.blue(),
+      a: value.alpha(),
     };
   }
 

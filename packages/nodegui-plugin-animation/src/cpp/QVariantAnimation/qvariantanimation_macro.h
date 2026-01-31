@@ -45,6 +45,14 @@
         QSize size(w, h);                                                    \
         return QSharedPointer<QVariant>::create(size);                       \
       }                                                                      \
+      if (obj.Has("qcolor")) {                                               \
+        int r = obj.Get("r").ToNumber().Int32Value();                        \
+        int g = obj.Get("g").ToNumber().Int32Value();                        \
+        int b = obj.Get("b").ToNumber().Int32Value();                        \
+        int a = obj.Get("a").ToNumber().Int32Value();                        \
+        QColor color(r, g, b, a);                                            \
+        return QSharedPointer<QVariant>::create(color);                      \
+      }                                                                      \
     }                                                                        \
     return                                                                   \
       QSharedPointer<QVariant>(extrautils::convertToQVariant(env, value));   \

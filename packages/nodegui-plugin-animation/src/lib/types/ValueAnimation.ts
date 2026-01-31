@@ -1,3 +1,10 @@
-import { QPoint, QRect, QSize } from '@nodegui/nodegui';
+import { QColor, QPoint, QRect, QSize } from '@nodegui/nodegui';
 
-export type ValueAnimation = string | number | boolean | QRect | QPoint | QSize;
+export type ValueAnimation = |
+  string |
+  number |
+  boolean |
+  QRect |
+  QPoint |
+  QSize |
+  QColor;
