@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle, useMemo, useRef, useState } from "react";
+import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState } from "react";
 import { RNStackedLayout, StackedLayout } from "../StackedLayout";
 import { StackScreen, StackScreenProps } from "../StackScreen";
 import { StackNavigationHistory } from "./interfaces/StackNavigationHistory";
@@ -7,6 +7,7 @@ import { StackedLayoutProps } from "../StackedLayout/interfaces/StackedLayoutPro
 export interface StackNavigationProps extends StackedLayoutProps {
   initScreen?: string;
   children: React.ReactNode;
+  onChangeScreen?(index: string): void;
 }
 
 export interface StackNavigationRef {
@@ -39,6 +40,14 @@ export const StackNavigation = forwardRef(function StackNavigation(props: StackN
     );
   }, [props.children]);
 
+  const emitInitScreen = useCallback(() => {
+    props.onChangeScreen?.(props.initScreen || screenNames[0]);
+  }, [props]);
+
+  useEffect(() => {
+    emitInitScreen();
+  }, []);
+
   useImperativeHandle(ref, () => ({
     navigateTo(index, resetHistory) {
       if (resetHistory) {
@@ -54,6 +63,7 @@ export const StackNavigation = forwardRef(function StackNavigation(props: StackN
           index: index,
         });
         refStackedLayout.current?.goToIndex(index);
+        props.onChangeScreen?.(screenName);
       } else {
         const screenIndex = screenNames.indexOf(index);
 
@@ -63,6 +73,7 @@ export const StackNavigation = forwardRef(function StackNavigation(props: StackN
           index: screenIndex,
         });
         refStackedLayout.current?.goToPage(index);
+        props.onChangeScreen?.(index);
       }
     },
     getIndex() {
@@ -86,7 +97,11 @@ export const StackNavigation = forwardRef(function StackNavigation(props: StackN
   }));
 
   return (
-    <StackedLayout {...props} initialName={indexString} ref={refStackedLayout}>
+    <StackedLayout
+      {...props}
+      ref={refStackedLayout}
+      initialName={indexString}
+    >
       {screens}
     </StackedLayout>
   );
