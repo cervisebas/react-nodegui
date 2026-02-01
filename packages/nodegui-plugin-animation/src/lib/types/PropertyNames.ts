@@ -1,4 +1,4 @@
-import { QGraphicsDropShadowEffect } from '@nodegui/nodegui';
+import { QGraphicsBlurEffect, QGraphicsDropShadowEffect } from '@nodegui/nodegui';
 
 type PropertyNameGeneric = |
   'geometry' |
@@ -14,7 +14,11 @@ type PropertyNameGraphicsEffect = |
   'xOffset' |
   'yOffset' |
   'color';
+  
+type PropertyNameGraphicsBlurEffect = |
+  'blurRadius';
 
 export type PropertyName<T> = 
   T extends QGraphicsDropShadowEffect ? PropertyNameGraphicsEffect :
+  T extends QGraphicsBlurEffect ? PropertyNameGraphicsBlurEffect :
   PropertyNameGeneric;
