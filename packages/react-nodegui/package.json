@@ -16,6 +16,10 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./babel-import-assets": "./dist/babel-import-assets.js"
+  },
   "dependencies": {
     "@nodegui/nodegui": "^0.73.0",
     "phin": "^3.7.1",
