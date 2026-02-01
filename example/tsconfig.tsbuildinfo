@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/assets.d.ts","./src/index.tsx"],"version":"5.7.3"}
+{"root":["./src/app.tsx","./src/assets.d.ts","./src/index.tsx","./src/components/lateralnavigation/lateralnavigation.tsx","./src/components/lateralnavigation/lateralnavigationcontent.tsx","./src/enums/stackscreenname.ts","./src/navigation/basestacknavigation.tsx","./src/screens/welcomescreen.tsx","./src/utils/random.ts"],"version":"5.7.3"}

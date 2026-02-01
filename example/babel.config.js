@@ -7,6 +7,6 @@ module.exports = {
     }]
   ],
   plugins: [
-    './babel-plugins/babel-plugin-transform-assets.js',
+    '@cervisebas/react-nodegui/babel-import-assets',
   ],
 };
