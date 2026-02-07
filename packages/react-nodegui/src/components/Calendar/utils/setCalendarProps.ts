@@ -34,8 +34,8 @@ export function setCalendarProps(
     set navigationBarVisible(visible: boolean) {
       widget.setNavigationBarVisible(visible);
     },
-    set selectionMode(mode: never) {
-      widget.setSelectionMode(mode);
+    set selectionMode(mode: SelectionMode) {
+      widget.setSelectionMode(mode as never);
     },
     set verticalHeaderFormat(format: VerticalHeaderFormat) {
       widget.setVerticalHeaderFormat(format);

@@ -6,7 +6,7 @@ import { Routers } from "./constants/routes";
 
 const winIcon = new QIcon(toPixmapFile(IconAsset));
 const minSizeWindow = {
-  width: 1024,
+  width: 860,
   height: 576,
 };
 
