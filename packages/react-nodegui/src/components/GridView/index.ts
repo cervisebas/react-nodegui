@@ -15,6 +15,7 @@ class GridViewConfig extends ComponentConfig<GridViewProps, RNGridView> {
     widget.setProps(newProps, {
       children: [],
     });
+
     return widget;
   }
 

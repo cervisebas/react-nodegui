@@ -52,7 +52,7 @@ export { RadioButton, RNRadioButton, RadioButtonNative } from "./components/Radi
 export { Dial, RNDial, DialNative } from "./components/Dial";
 export { SpinBox, RNSpinBox, SpinBoxNative } from "./components/SpinBox";
 export { ScrollArea, RNScrollArea, ScrollAreaNative } from "./components/ScrollArea";
-export { ComboBox, RNComboBox, ComboBoxNative } from "./components/ComboBox";
+export { ComboBox, RNComboBox, ComboBoxNative, ComboBoxItem } from "./components/ComboBox";
 export { SystemTrayIcon } from "./components/SystemTrayIcon";
 export { Tabs, RNTab, TabNative } from "./components/Tabs";
 export { TabItem } from "./components/TabItem";

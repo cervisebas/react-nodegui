@@ -12,7 +12,13 @@ export type GridViewNative = NativeElement & QGridLayout;
 export class RNGridView extends QWidget implements RNComponent {
   native!: GridViewNative;
   initialProps?: GridViewProps;
+  latestProps?: GridViewProps;
   childRows: Array<DataWithOffset<RNGridRow>> = [];
+
+  constructor() {
+    super();
+    this.setFlexNodeSizeControlled(true);
+  }
 
   layout() {
     return super.layout() as QGridLayout;
@@ -35,10 +41,15 @@ export class RNGridView extends QWidget implements RNComponent {
   /* RNComponent */
 
   setProps(newProps: GridViewProps, oldProps: GridViewProps): void {
+    this.latestProps = newProps;
     if (this.layout()) {
       setGridViewProps(this, newProps, oldProps);
     } else {
       this.initialProps = newProps;
+    }
+    // Update size if props caused layout changes (like stretch strings)
+    if (this.layout()) {
+      this.updateSize();
     }
   }
   appendInitialChild(child: RNGridRow): void {
@@ -73,12 +84,13 @@ export class RNGridView extends QWidget implements RNComponent {
     const layout = new QGridLayout();
     this.setLayout(layout);
 
-    // Newly created layout, so set initial props
     if (this.initialProps) {
       setGridViewProps(this, this.initialProps, {});
     }
 
     updateChild();
+
+    this.updateSize();
   }
   insertBefore(child: RNGridRow, beforeChild: RNGridRow): void {
     const prevIndex = this.childRows.findIndex(
@@ -103,6 +115,8 @@ export class RNGridView extends QWidget implements RNComponent {
     });
     // Update displaced children
     this.updateChildren(prevIndex);
+
+    this.updateSize();
   }
   removeChild(child: RNGridRow): void {
     const prevIndex = this.childRows.findIndex(({ data }) => data === child);
@@ -114,6 +128,27 @@ export class RNGridView extends QWidget implements RNComponent {
 
     child.remove();
     child.parentGrid = undefined;
+
+    this.updateSize();
+  }
+
+  private updateSize() {
+    this.adjustSize();
+    // In NodeGui, FlexBox layout will not know the QGridLayout size automatically.
+    // By setting min-height/min-width, we inform the FlexBox layout of the actual required dimensions.
+    const layout = this.layout();
+    if (layout) {
+      // Small timeout to allow QGridLayout to recalculate its sizeHint
+      setTimeout(() => {
+        const hint = this.sizeHint();
+        if (hint) {
+          const width = hint.width();
+          const height = hint.height();
+          const userStyle = this._rawInlineStyle ?? '';
+          this.setInlineStyle(`${userStyle}; min-width: ${width}px; min-height: ${height}px;`);
+        }
+      }, 0);
+    }
   }
   static tagName: string = "gridview";
 }

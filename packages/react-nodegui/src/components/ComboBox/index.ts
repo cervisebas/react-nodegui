@@ -30,3 +30,4 @@ class ComboBoxConfig extends ComponentConfig<ComboBoxProps, RNComboBox> {
 export const ComboBox = registerComponent<ComboBoxProps>(new ComboBoxConfig());
 export { RNComboBox };
 export { ComboBoxNative } from "./scripts/RNComboBox";
+export { ComboBoxItem } from "./interfaces/ComboBoxItem";
