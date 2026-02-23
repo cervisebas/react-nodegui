@@ -18,6 +18,9 @@ export const setImageProps = (
         .then((pixmap) => widget.setPixmap(pixmap))
         .catch(console.warn);
     },
+    set pixmap(pixmap: QPixmap) {
+      widget.setPixmap(pixmap);
+    },
     set buffer(imageBuffer: Buffer) {
       const pixMap = new QPixmap();
       pixMap.loadFromData(imageBuffer);

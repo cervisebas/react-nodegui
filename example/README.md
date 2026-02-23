@@ -3,7 +3,7 @@
 * [ ] AnimatedImage
 * [ ] BoxView
 * [ ] Button
-* [ ] Calendar
+* [x] Calendar
 * [ ] CheckBox
 * [ ] ColorDialog
 * [ ] ComboBox

@@ -3,12 +3,14 @@ import { StackNavigation, StackScreen, StyleSheet, View, ViewProvider } from '@c
 import { LateralNavigation } from '../components/LateralNavigation/LateralNavigation';
 import { Route } from '../interfaces/Route';
 import { refStackNavigation } from '../utils/refs';
+import { useSystemTheme } from '../hooks/useSystemTheme';
 
 interface IProps {
   routers: Route[];
 }
 
 export function BaseStackNavigation(props: IProps) {
+  const { theme } = useSystemTheme();
   const [currentRoute, setCurrentRoute] = useState('');
 
   return (
@@ -23,7 +25,7 @@ export function BaseStackNavigation(props: IProps) {
             <StackScreen
               key={`screen-${route.route}`}
               name={route.route}
-              style={styles.stackContent}
+              style={[styles.stackContent, { backgroundColor: theme.background }]}
             >
               <route.component />
             </StackScreen>

@@ -2,19 +2,21 @@
   "name": "example",
   "private": true,
   "version": "0.0.0",
-  "main": "dist/index.js",
+  "main": "bundle/index.js",
   "scripts": {
     "dev": "node scripts/watch.mjs",
     "build": "tsc -b && webpack",
     "lint": "eslint .",
-    "preview": "qode --inspect ./dist/index.js",
-    "deploy": "npm run build && nodegui-packer --pack ./dist"
+    "preview": "qode --inspect ./bundle/index.js",
+    "deploy": "npm run build && nodegui-packer --pack ./bundle"
   },
   "dependencies": {
     "@cervisebas/nodegui-plugin-animation": "workspace:*",
     "@cervisebas/react-nodegui": "workspace:*",
     "@cervisebas/react-nodegui-plugin-animation": "workspace:*",
     "@nodegui/nodegui": "^0.74.0",
+    "@types/color": "^4.2.0",
+    "color": "^5.0.3",
     "react": "^18.3.1"
   },
   "devDependencies": {
@@ -22,8 +24,8 @@
     "@babel/preset-env": "^7.27.2",
     "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.27.1",
+    "@cervisebas/nodegui-packer": "workspace:*",
     "@eslint/js": "^9.22.0",
-    "@nodegui/packer": "https://github.com/HerokeyVN/nodegui-packer",
     "@types/node": "^22.15.3",
     "@types/react": "^19.0.10",
     "babel-loader": "^10.0.0",

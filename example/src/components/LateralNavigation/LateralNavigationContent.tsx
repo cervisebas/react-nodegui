@@ -2,7 +2,8 @@ import { QPropertyAnimation, QEasingCurve } from "@cervisebas/nodegui-plugin-ani
 import { RNView, StyleSheet, View } from "@cervisebas/react-nodegui";
 import { Brush } from "@cervisebas/react-nodegui/dist/styles/types/ColorTypes";
 import { QColor, QGraphicsDropShadowEffect, QRect } from "@nodegui/nodegui";
-import React, { useRef, useCallback, forwardRef, useImperativeHandle } from "react";
+import React, { useRef, useCallback, forwardRef, useImperativeHandle, useEffect } from "react";
+import { useSystemTheme } from "../../hooks/useSystemTheme";
 
 interface IProps {
   expand_width: number;
@@ -30,6 +31,8 @@ ShadowContent.setYOffset(0);
 ShadowContent.setColor(new QColor(0, 0, 0, 30));
 
 export const LateralNavigationContent = forwardRef(function (props: IProps, ref: React.Ref<LateralNavigationContentRef>) {
+  const { theme } = useSystemTheme();
+
   const refContent = useRef<RNView>(null);
 
   const contentAnimation = useRef<QPropertyAnimation<RNView | null> | null>(null);
@@ -104,6 +107,10 @@ export const LateralNavigationContent = forwardRef(function (props: IProps, ref:
     expand: expandContent,
     collapse: collapseContent,
   }));
+
+  useEffect(() => {
+    ShadowContent.setColor(new QColor(...theme.menuShadow));
+  }, [theme]);
 
   return (
     <View

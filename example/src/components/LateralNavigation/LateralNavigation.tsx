@@ -1,10 +1,13 @@
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { LateralNavigationButton } from "./LateralNavigationButton";
 import { LateralNavigationContent, LateralNavigationContentRef } from "./LateralNavigationContent";
 import { StyleSheet, View } from "@cervisebas/react-nodegui";
 import { Route } from "../../interfaces/Route";
 import React from "react";
 import { refStackNavigation } from "../../utils/refs";
+import { useSystemTheme } from "../../hooks/useSystemTheme";
+import color from "color";
+import { Brush } from "@cervisebas/react-nodegui/dist/styles/types/ColorTypes";
 
 const EXPAND_WIDTH = 280;
 const COLLAPSE_WIDTH = 60;
@@ -16,18 +19,32 @@ const PADDING_HORIZONTAL_CONTENT = 6;
 const BUTTON_EXPAND_WIDTH = 280 - PADDING_HORIZONTAL_CONTENT * 2;
 const BUTTON_COLLAPSE_WIDTH = 60 - PADDING_HORIZONTAL_CONTENT * 2;
 
-const CONTENT_BACKGROUND_COLOR = '#F2F2F2';
-const BUTTON_BACKGROUND_COLOR = '#E6E6E6';
-const BUTTON_BACKGROUND_COLOR_ACTIVE = '#C6C6C6';
-
 interface IProps {
   routes: Route[];
   activeScreen: string;
 }
 
 export function LateralNavigation(props: IProps) {
-  const refLateralNavigationContent = useRef<LateralNavigationContentRef>(null);
+  const { theme, isDark } = useSystemTheme();
+  const buttonBackground = useMemo(() => {
+    const backgroundMenu = color(theme.menuBackground);
+    
+    const active = isDark
+      ? backgroundMenu.lighten(2).hex()
+      : backgroundMenu.darken(0.3).hex();
+
+    const _background = isDark
+      ? backgroundMenu.lighten(0.2).hex()
+      : backgroundMenu.darken(0.1).hex();
+
+    return {
+      active: active as Brush,
+      background: _background as Brush,
+    };
+  }, [isDark, theme.menuBackground]);
+
   const [expanded, setExpanded] = useState(false);
+  const refLateralNavigationContent = useRef<LateralNavigationContentRef>(null);
 
   return (
     <LateralNavigationContent
@@ -35,7 +52,7 @@ export function LateralNavigation(props: IProps) {
       expand_width={EXPAND_WIDTH}
       collapse_width={COLLAPSE_WIDTH}
       animation_duration={ANIMATION_DURATION}
-      background_color={CONTENT_BACKGROUND_COLOR}
+      background_color={theme.menuBackground}
       setExpanded={setExpanded}
     >
       <View
@@ -58,8 +75,8 @@ export function LateralNavigation(props: IProps) {
               expand_width={BUTTON_EXPAND_WIDTH}
               collapse_width={BUTTON_COLLAPSE_WIDTH}
               animation_duration={ANIMATION_DURATION}
-              background_color={BUTTON_BACKGROUND_COLOR}
-              background_color_active={BUTTON_BACKGROUND_COLOR_ACTIVE}
+              background_color={buttonBackground.background}
+              background_color_active={buttonBackground.active}
               onClick={() => {
                 refLateralNavigationContent.current?.collapse();
                 refStackNavigation.current?.navigateTo(route.route);

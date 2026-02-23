@@ -1,0 +1,39 @@
+{
+  "name": "@cervisebas/nodegui-packer",
+  "version": "1.0.0",
+  "packageManager": "yarn@4.12.0",
+  "main": "./dist/index.js",
+  "bin": "./dist/cli.js",
+  "scripts": {
+    "build": "npm run lint & tsc",
+    "postinstall": "node ./scripts/setupBinaries.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "files": [
+    "dist",
+    "template"
+  ],
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@eslint/json": "^1.0.1",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^25.3.0",
+    "@types/plist": "^3.0.5",
+    "eslint": "^10.0.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "globals": "^17.3.0",
+    "jiti": "^2.6.1",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.0"
+  },
+  "dependencies": {
+    "@nodegui/artifact-installer": "^1.1.0",
+    "@nodegui/nodegui": "^0.74.0",
+    "commander": "^14.0.3",
+    "fs-extra": "^11.3.3",
+    "plist": "^3.1.0"
+  }
+}

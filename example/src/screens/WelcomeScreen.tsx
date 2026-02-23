@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Image, StyleSheet, Text, useViewGeometry, View } from "@cervisebas/react-nodegui";
 import IconAsset from "../assets/nodegui.png";
+import { QPixmap } from '@nodegui/nodegui';
+import { useSystemTheme } from '../hooks/useSystemTheme';
+import { tintIcon } from '../utils/tintIcon';
 
 export function WelcomeScreen() {
+  const { theme } = useSystemTheme();
   const { viewHeight, viewWidth } = useViewGeometry();
+  const [icon, setIcon] = useState(new QPixmap(IconAsset));
+
+  useEffect(() => {
+    console.log('aaaa');
+    setIcon(tintIcon(IconAsset, theme.text));
+  }, [theme]);
 
   return (
     <View
@@ -17,7 +27,7 @@ export function WelcomeScreen() {
     >
       <View style={styles.subcontainer}>
         <Image
-          src={IconAsset}
+          pixmap={icon}
           style={styles.logo}
           size={{
             width: 100,
@@ -25,7 +35,7 @@ export function WelcomeScreen() {
           }}
         />
 
-        <Text style={styles.title}>
+        <Text style={[styles.title, { color: theme.text }]}>
           React NodeGUI!
         </Text>
       </View>

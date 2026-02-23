@@ -1,6 +1,9 @@
 import { Image, StyleSheet, Text, View } from "@cervisebas/react-nodegui";
 import { Brush } from "@cervisebas/react-nodegui/dist/styles/types/ColorTypes";
 import { AspectRatioMode, CursorShape } from "@nodegui/nodegui";
+import { useSystemTheme } from "../../hooks/useSystemTheme";
+import { useMemo } from "react";
+import { tintIcon } from "../../utils/tintIcon";
 
 interface IProps {
   icon: string;
@@ -23,7 +26,10 @@ const BUTTON_HEIGHT = 36;
 const ICON_SIZE = Math.round(BUTTON_HEIGHT * 0.75);
 
 export function LateralNavigationButton(props: IProps) {
+  const { theme } = useSystemTheme();
   const WIDTH_CONTENT = props.expanded ? props.expand_width : props.collapse_width;
+
+  const icon = useMemo(() => tintIcon(props.icon, theme.menuIcons), [props.icon, theme.menuIcons]);
 
   return (
     <View
@@ -52,12 +58,12 @@ export function LateralNavigationButton(props: IProps) {
         ]}
       >
         <Image
-          src={props.icon}
+          pixmap={icon}
           aspectRatioMode={AspectRatioMode.KeepAspectRatio}
           style={styles.icon}
         />
       </View>
-      <Text style={styles.text}>
+      <Text style={[styles.text, { color: theme.text }]}>
         {props.label}
       </Text>
     </View>

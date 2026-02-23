@@ -3,6 +3,7 @@ import IconAsset from "./assets/nodegui.png";
 import { QIcon } from "@nodegui/nodegui";
 import { BaseStackNavigation } from "./navigation/BaseStackNavigation";
 import { Routers } from "./constants/routes";
+import { AppThemeProvider } from "./providers/AppThemeProvider";
 
 const winIcon = new QIcon(toPixmapFile(IconAsset));
 const minSizeWindow = {
@@ -12,14 +13,16 @@ const minSizeWindow = {
 
 export function App() {
   return (
-    <WindowProvider
-      minSize={minSizeWindow}
-      windowIcon={winIcon}
-      windowTitle={process.title}
-    >
-      <BaseStackNavigation
-        routers={Routers}
-      />
-    </WindowProvider>
+    <AppThemeProvider>
+      <WindowProvider
+        minSize={minSizeWindow}
+        windowIcon={winIcon}
+        windowTitle={process.title}
+      >
+        <BaseStackNavigation
+          routers={Routers}
+        />
+      </WindowProvider>
+    </AppThemeProvider>
   );
 }
