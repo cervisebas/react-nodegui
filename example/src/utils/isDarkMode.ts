@@ -1,4 +1,4 @@
-import { ColorGroup, ColorRole, QApplication } from "@nodegui/nodegui";
+import { ColorGroup, ColorRole, QApplication } from '@nodegui/nodegui';
 
 const app = QApplication.instance();
 export function isDarkMode() {
@@ -9,7 +9,8 @@ export function isDarkMode() {
   const brightness =
     (windowColor.red() * 299 +
       windowColor.green() * 587 +
-      windowColor.blue() * 114) / 1000;
+      windowColor.blue() * 114) /
+    1000;
 
   return brightness < 128;
 }

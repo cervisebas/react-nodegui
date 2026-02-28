@@ -1,9 +1,18 @@
-import { QPropertyAnimation, QEasingCurve } from "@cervisebas/nodegui-plugin-animation";
-import { RNView, StyleSheet, View } from "@cervisebas/react-nodegui";
-import { Brush } from "@cervisebas/react-nodegui/dist/styles/types/ColorTypes";
-import { QColor, QGraphicsDropShadowEffect, QRect } from "@nodegui/nodegui";
-import React, { useRef, useCallback, forwardRef, useImperativeHandle, useEffect } from "react";
-import { useSystemTheme } from "../../hooks/useSystemTheme";
+import {
+  QPropertyAnimation,
+  QEasingCurve,
+} from '@cervisebas/nodegui-plugin-animation';
+import { RNView, StyleSheet, View } from '@cervisebas/react-nodegui';
+import { Brush } from '@cervisebas/react-nodegui/dist/styles/types/ColorTypes';
+import { QColor, QGraphicsDropShadowEffect, QRect } from '@nodegui/nodegui';
+import React, {
+  useRef,
+  useCallback,
+  forwardRef,
+  useImperativeHandle,
+  useEffect,
+} from 'react';
+import { useSystemTheme } from '../../hooks/useSystemTheme';
 
 interface IProps {
   expand_width: number;
@@ -30,13 +39,19 @@ ShadowContent.setXOffset(2);
 ShadowContent.setYOffset(0);
 ShadowContent.setColor(new QColor(0, 0, 0, 30));
 
-export const LateralNavigationContent = forwardRef(function (props: IProps, ref: React.Ref<LateralNavigationContentRef>) {
+export const LateralNavigationContent = forwardRef(function (
+  props: IProps,
+  ref: React.Ref<LateralNavigationContentRef>,
+) {
   const { theme } = useSystemTheme();
 
   const refContent = useRef<RNView>(null);
 
-  const contentAnimation = useRef<QPropertyAnimation<RNView | null> | null>(null);
-  const shadowAnimation = useRef<QPropertyAnimation<QGraphicsDropShadowEffect> | null>(null);
+  const contentAnimation = useRef<QPropertyAnimation<RNView | null> | null>(
+    null,
+  );
+  const shadowAnimation =
+    useRef<QPropertyAnimation<QGraphicsDropShadowEffect> | null>(null);
   const currentState = useRef(props.collapse_width);
 
   const toggleContentShadow = useCallback(() => {
@@ -61,37 +76,40 @@ export const LateralNavigationContent = forwardRef(function (props: IProps, ref:
     shadowAnimation.current.start();
   }, [props.animation_duration, props.collapse_width]);
 
-  const setContentWidth = useCallback((value: number) => {
-    if (currentState.current === value) {
-      return;
-    }
-    currentState.current = value;
+  const setContentWidth = useCallback(
+    (value: number) => {
+      if (currentState.current === value) {
+        return;
+      }
+      currentState.current = value;
 
-    const originalGeometry = refContent.current?.geometry();
-    if (!originalGeometry) {
-      return;
-    }
+      const originalGeometry = refContent.current?.geometry();
+      if (!originalGeometry) {
+        return;
+      }
 
-    if (!contentAnimation.current) {
-      contentAnimation.current = new QPropertyAnimation(refContent.current);
-      contentAnimation.current.setPropertyName('geometry');
-      contentAnimation.current.setEasingCurve(QEasingCurve.InCirc);
-      contentAnimation.current.setDuration(props.animation_duration);
-    }
+      if (!contentAnimation.current) {
+        contentAnimation.current = new QPropertyAnimation(refContent.current);
+        contentAnimation.current.setPropertyName('geometry');
+        contentAnimation.current.setEasingCurve(QEasingCurve.InCirc);
+        contentAnimation.current.setDuration(props.animation_duration);
+      }
 
-    contentAnimation.current.setStartValue(originalGeometry);
-    contentAnimation.current.setEndValue(
-      new QRect(
-        originalGeometry.left(),
-        originalGeometry.top(),
-        value,
-        originalGeometry.height(),
-      ),
-    );
-    contentAnimation.current.start();
+      contentAnimation.current.setStartValue(originalGeometry);
+      contentAnimation.current.setEndValue(
+        new QRect(
+          originalGeometry.left(),
+          originalGeometry.top(),
+          value,
+          originalGeometry.height(),
+        ),
+      );
+      contentAnimation.current.start();
 
-    toggleContentShadow();
-  }, [props.animation_duration, toggleContentShadow]);
+      toggleContentShadow();
+    },
+    [props.animation_duration, toggleContentShadow],
+  );
 
   const expandContent = useCallback(() => {
     setContentWidth(props.expand_width);

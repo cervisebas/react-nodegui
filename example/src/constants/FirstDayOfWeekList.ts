@@ -1,5 +1,5 @@
-import { ComboBoxItem } from "@cervisebas/react-nodegui";
-import { DayOfWeek, QVariant } from "@nodegui/nodegui";
+import { ComboBoxItem } from '@cervisebas/react-nodegui';
+import { DayOfWeek, QVariant } from '@nodegui/nodegui';
 
 export const FirstDayOfWeekList: (ComboBoxItem & { data: DayOfWeek })[] = [
   {

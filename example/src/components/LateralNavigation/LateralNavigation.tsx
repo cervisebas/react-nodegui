@@ -1,13 +1,16 @@
-import { useMemo, useRef, useState } from "react";
-import { LateralNavigationButton } from "./LateralNavigationButton";
-import { LateralNavigationContent, LateralNavigationContentRef } from "./LateralNavigationContent";
-import { StyleSheet, View } from "@cervisebas/react-nodegui";
-import { Route } from "../../interfaces/Route";
-import React from "react";
-import { refStackNavigation } from "../../utils/refs";
-import { useSystemTheme } from "../../hooks/useSystemTheme";
-import color from "color";
-import { Brush } from "@cervisebas/react-nodegui/dist/styles/types/ColorTypes";
+import { useMemo, useRef, useState } from 'react';
+import { LateralNavigationButton } from './LateralNavigationButton';
+import {
+  LateralNavigationContent,
+  LateralNavigationContentRef,
+} from './LateralNavigationContent';
+import { StyleSheet, View } from '@cervisebas/react-nodegui';
+import { Route } from '../../interfaces/Route';
+import React from 'react';
+import { refStackNavigation } from '../../utils/refs';
+import { useSystemTheme } from '../../hooks/useSystemTheme';
+import color from 'color';
+import { Brush } from '@cervisebas/react-nodegui/dist/styles/types/ColorTypes';
 
 const EXPAND_WIDTH = 280;
 const COLLAPSE_WIDTH = 60;
@@ -28,7 +31,7 @@ export function LateralNavigation(props: IProps) {
   const { theme, isDark } = useSystemTheme();
   const buttonBackground = useMemo(() => {
     const backgroundMenu = color(theme.menuBackground);
-    
+
     const active = isDark
       ? backgroundMenu.lighten(2).hex()
       : backgroundMenu.darken(0.3).hex();
@@ -59,9 +62,7 @@ export function LateralNavigation(props: IProps) {
         style={[
           styles.content,
           {
-            width: expanded
-              ? EXPAND_WIDTH
-              : COLLAPSE_WIDTH,
+            width: expanded ? EXPAND_WIDTH : COLLAPSE_WIDTH,
           },
         ]}
       >
@@ -69,6 +70,7 @@ export function LateralNavigation(props: IProps) {
           <React.Fragment key={`button-${route.route}`}>
             <LateralNavigationButton
               icon={route.icon}
+              iconDark={route.iconDark}
               label={route.label}
               active={props.activeScreen === route.route}
               expanded={expanded}

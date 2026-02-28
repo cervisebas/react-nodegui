@@ -1,5 +1,12 @@
-import { Action, Menu, StyleSheet, Text, useViewGeometry, View } from "@cervisebas/react-nodegui";
-import { useState } from "react";
+import {
+  Action,
+  Menu,
+  StyleSheet,
+  Text,
+  useViewGeometry,
+  View,
+} from '@cervisebas/react-nodegui';
+import { useState } from 'react';
 
 const MANY_OPTIONS = [
   {
@@ -17,7 +24,7 @@ const MANY_OPTIONS = [
 export function MenuScreen() {
   const { viewHeight, viewWidth } = useViewGeometry();
   const [options, setOptions] = useState(MANY_OPTIONS);
-  
+
   return (
     <View
       style={[
@@ -30,10 +37,7 @@ export function MenuScreen() {
     >
       <Text style={styles.title}>Menu & Action Example</Text>
 
-      <Menu
-        title={'Test menu'}
-        style={styles.menu}
-      >
+      <Menu title={'Test menu'} style={styles.menu}>
         {options.map((option, index) => (
           <Action
             key={`test-menu-option-${index}`}

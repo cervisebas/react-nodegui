@@ -1,4 +1,12 @@
-import { CompositionMode, ImageConversionFlag, QColor, QImage, QImageFormat, QPainter, QPixmap } from "@nodegui/nodegui";
+import {
+  CompositionMode,
+  ImageConversionFlag,
+  QColor,
+  QImage,
+  QImageFormat,
+  QPainter,
+  QPixmap,
+} from '@nodegui/nodegui';
 
 export function tintIcon(path: string, color: string) {
   let image = new QImage(path);

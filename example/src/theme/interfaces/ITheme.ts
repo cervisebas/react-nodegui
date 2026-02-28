@@ -1,4 +1,4 @@
-import { Brush } from "@cervisebas/react-nodegui/dist/styles/types/ColorTypes";
+import { Brush } from '@cervisebas/react-nodegui/dist/styles/types/ColorTypes';
 
 export interface ITheme {
   // Commons

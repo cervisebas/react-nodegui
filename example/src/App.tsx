@@ -1,9 +1,9 @@
-import { WindowProvider, toPixmapFile } from "@cervisebas/react-nodegui";
-import IconAsset from "./assets/nodegui.png";
-import { QIcon } from "@nodegui/nodegui";
-import { BaseStackNavigation } from "./navigation/BaseStackNavigation";
-import { Routers } from "./constants/routes";
-import { AppThemeProvider } from "./providers/AppThemeProvider";
+import { WindowProvider, toPixmapFile } from '@cervisebas/react-nodegui';
+import IconAsset from './assets/nodegui.png';
+import { QIcon } from '@nodegui/nodegui';
+import { BaseStackNavigation } from './navigation/BaseStackNavigation';
+import { Routers } from './constants/routes';
+import { AppThemeProvider } from './providers/AppThemeProvider';
 
 const winIcon = new QIcon(toPixmapFile(IconAsset));
 const minSizeWindow = {
@@ -19,9 +19,7 @@ export function App() {
         windowIcon={winIcon}
         windowTitle={process.title}
       >
-        <BaseStackNavigation
-          routers={Routers}
-        />
+        <BaseStackNavigation routers={Routers} />
       </WindowProvider>
     </AppThemeProvider>
   );

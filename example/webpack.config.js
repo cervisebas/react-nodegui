@@ -10,7 +10,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'bundle'),
     filename: 'index.js',
-    assetModuleFilename: '[name][ext]'
+    assetModuleFilename: '[name][ext]',
   },
 
   module: {
@@ -18,7 +18,7 @@ module.exports = {
       {
         test: /\.(j|t)sx?$/,
         exclude: /node_modules/,
-        use: 'babel-loader'
+        use: 'babel-loader',
       },
 
       // Assets
@@ -26,7 +26,7 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg|bmp|otf)$/i,
         type: 'asset/resource',
         generator: {
-          filename: '[name][ext]',
+          filename: '[hash][ext]',
         },
       },
 
@@ -35,17 +35,15 @@ module.exports = {
         test: /\.node$/,
         loader: 'node-loader',
         options: {
-          name: "[name].[ext]", 
+          name: '[name].[ext]',
         },
       },
-    ]
+    ],
   },
 
   resolve: {
-    extensions: ['.ts', '.js', '.tsx', '.jsx', '.json']
+    extensions: ['.ts', '.js', '.tsx', '.jsx', '.json'],
   },
 
-  plugins: [
-    new CleanWebpackPlugin(),
-  ],
+  plugins: [new CleanWebpackPlugin()],
 };

@@ -1,8 +1,10 @@
-import { ComboBoxItem } from "@cervisebas/react-nodegui";
-import { QVariant } from "@nodegui/nodegui";
-import { VerticalHeaderFormat } from "@nodegui/nodegui/dist/lib/QtWidgets/QCalendarWidget";
+import { ComboBoxItem } from '@cervisebas/react-nodegui';
+import { QVariant } from '@nodegui/nodegui';
+import { VerticalHeaderFormat } from '@nodegui/nodegui/dist/lib/QtWidgets/QCalendarWidget';
 
-export const VerticalHeaderFormatList: (ComboBoxItem & { data: VerticalHeaderFormat })[] = [
+export const VerticalHeaderFormatList: (ComboBoxItem & {
+  data: VerticalHeaderFormat;
+})[] = [
   {
     text: 'NoVerticalHeader',
     data: VerticalHeaderFormat.NoVerticalHeader,

@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { StackNavigation, StackScreen, StyleSheet, View, ViewProvider } from '@cervisebas/react-nodegui';
+import {
+  StackNavigation,
+  StackScreen,
+  StyleSheet,
+  View,
+  ViewProvider,
+} from '@cervisebas/react-nodegui';
 import { LateralNavigation } from '../components/LateralNavigation/LateralNavigation';
 import { Route } from '../interfaces/Route';
 import { refStackNavigation } from '../utils/refs';
@@ -25,7 +31,10 @@ export function BaseStackNavigation(props: IProps) {
             <StackScreen
               key={`screen-${route.route}`}
               name={route.route}
-              style={[styles.stackContent, { backgroundColor: theme.background }]}
+              style={[
+                styles.stackContent,
+                { backgroundColor: theme.background },
+              ]}
             >
               <route.component />
             </StackScreen>
@@ -33,10 +42,7 @@ export function BaseStackNavigation(props: IProps) {
         </StackNavigation>
       </ViewProvider>
 
-      <LateralNavigation
-        routes={props.routers}
-        activeScreen={currentRoute}
-      />
+      <LateralNavigation routes={props.routers} activeScreen={currentRoute} />
     </View>
   );
 }

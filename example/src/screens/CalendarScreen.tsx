@@ -1,29 +1,67 @@
-import { Calendar, CheckBox, ComboBox, GridColumn, GridRow, GridView, RNCalendar, StyleSheet, Text, View } from "@cervisebas/react-nodegui";
-import { DayOfWeek, SelectionMode } from "@nodegui/nodegui";
-import { HorizontalHeaderFormat, VerticalHeaderFormat } from "@nodegui/nodegui/dist/lib/QtWidgets/QCalendarWidget";
-import { useMemo, useRef, useState } from "react";
-import { FirstDayOfWeekList } from "../constants/FirstDayOfWeekList";
-import { HorizontalHeaderFormatList } from "../constants/HorizontalHeaderFormatList";
-import { VerticalHeaderFormatList } from "../constants/VerticalHeaderFormatList";
-import { SelectionModeList } from "../constants/SelectionModeList";
-
+import {
+  Calendar,
+  CheckBox,
+  ComboBox,
+  GridColumn,
+  GridRow,
+  GridView,
+  RNCalendar,
+  StyleSheet,
+  Text,
+  View,
+} from '@cervisebas/react-nodegui';
+import { DayOfWeek, SelectionMode } from '@nodegui/nodegui';
+import {
+  HorizontalHeaderFormat,
+  VerticalHeaderFormat,
+} from '@nodegui/nodegui/dist/lib/QtWidgets/QCalendarWidget';
+import { useMemo, useRef, useState } from 'react';
+import { FirstDayOfWeekList } from '../constants/FirstDayOfWeekList';
+import { HorizontalHeaderFormatList } from '../constants/HorizontalHeaderFormatList';
+import { VerticalHeaderFormatList } from '../constants/VerticalHeaderFormatList';
+import { SelectionModeList } from '../constants/SelectionModeList';
 
 export function CalendarScreen() {
   const refCalendar = useRef<RNCalendar>(null);
   const [singleDate, setSingleDate] = useState<string | undefined>(undefined);
 
   const [dateEditEnabled, setDateEditEnabled] = useState<boolean>(true);
-  const [firstDayOfWeek, setFirstDayOfWeek] = useState<DayOfWeek>(DayOfWeek.Sunday);
+  const [firstDayOfWeek, setFirstDayOfWeek] = useState<DayOfWeek>(
+    DayOfWeek.Sunday,
+  );
   const [gridVisible, setGridVisible] = useState<boolean>(false);
-  const [horizontalHeaderFormat, setHorizontalHeaderFormat] = useState<HorizontalHeaderFormat>(HorizontalHeaderFormat.ShortDayNames);
-  const [navigationBarVisible, setNavigationBarVisible] = useState<boolean>(true);
-  const [selectionMode, setSelectionMode] = useState(SelectionMode.SingleSelection);
-  const [verticalHeaderFormat, setVerticalHeaderFormat] = useState<VerticalHeaderFormat>(VerticalHeaderFormat.NoVerticalHeader);
+  const [horizontalHeaderFormat, setHorizontalHeaderFormat] =
+    useState<HorizontalHeaderFormat>(HorizontalHeaderFormat.ShortDayNames);
+  const [navigationBarVisible, setNavigationBarVisible] =
+    useState<boolean>(true);
+  const [selectionMode, setSelectionMode] = useState(
+    SelectionMode.SingleSelection,
+  );
+  const [verticalHeaderFormat, setVerticalHeaderFormat] =
+    useState<VerticalHeaderFormat>(VerticalHeaderFormat.NoVerticalHeader);
 
-  const firstDayOfWeekSelected = useMemo(() => FirstDayOfWeekList.findIndex(val => val.data === firstDayOfWeek), [firstDayOfWeek]);
-  const horizontalHeaderFormatSelected = useMemo(() => HorizontalHeaderFormatList.findIndex(val => val.data === horizontalHeaderFormat), [horizontalHeaderFormat]);
-  const verticalHeaderFormatSelected = useMemo(() => VerticalHeaderFormatList.findIndex(val => val.data === verticalHeaderFormat), [verticalHeaderFormat]);
-  const selectionModeSelected = useMemo(() => SelectionModeList.findIndex(val => val.data === selectionMode), [selectionMode]);
+  const firstDayOfWeekSelected = useMemo(
+    () => FirstDayOfWeekList.findIndex((val) => val.data === firstDayOfWeek),
+    [firstDayOfWeek],
+  );
+  const horizontalHeaderFormatSelected = useMemo(
+    () =>
+      HorizontalHeaderFormatList.findIndex(
+        (val) => val.data === horizontalHeaderFormat,
+      ),
+    [horizontalHeaderFormat],
+  );
+  const verticalHeaderFormatSelected = useMemo(
+    () =>
+      VerticalHeaderFormatList.findIndex(
+        (val) => val.data === verticalHeaderFormat,
+      ),
+    [verticalHeaderFormat],
+  );
+  const selectionModeSelected = useMemo(
+    () => SelectionModeList.findIndex((val) => val.data === selectionMode),
+    [selectionMode],
+  );
 
   return (
     <View style={styles.content}>
@@ -32,7 +70,6 @@ export function CalendarScreen() {
       <View style={styles.calendarContent}>
         <Calendar
           ref={refCalendar}
-
           dateEditEnabled={dateEditEnabled}
           firstDayOfWeek={firstDayOfWeek}
           gridVisible={gridVisible}
@@ -40,7 +77,6 @@ export function CalendarScreen() {
           navigationBarVisible={navigationBarVisible}
           selectionMode={selectionMode as never}
           verticalHeaderFormat={verticalHeaderFormat}
-
           on={{
             clicked(date) {
               const _date = new Date(date.year(), date.month() - 1, date.day());
@@ -69,7 +105,6 @@ export function CalendarScreen() {
       </Text>
 
       <GridView verticalSpacing={4}>
-
         {/* ##### dateEditEnabled ##### */}
         <GridRow>
           <GridColumn>
@@ -83,9 +118,7 @@ export function CalendarScreen() {
             />
           </GridColumn>
           <GridColumn>
-            <Text style={styles.itemOptionText}>
-              Editing date enabled
-            </Text>
+            <Text style={styles.itemOptionText}>Editing date enabled</Text>
           </GridColumn>
         </GridRow>
 
@@ -105,9 +138,7 @@ export function CalendarScreen() {
             />
           </GridColumn>
           <GridColumn>
-            <Text style={styles.itemOptionText}>
-              First day of week
-            </Text>
+            <Text style={styles.itemOptionText}>First day of week</Text>
           </GridColumn>
         </GridRow>
 
@@ -124,9 +155,7 @@ export function CalendarScreen() {
             />
           </GridColumn>
           <GridColumn>
-            <Text style={styles.itemOptionText}>
-              Grid visible
-            </Text>
+            <Text style={styles.itemOptionText}>Grid visible</Text>
           </GridColumn>
         </GridRow>
 
@@ -139,16 +168,16 @@ export function CalendarScreen() {
               on={{
                 currentIndexChanged(index) {
                   if (HorizontalHeaderFormatList[index]) {
-                    setHorizontalHeaderFormat(HorizontalHeaderFormatList[index].data);
+                    setHorizontalHeaderFormat(
+                      HorizontalHeaderFormatList[index].data,
+                    );
                   }
                 },
               }}
             />
           </GridColumn>
           <GridColumn>
-            <Text style={styles.itemOptionText}>
-              Horizontal header format
-            </Text>
+            <Text style={styles.itemOptionText}>Horizontal header format</Text>
           </GridColumn>
         </GridRow>
 
@@ -165,9 +194,7 @@ export function CalendarScreen() {
             />
           </GridColumn>
           <GridColumn>
-            <Text style={styles.itemOptionText}>
-              Navigation bar visible
-            </Text>
+            <Text style={styles.itemOptionText}>Navigation bar visible</Text>
           </GridColumn>
         </GridRow>
 
@@ -187,9 +214,7 @@ export function CalendarScreen() {
             />
           </GridColumn>
           <GridColumn>
-            <Text style={styles.itemOptionText}>
-              Selection mode
-            </Text>
+            <Text style={styles.itemOptionText}>Selection mode</Text>
           </GridColumn>
         </GridRow>
 
@@ -202,21 +227,19 @@ export function CalendarScreen() {
               on={{
                 currentIndexChanged(index) {
                   if (VerticalHeaderFormatList[index]) {
-                    setVerticalHeaderFormat(VerticalHeaderFormatList[index].data);
+                    setVerticalHeaderFormat(
+                      VerticalHeaderFormatList[index].data,
+                    );
                   }
                 },
               }}
             />
           </GridColumn>
           <GridColumn>
-            <Text style={styles.itemOptionText}>
-              Vertical header format
-            </Text>
+            <Text style={styles.itemOptionText}>Vertical header format</Text>
           </GridColumn>
         </GridRow>
-
       </GridView>
-
     </View>
   );
 }
