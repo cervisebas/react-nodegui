@@ -8,7 +8,9 @@ export function setRadioButtonProps(
   oldProps: RadioButtonProps
 ) {
   const setter: RadioButtonProps = {
-    // more setters to be added
+    set checked(isChecked: boolean) {
+      widget.setChecked(isChecked);
+    }
   };
   Object.assign(setter, newProps);
   setAbstractButtonProps(widget, newProps, oldProps);
