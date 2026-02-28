@@ -2,11 +2,11 @@
 * [x] Action
 * [ ] AnimatedImage
 * [ ] BoxView
-* [ ] Button
+* [x] Button
 * [x] Calendar
-* [ ] CheckBox
+* [x] CheckBox
 * [ ] ColorDialog
-* [ ] ComboBox
+* [x] ComboBox
 * [ ] Dial
 * [ ] Dialog
 * [ ] Draggable
@@ -24,11 +24,11 @@
 * [x] Menu
 * [ ] MenuBar
 * [ ] PlainTextEdit
-* [ ] ProgressBar
+* [x] ProgressBar
 * [ ] ProgressDialog
-* [ ] RadioButton
+* [x] RadioButton
 * [ ] ScrollArea
-* [ ] Slider
+* [x] Slider
 * [ ] SpinBox
 * [ ] StackedItem
 * [ ] StackedLayout

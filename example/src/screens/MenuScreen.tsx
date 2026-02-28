@@ -1,4 +1,4 @@
-import { Action, Menu, StyleSheet, useViewGeometry, View } from "@cervisebas/react-nodegui";
+import { Action, Menu, StyleSheet, Text, useViewGeometry, View } from "@cervisebas/react-nodegui";
 import { useState } from "react";
 
 const MANY_OPTIONS = [
@@ -28,6 +28,8 @@ export function MenuScreen() {
         },
       ]}
     >
+      <Text style={styles.title}>Menu & Action Example</Text>
+
       <Menu
         title={'Test menu'}
         style={styles.menu}
@@ -52,6 +54,11 @@ export function MenuScreen() {
 }
 
 const styles = StyleSheet.create({
+  title: {
+    fontSize: '18px',
+    fontWeight: '500',
+    marginBottom: 8,
+  },
   content: {
     flex: 1,
     paddingLeft: 16,

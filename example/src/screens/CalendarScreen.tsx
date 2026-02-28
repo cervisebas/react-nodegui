@@ -27,7 +27,7 @@ export function CalendarScreen() {
 
   return (
     <View style={styles.content}>
-      <Text style={styles.title}>Single selection</Text>
+      <Text style={styles.title}>Calendar Example</Text>
 
       <View style={styles.calendarContent}>
         <Calendar
