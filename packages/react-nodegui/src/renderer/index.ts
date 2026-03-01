@@ -12,40 +12,26 @@ export class Renderer {
     }
   }
   static render(element: React.ReactNode, options?: RendererOptions) {
-    const containerInfo = appContainer;
-    const isConcurrent = true;
-    const isStrictMode = false;
-
-    const rendererOptions = Object.assign(
-      {},
-      {
-        onInit: () => {},
-        onRender: () => {},
-      },
-      options,
-    );
-
     Renderer.container = reconciler.createContainer(
-      containerInfo,
+      appContainer,
       0,
       null,
-      isStrictMode,
-      isConcurrent,
+      false, // isStrictMode
+      true, // isConcurrent
       'app-tag',
       console.error,
       null,
     );
 
-    rendererOptions.onInit(reconciler);
+    if (options && options.onInit) {
+      options.onInit(reconciler);
+    }
 
-    const parentComponent = null;
     reconciler.updateContainer(
       element,
       Renderer.container,
-      parentComponent,
-      function() {
-        rendererOptions.onRender();
-      },
+      null, // parentComponent
+      options?.onRender as (() => void) | null | undefined
     );
   }
 }

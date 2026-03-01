@@ -7,6 +7,10 @@ import { shouldIgnoreChild } from "./utils";
 
 export const appContainer: AppContainer = new Set<QWidget<never>>();
 
+const rootHostContext = { name: "rootnode" };
+const noop = () => { };
+const noopNull = () => null;
+
 const HostConfig: HostConfigType = {
   //now: Date.now,
   supportsMutation: true,
@@ -17,17 +21,13 @@ const HostConfig: HostConfigType = {
   noTimeout: -1,
   isPrimaryRenderer: true,
   getRootHostContext() {
-    return {
-      name: "rootnode",
-    };
+    return rootHostContext;
   },
   getChildHostContext(parentHostContext, type, rootContainer) {
-    const { getContext } = getComponentByTagName(type);
-    return getContext(parentHostContext, rootContainer);
+    return getComponentByTagName(type).getContext(parentHostContext, rootContainer);
   },
   shouldSetTextContent(type, props) {
-    const { shouldSetTextContent } = getComponentByTagName(type);
-    return shouldSetTextContent(props);
+    return getComponentByTagName(type).shouldSetTextContent(props);
   },
   createTextInstance(text) {
     console.warn(
@@ -36,8 +36,7 @@ const HostConfig: HostConfigType = {
     console.warn(`Use <Text /> component to add the text: ${text}`);
   },
   createInstance(type, props, rootContainer, hostContext, internalHandle) {
-    const { createInstance } = getComponentByTagName(type);
-    return createInstance(
+    return getComponentByTagName(type).createInstance(
       props,
       rootContainer,
       hostContext,
@@ -45,29 +44,21 @@ const HostConfig: HostConfigType = {
     );
   },
   appendInitialChild(parentInstance, child) {
-    if (shouldIgnoreChild(child)) {
-      return;
-    }
+    if (shouldIgnoreChild(child)) return;
     parentInstance.appendInitialChild(child);
   },
   finalizeInitialChildren(instance, type, props, rootContainer, hostContext) {
-    const { finalizeInitialChildren } = getComponentByTagName(type);
-    return finalizeInitialChildren(
+    return getComponentByTagName(type).finalizeInitialChildren(
       instance,
       props,
       rootContainer,
       hostContext as never
     );
   },
-  prepareForCommit() {
-    return null;
-  },
-  resetAfterCommit() {
-    return null;
-  },
+  prepareForCommit: noopNull,
+  resetAfterCommit: noopNull,
   commitMount(instance, type, props, internalInstanceHandle) {
-    const { commitMount } = getComponentByTagName(type);
-    return commitMount(instance, props, internalInstanceHandle as never);
+    return getComponentByTagName(type).commitMount(instance, props, internalInstanceHandle as never);
   },
   appendChildToContainer(container, child: QWidget<never>) {
     container.add(child);
@@ -82,8 +73,7 @@ const HostConfig: HostConfigType = {
     }
   },
   prepareUpdate(instance, type, oldProps, newProps, rootContainer, hostContext) {
-    const { prepareUpdate } = getComponentByTagName(type);
-    return prepareUpdate(
+    return getComponentByTagName(type).prepareUpdate(
       instance,
       oldProps,
       newProps,
@@ -92,8 +82,7 @@ const HostConfig: HostConfigType = {
     );
   },
   commitUpdate(instance, updatePayload, type, prevProps, nextProps, internalHandle) {
-    const { commitUpdate } = getComponentByTagName(type);
-    return commitUpdate(
+    return getComponentByTagName(type).commitUpdate(
       instance,
       updatePayload as never,
       prevProps,
@@ -102,15 +91,11 @@ const HostConfig: HostConfigType = {
     );
   },
   appendChild(parentInstance, child) {
-    if (shouldIgnoreChild(child)) {
-      return;
-    }
+    if (shouldIgnoreChild(child)) return;
     parentInstance.appendChild(child);
   },
   insertBefore(parentInstance, child, beforeChild) {
-    if (shouldIgnoreChild(child)) {
-      return;
-    }
+    if (shouldIgnoreChild(child)) return;
     parentInstance.insertBefore(
       child,
       beforeChild
@@ -135,12 +120,6 @@ const HostConfig: HostConfigType = {
   getPublicInstance(instance) {
     return instance;
   },
-  /* shouldDeprioritizeSubtree(_type: never, props: never) {
-    if ((props as {visible: boolean}).visible === false) {
-      return true;
-    }
-    return false;
-  }, */
   hideInstance(instance) {
     (instance as never as QWidget<never>)?.hide();
   },
@@ -157,34 +136,21 @@ const HostConfig: HostConfigType = {
       "unhideTextInstance called when platform doesnt have host level text"
     );
   },
-  clearContainer() {
-    return;
-  },
-
-  preparePortalMount() {
-    return;
-  },
+  clearContainer: noop,
+  preparePortalMount: noop,
   getCurrentEventPriority() {
     throw new Error("Function not implemented.");
   },
   getInstanceFromNode() {
     throw new Error("Function not implemented.");
   },
-  beforeActiveInstanceBlur() {
-    return;
-  },
-  afterActiveInstanceBlur() {
-    return;
-  },
-  prepareScopeUpdate() {
-    return;
-  },
+  beforeActiveInstanceBlur: noop,
+  afterActiveInstanceBlur: noop,
+  prepareScopeUpdate: noop,
   getInstanceFromScope() {
     throw new Error("Function not implemented.");
   },
-  detachDeletedInstance() {
-    return;
-  }
+  detachDeletedInstance: noop
 };
 
 export default Reconciler(HostConfig);

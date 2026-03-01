@@ -22,66 +22,59 @@
     return env.Null();                                                       \
   }                                                                          \
                                                                              \
-  QSharedPointer<QVariant> getValue(Napi::Env env, Napi::Value value) {      \
+  QVariant getValue(Napi::Env env, Napi::Value value) {                      \
     if (value.IsObject()) {                                                  \
       Napi::Object obj = value.As<Napi::Object>();                           \
       if (obj.Has("qrect")) {                                                \
-        int x = obj.Get("x").ToNumber().Int32Value();                        \
-        int y = obj.Get("y").ToNumber().Int32Value();                        \
-        int w = obj.Get("width").ToNumber().Int32Value();                    \
-        int h = obj.Get("height").ToNumber().Int32Value();                   \
-        QRect rect(x, y, w, h);                                              \
-        return QSharedPointer<QVariant>::create(rect);                       \
+        int x = obj.Get("x").As<Napi::Number>().Int32Value();                \
+        int y = obj.Get("y").As<Napi::Number>().Int32Value();                \
+        int w = obj.Get("width").As<Napi::Number>().Int32Value();            \
+        int h = obj.Get("height").As<Napi::Number>().Int32Value();           \
+        return QVariant(QRect(x, y, w, h));                                  \
       }                                                                      \
       if (obj.Has("qpoint")) {                                               \
-        int x = obj.Get("x").ToNumber().Int32Value();                        \
-        int y = obj.Get("y").ToNumber().Int32Value();                        \
-        QPoint point(x, y);                                                  \
-        return QSharedPointer<QVariant>::create(point);                      \
+        int x = obj.Get("x").As<Napi::Number>().Int32Value();                \
+        int y = obj.Get("y").As<Napi::Number>().Int32Value();                \
+        return QVariant(QPoint(x, y));                                       \
       }                                                                      \
       if (obj.Has("qsize")) {                                                \
-        int w = obj.Get("width").ToNumber().Int32Value();                    \
-        int h = obj.Get("height").ToNumber().Int32Value();                   \
-        QSize size(w, h);                                                    \
-        return QSharedPointer<QVariant>::create(size);                       \
+        int w = obj.Get("width").As<Napi::Number>().Int32Value();            \
+        int h = obj.Get("height").As<Napi::Number>().Int32Value();           \
+        return QVariant(QSize(w, h));                                        \
       }                                                                      \
       if (obj.Has("qcolor")) {                                               \
-        int r = obj.Get("r").ToNumber().Int32Value();                        \
-        int g = obj.Get("g").ToNumber().Int32Value();                        \
-        int b = obj.Get("b").ToNumber().Int32Value();                        \
-        int a = obj.Get("a").ToNumber().Int32Value();                        \
-        QColor color(r, g, b, a);                                            \
-        return QSharedPointer<QVariant>::create(color);                      \
+        int r = obj.Get("r").As<Napi::Number>().Int32Value();                \
+        int g = obj.Get("g").As<Napi::Number>().Int32Value();                \
+        int b = obj.Get("b").As<Napi::Number>().Int32Value();                \
+        int a = obj.Get("a").As<Napi::Number>().Int32Value();                \
+        return QVariant(QColor(r, g, b, a));                                 \
       }                                                                      \
     }                                                                        \
-    return                                                                   \
-      QSharedPointer<QVariant>(extrautils::convertToQVariant(env, value));   \
+    QVariant* ext = extrautils::convertToQVariant(env, value);               \
+    QVariant result = *ext;                                                  \
+    delete ext;                                                              \
+    return result;                                                           \
   }                                                                          \
                                                                              \
   Napi::Value setStartValue(const Napi::CallbackInfo &info) {                \
     Napi::Env env = info.Env();                                              \
     Napi::HandleScope scope(env);                                            \
-    Napi::Value value = info[0];                                             \
-    auto val = this->getValue(env, value);                                   \
-    this->instance->setStartValue(*val);                                     \
+    this->instance->setStartValue(this->getValue(env, info[0]));             \
     return env.Null();                                                       \
   }                                                                          \
                                                                              \
   Napi::Value setEndValue(const Napi::CallbackInfo &info) {                  \
     Napi::Env env = info.Env();                                              \
     Napi::HandleScope scope(env);                                            \
-    Napi::Value value = info[0];                                             \
-    auto val = this->getValue(env, value);                                   \
-    this->instance->setEndValue(*val);                                       \
+    this->instance->setEndValue(this->getValue(env, info[0]));               \
     return env.Null();                                                       \
   }                                                                          \
   Napi::Value setKeyValueAt(const Napi::CallbackInfo &info) {                \
     Napi::Env env = info.Env();                                              \
     Napi::HandleScope scope(env);                                            \
     Napi::Number step = info[0].As<Napi::Number>();                          \
-    Napi::Value value = info[1];                                             \
-    auto val = this->getValue(env, value);                                   \
-    this->instance->setKeyValueAt(step.DoubleValue(), *val);                 \
+    this->instance->setKeyValueAt(step.DoubleValue(),                        \
+                                  this->getValue(env, info[1]));             \
     return env.Null();                                                       \
   }                                                                          \
   Napi::Value setEasingCurve(const Napi::CallbackInfo &info) {               \

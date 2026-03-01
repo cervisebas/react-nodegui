@@ -103,6 +103,10 @@ Napi::Value QPropertyAnimationWrap::onFinished(const Napi::CallbackInfo& info) {
     return env.Undefined();
   }
 
+  if (finishedTSFN) {
+    finishedTSFN.Release();
+  }
+
   finishedTSFN = Napi::ThreadSafeFunction::New(
     env,
     info[0].As<Napi::Function>(), // JS function
