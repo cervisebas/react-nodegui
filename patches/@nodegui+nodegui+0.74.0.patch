@@ -1,0 +1,24 @@
+diff --git a/node_modules/@nodegui/nodegui/README.md b/node_modules/@nodegui/nodegui/README.md
+index c1950ee..a1dac82 100644
+--- a/node_modules/@nodegui/nodegui/README.md
++++ b/node_modules/@nodegui/nodegui/README.md
+@@ -302,4 +302,3 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
+ <!-- ALL-CONTRIBUTORS-LIST:END -->
+ 
+ This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+-
+diff --git a/node_modules/@nodegui/nodegui/build/Release/nodegui_core.node b/node_modules/@nodegui/nodegui/build/Release/nodegui_core.node
+index 378e76b..f4f20c6 100755
+Binary files a/node_modules/@nodegui/nodegui/build/Release/nodegui_core.node and b/node_modules/@nodegui/nodegui/build/Release/nodegui_core.node differ
+diff --git a/node_modules/@nodegui/nodegui/config/plugin.cmake b/node_modules/@nodegui/nodegui/config/plugin.cmake
+index 4101561..83e082c 100644
+--- a/node_modules/@nodegui/nodegui/config/plugin.cmake
++++ b/node_modules/@nodegui/nodegui/config/plugin.cmake
+@@ -1,6 +1,6 @@
+ # This cmake file will be used in the plugins
+ set(PLUGIN_CMAKE_DIR "${CMAKE_CURRENT_LIST_DIR}")
+-set(NODEGUI_ROOT "${PLUGIN_CMAKE_DIR}/..")
++get_filename_component(NODEGUI_ROOT "${PLUGIN_CMAKE_DIR}/.." ABSOLUTE)
+ set(NODEGUI_LIBRARY "${NODEGUI_ROOT}/build/Release/nodegui_core.node")
+ 
+ if(WIN32)

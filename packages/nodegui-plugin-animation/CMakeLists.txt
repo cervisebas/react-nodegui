@@ -64,6 +64,10 @@ if(APPLE)
 
     # Mantenemos esta bandera por seguridad
     target_link_options(${PLUGIN_ADDON_NAME} PRIVATE "-Wl,-undefined,dynamic_lookup")
+    
+    # Fix RPATH for NodeGUI miniqt
+    set_target_properties(${PLUGIN_ADDON_NAME} PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE)
+    set_target_properties(${PLUGIN_ADDON_NAME} PROPERTIES INSTALL_RPATH "@loader_path/../../node_modules/@nodegui/nodegui/miniqt/6.10.2/macos/lib;@loader_path/../../../node_modules/@nodegui/nodegui/miniqt/6.10.2/macos/lib")
 endif()
 
 # -------------- Includes ---------------
