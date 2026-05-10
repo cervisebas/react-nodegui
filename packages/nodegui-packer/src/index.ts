@@ -1,5 +1,7 @@
 import process from 'process';
 
+export type { AppConfig } from './config';
+
 export function getPacker(platformName: string) {
   switch (platformName) {
     case 'darwin': {

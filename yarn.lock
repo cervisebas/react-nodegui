@@ -1417,6 +1417,7 @@ __metadata:
     jiti: "npm:^2.6.1"
     plist: "npm:^3.1.0"
     prettier: "npm:^3.8.1"
+    resedit: "npm:^3.0.2"
     typescript: "npm:^5.9.3"
     typescript-eslint: "npm:^8.56.0"
   bin:
@@ -8064,6 +8065,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pe-library@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "pe-library@npm:2.0.1"
+  checksum: 10c0/83b99b6346e247b187d7717dbb2414681c580e58bd31d34303ee8007969245fc3802cb83aacfa3301409fa8c4fc8d624a391eb36b8f5aa195108225d929753d8
+  languageName: node
+  linkType: hard
+
 "phin@npm:^3.7.1":
   version: 3.7.1
   resolution: "phin@npm:3.7.1"
@@ -8487,6 +8495,15 @@ __metadata:
   version: 2.0.2
   resolution: "require-from-string@npm:2.0.2"
   checksum: 10c0/aaa267e0c5b022fc5fd4eef49d8285086b15f2a1c54b28240fdf03599cbd9c26049fee3eab894f2e1f6ca65e513b030a7c264201e3f005601e80c49fb2937ce2
+  languageName: node
+  linkType: hard
+
+"resedit@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "resedit@npm:3.0.2"
+  dependencies:
+    pe-library: "npm:^2.0.1"
+  checksum: 10c0/e09bd6292543c080e20561cf468f46d7f3b219fc689070cd28d38d52ecd55a6404722ffb4ff62110c8fbf3a7d9a726cf02657319d663c93e8e468f659494e8c1
   languageName: node
   linkType: hard
 

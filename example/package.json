@@ -10,7 +10,7 @@
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
     "preview": "qode --inspect ./bundle/index.js",
-    "deploy": "npm run build && nodegui-packer --pack ./bundle"
+    "deploy": "npm run build && nodegui-packer --pack"
   },
   "dependencies": {
     "@cervisebas/nodegui-plugin-animation": "workspace:*",

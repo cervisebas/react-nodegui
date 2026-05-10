@@ -3,6 +3,7 @@ import path from 'path';
 import { spawn } from 'child_process';
 import qode from '@nodegui/qode';
 import { qtHome } from '@nodegui/nodegui/config/qtConfig';
+import { AppConfig } from '../config';
 
 const cwd = process.cwd();
 const deployDirectory = path.resolve(cwd, 'deploy');
@@ -76,24 +77,24 @@ const runLinuxDeployQt = async (appName: string, buildDir: string) => {
   });
 };
 
-export const init = async (appName: string) => {
-  const config = {
+export const init = async (config: AppConfig) => {
+  const configJson = {
     appName: null,
   };
   const templateDirectory = path.resolve(__dirname, '../../template/linux');
   const userTemplate = path.resolve(deployDirectory, 'linux');
-  const appDir = path.resolve(userTemplate, appName);
+  const appDir = path.resolve(userTemplate, config.appName);
   await fs.mkdirp(path.resolve(userTemplate, appDir));
   await fs.copy(templateDirectory, appDir);
-  Object.assign(config, { appName });
-  await fs.writeJSON(configFile, config);
+  Object.assign(configJson, { appName: config.appName });
+  await fs.writeJSON(configFile, configJson);
 };
 
-export const pack = async (distPath: string) => {
-  const config = await fs.readJSON(
+export const pack = async (config: AppConfig) => {
+  const configJson = await fs.readJSON(
     path.resolve(deployDirectory, 'config.json'),
   );
-  const { appName } = config;
+  const { appName } = configJson;
   const usertemplate = path.resolve(deployDirectory, 'linux');
   const templateAppDir = path.resolve(usertemplate, appName);
   const buildDir = path.resolve(usertemplate, 'build');
@@ -106,7 +107,7 @@ export const pack = async (distPath: string) => {
   console.log(`copying qode`);
   await copyQode(buildAppPackage);
   console.log(`copying dist`);
-  await copyAppDist(distPath, buildAppPackage);
+  await copyAppDist(config.packDir, buildAppPackage);
   console.log(`running linuxdeployqt`);
   await runLinuxDeployQt(appName, buildAppPackage);
   console.log(

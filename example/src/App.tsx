@@ -17,7 +17,7 @@ export function App() {
       <WindowProvider
         minSize={minSizeWindow}
         windowIcon={winIcon}
-        windowTitle={process.title}
+        windowTitle={'React NodeGUI'}
       >
         <BaseStackNavigation routers={Routers} />
       </WindowProvider>
