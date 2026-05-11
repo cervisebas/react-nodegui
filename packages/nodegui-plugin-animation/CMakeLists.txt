@@ -70,6 +70,15 @@ if(APPLE)
     set_target_properties(${PLUGIN_ADDON_NAME} PROPERTIES INSTALL_RPATH "@loader_path/../../node_modules/@nodegui/nodegui/miniqt/6.10.2/macos/lib;@loader_path/../../../node_modules/@nodegui/nodegui/miniqt/6.10.2/macos/lib")
 endif()
 
+# -------------- Linux ---------------
+if(UNIX AND NOT APPLE)
+    string(REPLACE "-Wl,--no-undefined" "" CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS}")
+
+    target_link_options(${PLUGIN_ADDON_NAME} PRIVATE
+        "-Wl,--allow-shlib-undefined"
+    )
+endif()
+
 # -------------- Includes ---------------
 target_include_directories(${PLUGIN_ADDON_NAME} PRIVATE 
     "${CMAKE_JS_INC}" 
