@@ -50,7 +50,14 @@ export function SliderScreen() {
     <View style={styles.content}>
       <Text style={styles.title}>Slider Example</Text>
 
-      <View style={styles.componentContent}>
+      <View
+        style={[
+          styles.componentContent,
+          {
+            height: orientation === Orientation.Vertical ? 100 : 30,
+          },
+        ]}
+      >
         <Slider
           value={value}
           orientation={orientation}
