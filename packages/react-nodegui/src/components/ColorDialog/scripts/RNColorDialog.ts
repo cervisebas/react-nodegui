@@ -7,8 +7,9 @@ import { setColorDialogProps } from "../utils/setColorDialogProps";
 export type ColorDialogNative = NativeElement & QColorDialog;
 
 export class RNColorDialog extends QColorDialog implements RNWidget {
-  native!: ColorDialogNative;
-  static tagName = "color-dialog";
+  public static tagName = "color-dialog";
+  public native!: ColorDialogNative;
+  public mountable? = false;
 
   setProps(newProps: ColorDialogProps, oldProps: ColorDialogProps) {
     setColorDialogProps(this, newProps, oldProps);

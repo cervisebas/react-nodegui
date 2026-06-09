@@ -2,6 +2,7 @@ import { NativeElement, QScrollArea, QWidget } from "@nodegui/nodegui";
 import { RNWidget } from "../../../classes/RNWidget";
 import { ScrollAreaProps } from "../interface/ScrollAreaProps";
 import { setScrollAreaProps } from "../utils/setScrollAreaProps";
+import { CheckMountableComponent } from "../../../decorators/CheckMountableComponent";
 
 export type ScrollAreaNative = NativeElement & QScrollArea;
 
@@ -21,6 +22,7 @@ export class RNScrollArea extends QScrollArea implements RNWidget {
     child.close();
   }
   
+  @CheckMountableComponent()
   appendInitialChild(child: QWidget<never>) {
     if (this.widget()) {
       console.warn("ScrollView can't have more than one child node");
@@ -29,10 +31,12 @@ export class RNScrollArea extends QScrollArea implements RNWidget {
     this.setWidget(child);
   }
   
+  @CheckMountableComponent()
   appendChild(child: QWidget<never>) {
     this.appendInitialChild(child);
   }
   
+  @CheckMountableComponent()
   insertBefore(child: QWidget<never>) {
     this.appendInitialChild(child);
   }

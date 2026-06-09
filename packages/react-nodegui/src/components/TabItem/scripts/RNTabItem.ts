@@ -3,6 +3,7 @@ import { RNComponent } from "../../../classes/RNComponent";
 import { TabItemProps } from "../interfaces/TabItemProps";
 import { setTabItemProps } from "../utils/setTabItemProps";
 import { RNTab } from "../../Tabs/scripts/RNTab";
+import { CheckMountableComponent } from "../../../decorators/CheckMountableComponent";
 
 export class RNTabItem extends Component implements RNComponent {
   static tagName: string = "tabitem";
@@ -18,6 +19,7 @@ export class RNTabItem extends Component implements RNComponent {
     }
   }
   
+  @CheckMountableComponent()
   appendInitialChild(child: QWidget<never>) {
     if (this.actualTabWidget) {
       throw new Error("Tab Item can have only one child");
@@ -25,10 +27,12 @@ export class RNTabItem extends Component implements RNComponent {
     this.actualTabWidget = child;
   }
   
+  @CheckMountableComponent()
   appendChild(child: QWidget<never>) {
     this.appendInitialChild(child);
   }
   
+  @CheckMountableComponent()
   insertBefore(child: QWidget<never>) {
     this.appendInitialChild(child);
   }

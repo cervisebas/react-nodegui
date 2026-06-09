@@ -7,8 +7,10 @@ import { updateDisplacedChildren } from "../../GridView/utils/updateDisplacedChi
 import { DataWithOffset } from "../../GridView/interfaces/DataWithOffset";
 import { RNGridView } from "../../GridView/scripts/RNGridView";
 import { offsetForIndex } from "../../GridView/utils/offsetForIndex";
+import { CheckMountableComponent } from "../../../decorators/CheckMountableComponent";
 
 export class RNGridRow extends Component implements RNComponent {
+  static tagName: string = "gridrow";
   parentGrid?: RNGridView;
   latestProps?: GridRowProps;
   prevProps?: GridRowProps;
@@ -53,9 +55,13 @@ export class RNGridRow extends Component implements RNComponent {
     this.latestProps = newProps;
     this.prevProps = oldProps;
   }
+
+  @CheckMountableComponent()
   appendInitialChild(child: RNGridColumn): void {
     this.appendChild(child);
   }
+
+  @CheckMountableComponent()
   appendChild(child: RNGridColumn): void {
     if (!(child instanceof RNGridColumn)) {
       throw new Error("GridColumn is the only supported child of GridRow");
@@ -74,6 +80,8 @@ export class RNGridRow extends Component implements RNComponent {
       data: child,
     });
   }
+
+  @CheckMountableComponent()
   insertBefore(child: RNGridColumn, beforeChild: RNGridColumn): void {
     const prevIndex = this.childColumns.findIndex(
       ({ data }) => data === beforeChild
@@ -98,6 +106,7 @@ export class RNGridRow extends Component implements RNComponent {
     // Update displaced children
     this.updateChildren(prevIndex);
   }
+
   removeChild(child: RNGridColumn): void {
     const prevIndex = this.childColumns.findIndex(({ data }) => data === child);
 
@@ -110,5 +119,4 @@ export class RNGridRow extends Component implements RNComponent {
     child.remove();
     child.parentRow = undefined;
   }
-  static tagName: string = "gridrow";
 }

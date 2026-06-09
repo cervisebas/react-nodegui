@@ -4,6 +4,7 @@ import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { RNAction } from "../../Action/scripts/RNAction";
 import { MenuProps } from "../interfaces/MenuProps";
 import { setMenuProps } from "../utils/setMenuProps";
+import { CheckMountableComponent } from "../../../decorators/CheckMountableComponent";
 
 export type MenuNative = NativeElement & QMenu;
 
@@ -15,10 +16,12 @@ export class RNMenu extends QMenu implements RNWidget {
     setMenuProps(this, newProps, oldProps);
   }
 
+  @CheckMountableComponent()
   appendInitialChild(child: Component) {
     this.appendChild(child);
   }
 
+  @CheckMountableComponent()
   appendChild(child: Component) {
     if (!(child instanceof RNAction)) {
       console.warn("Menu only supports Action as its children");

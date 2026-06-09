@@ -3,6 +3,7 @@ import { RNWidget } from "../../../classes/RNWidget";
 import { ViewNative } from "../../View/scripts/RNView";
 import { setViewProps } from "../../View/utils/setViewProps";
 import { StackedItemProps } from "../interfaces/StackedItemProps";
+import { CheckMountableComponent } from "../../../decorators/CheckMountableComponent";
 
 export class RNStackedItem extends QWidget implements RNWidget {
   name?: string;
@@ -24,6 +25,7 @@ export class RNStackedItem extends QWidget implements RNWidget {
     setViewProps(this, newProps, oldProps);
   }
   
+  @CheckMountableComponent()
   insertBefore(child: QWidget<never>, beforeChild: QWidget<never>): void {
     if (!this.layout() || child instanceof QDialog) {
       if (!this.layout()) {
@@ -34,10 +36,12 @@ export class RNStackedItem extends QWidget implements RNWidget {
     (this.layout() as FlexLayout).insertChildBefore(child, beforeChild);
   }
   
+  @CheckMountableComponent()
   appendInitialChild(child: QWidget<never>): void {
     this.appendChild(child);
   }
   
+  @CheckMountableComponent()
   appendChild(child: QWidget<never>): void {
     if (!child || child instanceof QDialog) {
       return;

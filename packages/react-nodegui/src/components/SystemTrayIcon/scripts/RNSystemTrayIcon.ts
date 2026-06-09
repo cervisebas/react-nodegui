@@ -3,6 +3,7 @@ import { RNComponent } from "../../../classes/RNComponent";
 import { throwUnsupported } from "../../../utils/throwUnsupported";
 import { SystemTrayIconProps } from "../interfaces/SystemTrayIconProps";
 import { setSystemTrayIconProps } from "../utils/setSystemTrayIconProps";
+import { CheckMountableComponent } from "../../../decorators/CheckMountableComponent";
 
 export class RNSystemTrayIcon extends QSystemTrayIcon implements RNComponent {
   static tagName = "systemtrayicon";
@@ -12,6 +13,7 @@ export class RNSystemTrayIcon extends QSystemTrayIcon implements RNComponent {
     setSystemTrayIconProps(this, newProps, oldProps);
   }
   
+  @CheckMountableComponent()
   appendInitialChild(child: QWidget<never>) {
     if (child instanceof QMenu) {
       if (!this.contextMenu) {
@@ -25,6 +27,7 @@ export class RNSystemTrayIcon extends QSystemTrayIcon implements RNComponent {
     }
   }
   
+  @CheckMountableComponent()
   appendChild(child: QWidget<never>) {
     this.appendInitialChild(child);
   }

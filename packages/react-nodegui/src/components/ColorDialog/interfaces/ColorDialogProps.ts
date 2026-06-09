@@ -5,7 +5,7 @@ import { DialogOption } from "../../../interfaces/DialogOption";
 import { RNColorDialog } from "../scripts/RNColorDialog";
 
 export interface ColorDialogProps extends DialogProps<QColorDialogSignals, RNColorDialog> {
-  currentColor?: QColor;
+  currentColor?: QColor | undefined;
   option?: DialogOption<ColorDialogOption>;
   options?: ColorDialogOption;
 }

@@ -3,6 +3,7 @@ import { RNComponent } from "../../../classes/RNComponent";
 import { setListProps } from "../utils/setListProps";
 import { ListProps } from "../interfaces/ListProps";
 import { RNListItem } from "../../ListItem/scripts/RNListItem";
+import { CheckMountableComponent } from "../../../decorators/CheckMountableComponent";
 
 export type ListNative = NativeElement & QListWidget;
 
@@ -19,10 +20,12 @@ export class RNList extends QListWidget implements RNComponent {
     this.takeItem(row);
   }
 
+  @CheckMountableComponent()
   appendInitialChild(child: RNListItem) {
     this.appendChild(child);
   }
 
+  @CheckMountableComponent()
   appendChild(child: RNListItem) {
     if (!this.layout()) {
       this.setLayout(new FlexLayout());
@@ -39,6 +42,7 @@ export class RNList extends QListWidget implements RNComponent {
     }
   }
 
+  @CheckMountableComponent()
   insertBefore(child: RNListItem, beforeChild: RNListItem) {
     const row = this.row(beforeChild);
     this.insertItem(row, child);

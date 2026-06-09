@@ -2,6 +2,7 @@ import { QListWidgetItem, QWidget } from "@nodegui/nodegui";
 import { RNComponent } from "../../../classes/RNComponent";
 import { ListItemProps } from "../interfaces/ListItemProps";
 import { setListItemProps } from "../utils/setListItemProps";
+import { CheckMountableComponent } from "../../../decorators/CheckMountableComponent";
 
 export class RNListItem extends QListWidgetItem implements RNComponent {
   static tagName: string = "listitem";
@@ -11,6 +12,7 @@ export class RNListItem extends QListWidgetItem implements RNComponent {
     setListItemProps(this, newProps, oldProps);
   }
   
+  @CheckMountableComponent()
   appendInitialChild(child: QWidget<never>) {
     if (this.actualListItemWidget) {
       throw new Error("ListItem can have only one child");
@@ -18,10 +20,12 @@ export class RNListItem extends QListWidgetItem implements RNComponent {
     this.actualListItemWidget = child;
   }
   
+  @CheckMountableComponent()
   appendChild(child: QWidget<never>) {
     this.appendInitialChild(child);
   }
   
+  @CheckMountableComponent()
   insertBefore(child: QWidget<never>) {
     this.appendInitialChild(child);
   }

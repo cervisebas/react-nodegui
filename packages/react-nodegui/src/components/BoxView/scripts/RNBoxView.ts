@@ -2,6 +2,7 @@ import { Direction, NativeElement, QBoxLayout, QDialog, QWidget } from "@nodegui
 import { RNComponent } from "../../../classes/RNComponent";
 import { BoxViewProps } from "../interface/BoxViewProps";
 import { setBoxViewProps } from "../utils/setBoxViewProps";
+import { CheckMountableComponent } from "../../../decorators/CheckMountableComponent";
 
 export type BoxViewNative = NativeElement & QBoxLayout;
 
@@ -27,10 +28,12 @@ export class RNBoxView extends QWidget implements RNComponent {
     }
   }
 
+  @CheckMountableComponent()
   appendInitialChild(child: QWidget<never>): void {
     this.appendChild(child);
   }
 
+  @CheckMountableComponent()
   appendChild(child: QWidget<never>): void {
     if (child instanceof QDialog) {
       return;
@@ -57,6 +60,7 @@ export class RNBoxView extends QWidget implements RNComponent {
     updateChild();
   }
 
+  @CheckMountableComponent()
   insertBefore(child: QWidget<never>, beforeChild: QWidget<never>): void {
     if (child instanceof QDialog) {
       return;

@@ -8,4 +8,5 @@ export enum StackScreenName {
   PROGRESSBAR = 'progressbar',
   RADIOBUTTON = 'radiobutton',
   SLIDER = 'slider',
+  COLOR_DIALOG = 'color-dialog',
 }

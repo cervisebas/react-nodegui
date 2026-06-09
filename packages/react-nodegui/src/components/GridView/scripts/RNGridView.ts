@@ -6,10 +6,12 @@ import { DataWithOffset } from "../interfaces/DataWithOffset";
 import { offsetForIndex } from "../utils/offsetForIndex";
 import { updateDisplacedChildren } from "../utils/updateDisplacedChildren";
 import { setGridViewProps } from "../utils/setGridViewProps";
+import { CheckMountableComponent } from "../../../decorators/CheckMountableComponent";
 
 export type GridViewNative = NativeElement & QGridLayout;
 
 export class RNGridView extends QWidget implements RNComponent {
+  static tagName: string = "gridview";
   native!: GridViewNative;
   initialProps?: GridViewProps;
   latestProps?: GridViewProps;
@@ -52,9 +54,13 @@ export class RNGridView extends QWidget implements RNComponent {
       this.updateSize();
     }
   }
+
+  @CheckMountableComponent()
   appendInitialChild(child: RNGridRow): void {
     this.appendChild(child);
   }
+
+  @CheckMountableComponent()
   appendChild(child: RNGridRow): void {
     if (!(child instanceof RNGridRow)) {
       throw new Error("GridRow is the only supported child of GridView");
@@ -92,6 +98,8 @@ export class RNGridView extends QWidget implements RNComponent {
 
     this.updateSize();
   }
+
+  @CheckMountableComponent()
   insertBefore(child: RNGridRow, beforeChild: RNGridRow): void {
     const prevIndex = this.childRows.findIndex(
       ({ data }) => data === beforeChild
@@ -118,6 +126,7 @@ export class RNGridView extends QWidget implements RNComponent {
 
     this.updateSize();
   }
+
   removeChild(child: RNGridRow): void {
     const prevIndex = this.childRows.findIndex(({ data }) => data === child);
 
@@ -150,5 +159,4 @@ export class RNGridView extends QWidget implements RNComponent {
       }, 0);
     }
   }
-  static tagName: string = "gridview";
 }

@@ -11,8 +11,10 @@ export function setColorDialogProps(
   oldProps: ColorDialogProps,
 ) {
   const setter: ColorDialogProps = {
-    set currentColor(currentColor: QColor) {
-      widget.setCurrentColor(currentColor);
+    set currentColor(currentColor: QColor | undefined) {
+      if (currentColor !== undefined) {
+        widget.setCurrentColor(currentColor);
+      }
     },
     set option({ option, on }: DialogOption<ColorDialogOption>) {
       widget.setOption(option, on);

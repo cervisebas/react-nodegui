@@ -4,6 +4,7 @@ import { TabProps } from "../interfaces/TabProps";
 import { setTabProps } from "../utils/setTabProps";
 import { RNTabItem } from "../../TabItem/scripts/RNTabItem";
 import { setTabItemProps } from "../../TabItem/utils/setTabItemProps";
+import { CheckMountableComponent } from "../../../decorators/CheckMountableComponent";
 
 export type TabNative = NativeElement & QTabWidget;
 
@@ -15,6 +16,7 @@ export class RNTab extends QTabWidget implements RNComponent {
     setTabProps(this, newProps, oldProps);
   }
 
+  @CheckMountableComponent()
   appendInitialChild(tabItem: RNTabItem) {
     if (!(tabItem instanceof RNTabItem)) {
       throw new Error("Children of tab should be of type TabItem");
@@ -27,10 +29,12 @@ export class RNTab extends QTabWidget implements RNComponent {
     }
   }
 
+  @CheckMountableComponent()
   appendChild(child: RNTabItem) {
     this.appendInitialChild(child);
   }
 
+  @CheckMountableComponent()
   insertBefore(child: RNTabItem, beforeChild: RNTabItem) {
     if (!(child instanceof RNTabItem)) {
       throw new Error("Children of tab should be of type TabItem");

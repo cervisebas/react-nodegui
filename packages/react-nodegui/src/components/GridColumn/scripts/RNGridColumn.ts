@@ -3,6 +3,7 @@ import { RNComponent } from "../../../classes/RNComponent";
 import { GridColumnProps } from "../interfaces/GridColumnProps";
 import { setGridColumnProps } from "../utils/setGridColumnProps";
 import { RNGridRow } from "../../GridRow/scripts/RNGridRow";
+import { CheckMountableComponent } from "../../../decorators/CheckMountableComponent";
 
 export class RNGridColumn extends Component implements RNComponent {
   static tagName: string = "gridcolumn";
@@ -44,18 +45,25 @@ export class RNGridColumn extends Component implements RNComponent {
     this.latestProps = newProps;
     this.prevProps = oldProps;
   }
+
+  @CheckMountableComponent()
   appendInitialChild(child: QWidget<never>): void {
     if (this.actualWidget) {
       throw new Error("Grid column can have only one child");
     }
     this.actualWidget = child;
   }
+
+  @CheckMountableComponent()
   appendChild(child: QWidget<never>): void {
     this.appendInitialChild(child);
   }
+
+  @CheckMountableComponent()
   insertBefore(child: QWidget<never>): void {
     this.appendInitialChild(child);
   }
+  
   removeChild(): void {
     this.remove();
   }

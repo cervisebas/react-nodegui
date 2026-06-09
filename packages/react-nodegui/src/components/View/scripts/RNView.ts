@@ -2,6 +2,7 @@ import { QWidget, QLayout, QObjectSignals, QWidgetSignals, QDialog, FlexLayout, 
 import { setViewProps } from "../utils/setViewProps";
 import { RNWidget } from "../../../classes/RNWidget";
 import { ViewProps } from "../interface/ViewProps";
+import { CheckMountableComponent } from "../../../decorators/CheckMountableComponent";
 
 export type ViewNative = NativeElement & FlexLayout;
 
@@ -23,6 +24,7 @@ export class RNView extends QWidget implements RNWidget {
     setViewProps(this, newProps, oldProps);
   }
   
+  @CheckMountableComponent()
   insertBefore(child: QWidget<never>, beforeChild: QWidget<never>): void {
     if (!this.layout() || child instanceof QDialog) {
       if (!this.layout()) {
@@ -33,10 +35,12 @@ export class RNView extends QWidget implements RNWidget {
     (this.layout() as FlexLayout).insertChildBefore(child, beforeChild);
   }
   
+  @CheckMountableComponent()
   appendInitialChild(child: QWidget<never>): void {
     this.appendChild(child);
   }
   
+  @CheckMountableComponent()
   appendChild(child: QWidget<never>): void {
     if (!child || child instanceof QDialog) {
       return;

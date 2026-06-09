@@ -2,21 +2,25 @@ import { QDialog, QWidget, FlexLayout, NativeElement } from "@nodegui/nodegui";
 import { RNWidget } from "../../../classes/RNWidget";
 import { DialogProps } from "../interfaces/DialogProps";
 import { setDialogProps } from "../utils/setDialogProps";
+import { CheckMountableComponent } from "../../../decorators/CheckMountableComponent";
 
 export type DialogNative = NativeElement & QDialog;
 
 export class RNDialog extends QDialog implements RNWidget {
-  native!: DialogNative;
-  static tagName = "dialog";
+  public static tagName = "dialog";
+  public native!: DialogNative;
+  public mountable? = false;
   
   setProps(newProps: DialogProps, oldProps: DialogProps) {
     setDialogProps(this, newProps, oldProps);
   }
   
+  @CheckMountableComponent()
   appendInitialChild(child: QWidget<never>) {
     this.appendChild(child);
   }
   
+  @CheckMountableComponent()
   appendChild(child: QWidget<never>) {
     if (!child || child instanceof QDialog) {
       return;
@@ -29,6 +33,7 @@ export class RNDialog extends QDialog implements RNWidget {
     this.layout()!.addWidget(child);
   }
   
+  @CheckMountableComponent()
   insertBefore(child: QWidget<never>) {
     if (child! instanceof QDialog) {
       this.appendChild(child);

@@ -20,6 +20,7 @@ import FormDropdownIcon from '../assets/icons/form-dropdown-custom.png';
 import ProgressIcon from '../assets/icons/progress-helper-custom.png';
 import RadioboxIcon from '../assets/icons/radiobox-marked-custom.png';
 import SlideIcon from '../assets/icons/tune-variant-custom.png';
+import EyedropperIcon from '../assets/icons/eyedropper-variant-custom.png';
 
 // Icon Dark
 import HomeDarkIcon from '../assets/icons-dark/home.png';
@@ -31,6 +32,8 @@ import FormDropdownDarkIcon from '../assets/icons-dark/form-dropdown-custom.png'
 import ProgressDarkIcon from '../assets/icons-dark/progress-helper-custom.png';
 import RadioboxDarkIcon from '../assets/icons-dark/radiobox-marked-custom.png';
 import SlideDarkIcon from '../assets/icons-dark/tune-variant-custom.png';
+import EyedropperDarkIcon from '../assets/icons-dark/eyedropper-variant-custom.png';
+import { ColorDialogScreen } from '../screens/ColorDialogScreen';
 
 export const Routers: Route[] = [
   {
@@ -95,5 +98,12 @@ export const Routers: Route[] = [
     label: 'Slider',
     route: StackScreenName.SLIDER,
     component: SliderScreen,
+  },
+  {
+    icon: EyedropperIcon,
+    iconDark: EyedropperDarkIcon,
+    label: 'Color Dialog',
+    route: StackScreenName.COLOR_DIALOG,
+    component: ColorDialogScreen,
   },
 ];

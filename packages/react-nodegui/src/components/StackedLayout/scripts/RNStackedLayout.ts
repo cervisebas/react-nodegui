@@ -3,6 +3,7 @@ import { setStackedLayoutProps } from "../utils/setStackedLayoutProps";
 import { StackedLayoutProps } from "../interfaces/StackedLayoutProps";
 import { RNWidget } from "../../../classes/RNWidget";
 import { RNStackedItem } from "../../StackedItem";
+import { CheckMountableComponent } from "../../../decorators/CheckMountableComponent";
 
 export type StackedLayoutNative = NativeElement & QWidget;
 
@@ -34,10 +35,12 @@ export class RNStackedLayout extends QWidget implements RNWidget {
     setStackedLayoutProps(this, newProps, oldProps);
   }
 
+  @CheckMountableComponent()
   appendInitialChild(child: RNStackedItem) {
     this.appendChild(child);
   }
 
+  @CheckMountableComponent()
   appendChild(child: RNStackedItem) {
     if (!this.layout()) {
       const stackedLayout = new QStackedLayout();
@@ -54,6 +57,7 @@ export class RNStackedLayout extends QWidget implements RNWidget {
     this.stackList[child.name!] = child;
   }
 
+  @CheckMountableComponent()
   insertBefore(child: RNStackedItem) {
     this.appendChild(child);
   }

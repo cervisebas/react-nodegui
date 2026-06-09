@@ -4,6 +4,7 @@ import { CustomTableProps } from "../types/CustomTableProps";
 import { setTableProps } from "../utils/setTableProps";
 import { verifyRanges } from "../utils/verifyRanges";
 import { RNTableItem } from "../../TableItem/scripts/RNTableItem";
+import { CheckMountableComponent } from "../../../decorators/CheckMountableComponent";
 
 export type TableNative = NativeElement & QTableWidget;
 
@@ -19,6 +20,7 @@ export class RNTable extends QTableWidget implements RNComponent {
     child.close();
   }
   
+  @CheckMountableComponent()
   appendInitialChild(child: RNTableItem) {
     const { cellPosition } = child;
     if (!this.layout()) {
@@ -30,10 +32,12 @@ export class RNTable extends QTableWidget implements RNComponent {
     this.setItem(cellPosition[0], cellPosition[1], child);
   }
   
+  @CheckMountableComponent()
   appendChild(child: RNTableItem) {
     this.appendInitialChild(child);
   }
   
+  @CheckMountableComponent()
   insertBefore(child: RNTableItem) {
     this.appendInitialChild(child);
   }
