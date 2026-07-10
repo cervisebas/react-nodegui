@@ -9,4 +9,5 @@ export enum StackScreenName {
   RADIOBUTTON = 'radiobutton',
   SLIDER = 'slider',
   COLOR_DIALOG = 'color-dialog',
+  ERROR_PROMPT = 'error-prompt',
 }

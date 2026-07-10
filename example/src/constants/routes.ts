@@ -34,6 +34,7 @@ import RadioboxDarkIcon from '../assets/icons-dark/radiobox-marked-custom.png';
 import SlideDarkIcon from '../assets/icons-dark/tune-variant-custom.png';
 import EyedropperDarkIcon from '../assets/icons-dark/eyedropper-variant-custom.png';
 import { ColorDialogScreen } from '../screens/ColorDialogScreen';
+import { ErrorPromptScreen } from '../screens/ErrorPromptScreen';
 
 export const Routers: Route[] = [
   {
@@ -105,5 +106,12 @@ export const Routers: Route[] = [
     label: 'Color Dialog',
     route: StackScreenName.COLOR_DIALOG,
     component: ColorDialogScreen,
+  },
+  {
+    icon: EyedropperIcon,
+    iconDark: EyedropperDarkIcon,
+    label: 'Error Prompt',
+    route: StackScreenName.ERROR_PROMPT,
+    component: ErrorPromptScreen,
   },
 ];
